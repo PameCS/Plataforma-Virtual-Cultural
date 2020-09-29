@@ -15,6 +15,9 @@
                 <a class="nav-link" href="#">Eventos</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" routerLink="/list">Usuarios</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#">Aulas</a>
             </li>
             <li class="nav-item">
@@ -26,5 +29,8 @@
         </form>
     </div>
 </nav>
-
+<div class="container">
+    <button (click)="List()" class="btn btn-info"> Listar</button>
+    <button (click)="Add()" class="btn btn-info" style="margin-left:10px;">Nuevo</button>
+</div>
 <router-outlet></router-outlet>

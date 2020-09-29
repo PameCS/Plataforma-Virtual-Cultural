@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,26 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'centro-cultural';
+  constructor(private router: Router){}
 
-  users = [
-    {name: 'Luis', position: 'Administrator'},
-    {name: 'Joseph', position: 'Super Administrator'}
-  ];
-
-  model: any = {};
-
-  addUser(): void{
-
+  // tslint:disable-next-line: typedef
+  List(){
+    this.router.navigate(['list']);
   }
 
-  deleteUser(): void{
-
-  }
-
-  editUser(): void{
-
-  }
-
-  updateUser(): void{
+  // tslint:disable-next-line: typedef
+  Add(){
+    this.router.navigate(['add']);
   }
 }
