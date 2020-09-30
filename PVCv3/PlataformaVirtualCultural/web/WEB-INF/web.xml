@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <context-param>
+        <description>Dirección del servidor MySQL</description>
+        <param-name>URL_servidor</param-name>
+        <param-value>localhost</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>services.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>services.RegisterServlet</servlet-class>
+    </servlet>
+    <session-config>
+        <session-timeout>
+            5
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>homePage.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
