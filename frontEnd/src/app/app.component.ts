@@ -15,6 +15,9 @@ export class AppComponent {
     this.router.navigate(['list']);
   }
 
+  ListClassroom(){
+    this.router.navigate(['listClassroom']);
+  }
   // tslint:disable-next-line: typedef
   Add(){
     this.router.navigate(['add']);

@@ -35,7 +35,7 @@ public class ServicioLogin extends HttpServlet {
             sesion.setMaxInactiveInterval(60 * 3);
 
             if("0".equals(rol))
-            response.sendRedirect("cliente.jsp");
+            response.sendRedirect("superAdmin.jsp");
             else
                 if("1".equals(rol))
                     response.sendRedirect("cajero.jsp");
