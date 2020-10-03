@@ -16,6 +16,7 @@ public class Cliente {
         this.telefono = telefono;
     }
 //revision
+    //revisob 2
     public String getId_cliente() {
         return id_cliente;
     }
