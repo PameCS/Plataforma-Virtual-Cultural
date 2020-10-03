@@ -15,7 +15,7 @@ public class Cliente {
         this.nombre = nombre;
         this.telefono = telefono;
     }
-
+//revision
     public String getId_cliente() {
         return id_cliente;
     }
