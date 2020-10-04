@@ -8,7 +8,7 @@ import { User } from '../Model/User';
 export class ServiceService {
 
   constructor(private http: HttpClient) { }
-  Url = 'http://localhost:8084/demo/users';
+  Url = 'http://localhost:8084/backend/users';
 
   // tslint:disable-next-line: typedef
   getUsers(){
@@ -18,5 +18,13 @@ export class ServiceService {
   // tslint:disable-next-line: typedef
   createUser(user: User){
     return this.http.post<User>(this.Url, user);
+  }
+
+  getUserId(id:number){
+    return this.http.get<User>(this.Url+"/"+id);
+  }
+
+  updateUser(user:User){
+    return this.http.put<User>(this.Url+"/"+user.pk_idUser,user);
   }
 }

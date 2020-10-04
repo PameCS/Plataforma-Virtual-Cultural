@@ -20,4 +20,8 @@ export class ListComponent implements OnInit {
     });
   }
 
+  Edit(user:User):void{
+    localStorage.setItem("pk_idUser",user.pk_idUser.toString());
+  }
+
 }
