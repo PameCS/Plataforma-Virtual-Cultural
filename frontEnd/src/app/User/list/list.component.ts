@@ -20,4 +20,18 @@ export class ListComponent implements OnInit {
     });
   }
 
+  Edit(user:User):void{
+    localStorage.setItem("pk_idUser",user.pk_idUser.toString());
+    this.router.navigate(["edit"]);
+  }
+
+  Delete(user: User)
+  {
+    this.service.deleteUser(user)
+    .subscribe(data=>{
+      this.users=this.users.filter(u=>u!=user);
+      alert("Se elimino un usuario!");
+    })
+  }
+
 }
