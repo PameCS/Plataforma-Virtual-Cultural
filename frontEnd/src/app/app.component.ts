@@ -18,11 +18,17 @@ export class AppComponent {
   ListClassroom(){
     this.router.navigate(['listClassroom']);
   }
+  ListCourse(){
+    this.router.navigate(['listCourse']);
+  }
   // tslint:disable-next-line: typedef
   Add(){
     this.router.navigate(['add']);
   }
   AddClass(){
     this.router.navigate(['addClass']);
+  }
+  AddCourse(){
+    this.router.navigate(['addCourse']);
   }
 }

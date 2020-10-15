@@ -1,0 +1,50 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3>Agregar cursos</h3>
+        </div>
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                    <label for="">Id:</label>
+                    <input type="number" [(ngModel)]="course.pk_courseCode" name="pk_courseCode" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Nombre:</label>
+                    <input type="text" [(ngModel)]="course.name" name="name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Modalidad:</label>
+                    <input type="text" [(ngModel)]="course.mode" name="mode" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Lapso:</label>
+                    <input type="number" [(ngModel)]="course.lapse" name="lapse" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Fecha de inicio  </label>
+                    <input type="date" #myDate [value]="course.startDate | date:'yyyy-MM-dd'" (input)="course.startDate = $event.target.valueAsDate" />
+
+                </div>
+                <div class="form-group">
+                    <label for="">Fecha de finalización  </label>
+                    <input type="date" #myDate [value]="course.finishDate | date:'yyyy-MM-dd'" (input)="course.finishDate = $event.target.valueAsDate" />
+
+                </div>
+                <div class="form-group">
+                    <label for="">Horario:</label>
+                    <input type="text" [(ngModel)]="course.shedule" name="shedule" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Profesor:</label>
+                    <input type="text" [(ngModel)]="course.professor" name="professor" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Cantidad de estudiantes:</label>
+                    <input type="number" [(ngModel)]="course.studentQuantity" name="studentQuantity" class="form-control">
+                </div>
+                <button (click)="Save()" class="btn btn-danger">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>

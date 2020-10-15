@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {  User } from '../Model/User';
-import { Classroom } from '../Model/Classroom'
+import { Classroom } from '../Model/Classroom';
+import { Course } from '../Model/Course';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class ServiceService {
   constructor(private http: HttpClient) { }
   Url = 'http://localhost:8084/backEnd/users';
   Urlclass ='http://localhost:8084/backEnd/classroom';
+  Urlcourse ='http://localhost:8084/backEnd/course';
 
 
   //------------------------------users module----------------------------------------------
@@ -58,5 +60,26 @@ updateClass(Classroom:Classroom){
 
 deleteClass(Classroom:Classroom){
   return this.http.delete<User>(this.Urlclass+"/"+Classroom.pk_idClass);
+}
+
+//----------------------------------course module----------------------------------------------
+getCourse(){
+  return this.http.get<Course[]>(this.Urlcourse);
+}
+
+createCourse(course: Course){
+  return this.http.post<Course>(this.Urlcourse, course);
+}
+
+getCourseid(id:number){
+  return this.http.get<Course>(this.Urlcourse+"/"+id);
+}
+
+updateCourse(course:Course){
+  return this.http.put<Course>(this.Urlclass+"/"+course.pk_courseCode,course);
+}
+
+deleteCourse(course:Course){
+  return this.http.delete<Course>(this.Urlclass+"/"+course.pk_courseCode);
 }
 }

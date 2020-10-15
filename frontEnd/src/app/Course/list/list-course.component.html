@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3 style="text-align:center" >Lista de cursos</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Modalidad</th>
+                        <th>Lapso de meses</th>
+                        <th>Fecha de inicio</th>
+                        <th>Fecha de finalización</th>
+                        <th>Horario</th>
+                        <th>Profesor(a)</th>
+                        <th>Cantidad de estudiantes</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let course of courses" class="text-center">
+                        <td>{{course.pk_courseCode}}</td>
+                        <td>{{course.name}}</td>
+                        <td>{{course.mode}}</td>
+                        <td>{{course.lapse}}</td>
+                        <td>{{course.startDate}}</td>
+                        <td>{{course.finishDate}}</td>
+                        <td>{{course.shedule}}</td>
+                        <td>{{course.professor}}</td>
+                        <td>{{course.studentQuantity}}</td>
+                        <td>
+                            <button  class="btn btn-warning">Editar</button>
+                            <button class="btn btn-danger">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

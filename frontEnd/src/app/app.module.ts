@@ -13,6 +13,9 @@ import { EditComponentClass } from './classroom/edit/edit.componentClass';
 import { ListComponentClass } from './classroom/list/list.componentClass';
 import {ServiceService} from '../app/Service/service.service';
 import {HttpClientModule} from '@angular/common/http';
+import { ListCourseComponent } from './Course/list/list-course.component';
+import { AddCourseComponent } from './Course/add/add-course.component';
+import { EditCourseComponent } from './Course/edit/edit-course.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import {HttpClientModule} from '@angular/common/http';
     ListComponent,
     AddComponentClass,
     EditComponentClass,
-    ListComponentClass
+    ListComponentClass,
+    ListCourseComponent,
+    AddCourseComponent,
+    EditCourseComponent
   ],
   imports: [
     BrowserModule,

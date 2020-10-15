@@ -6,6 +6,9 @@ import { EditComponent } from './User/edit/edit.component';
 import {ListComponentClass} from './classroom/list/list.componentClass';
 import {EditComponentClass} from './classroom/edit/edit.componentClass';
 import {AddComponentClass} from './classroom/add/add.componentClass';
+import {ListCourseComponent} from './Course/list/list-course.component';
+import {EditCourseComponent} from './Course/edit/edit-course.component';
+import {AddCourseComponent} from './Course/add/add-course.component';
 
 
 const routes: Routes = [
@@ -14,7 +17,11 @@ const routes: Routes = [
   {path: 'edit', component: EditComponent},
   {path: 'listClassroom', component: ListComponentClass},
   {path: 'editClass' , component: EditComponentClass},
-  {path: 'addClass', component: AddComponentClass}
+  {path: 'addClass', component: AddComponentClass},
+  {path: 'listCourse', component: ListCourseComponent},
+  {path: 'editCourse' , component: EditCourseComponent},
+  {path: 'addCourse', component: AddCourseComponent}
+
 ];
 
 @NgModule({
