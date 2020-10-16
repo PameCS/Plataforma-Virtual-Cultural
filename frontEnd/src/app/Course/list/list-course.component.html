@@ -31,8 +31,9 @@
                         <td>{{course.professor}}</td>
                         <td>{{course.studentQuantity}}</td>
                         <td>
-                            <button  class="btn btn-warning">Editar</button>
-                            <button class="btn btn-danger">Eliminar</button>
+                            <button (click)="Edit(course)" class="btn btn-warning">Editar</button>
+                            <button (click)="Delete(course)" class="btn btn-danger">Eliminar</button>
+                           
                         </td>
                     </tr>
                 </tbody>

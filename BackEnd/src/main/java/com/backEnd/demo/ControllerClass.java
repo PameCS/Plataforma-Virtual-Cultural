@@ -23,7 +23,7 @@ public class ControllerClass {
     @GetMapping
     public List<Classroom>list(){
         return service.list();
-    }
+    } 
     @PostMapping
     public Classroom add(@RequestBody Classroom c){
         return service.add(c);
@@ -36,7 +36,7 @@ public class ControllerClass {
     @PutMapping(path = {"/{id}"})
     public Classroom Edit(@RequestBody Classroom c,@PathVariable("id")int id){
         c.setPK_idClass(id);
-        return service.edit(c);
+        return service.edit(c); 
     }
     @DeleteMapping(path = {"/{id}"})
     public Classroom Delete(@PathVariable("id")int id){

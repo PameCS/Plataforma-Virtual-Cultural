@@ -31,4 +31,8 @@ export class AppComponent {
   AddCourse(){
     this.router.navigate(['addCourse']);
   }
+  Edit(){
+    this.router.navigate(['edit']);
+
+  }
 }

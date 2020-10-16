@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './add.componentClass.html',
   styleUrls: ['./add.componentClass.css']
 })
-export class AddComponentClass implements OnInit {
+export  class AddComponentClass implements OnInit {
 
   
   classroom: Classroom= new Classroom();

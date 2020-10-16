@@ -1,6 +1,16 @@
+com\backEnd\demo\courseServiceImp.class
 com\backEnd\demo\userServiceImp.class
+com\backEnd\demo\classService.class
+com\backEnd\demo\courseService.class
 com\backEnd\demo\User.class
+com\backEnd\demo\Course.class
 com\backEnd\demo\UserService.class
 com\backEnd\demo\Application.class
+com\backEnd\demo\Classroom.class
+com\backEnd\demo\ClassroomRepository.class
+com\backEnd\demo\classroomServiceImp.class
+com\backEnd\demo\courseRepository.class
 com\backEnd\demo\userRepository.class
 com\backEnd\demo\Controller.class
+com\backEnd\demo\ControllerCourse.class
+com\backEnd\demo\ControllerClass.class

@@ -19,5 +19,19 @@ export class ListCourseComponent implements OnInit {
       this.courses = data;
     });
   }
+  Edit(courses:Course):void{
+    localStorage.setItem("pk_courseCode",courses.pk_courseCode.toString());
+    this.router.navigate(["editCourse"]);
+  }
+
+  Delete(courses: Course)
+  {
+    this.service.deleteCourse(courses)
+    .subscribe(data=>{
+      this.courses=this.courses.filter(u=>u!=courses);
+      alert("Se elimino un curso!");
+    })
+  }
+
 
 }
