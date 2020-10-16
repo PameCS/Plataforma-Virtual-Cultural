@@ -19,7 +19,7 @@ export class EditCourseComponent implements OnInit {
   }
 
   Edit(){
-    let id= localStorage.getItem("PK_courseCode");
+    let id= localStorage.getItem("pk_courseCode");
     this.service.getCourseid(+id)
     .subscribe(data=>{
       this.course=data;
@@ -32,7 +32,7 @@ export class EditCourseComponent implements OnInit {
     .subscribe(data=>{
       this.course=data;
       alert("Se actualizo con exito!!");
-      this.router.navigate(["listCourses"])
+      this.router.navigate(["listCourse"])
     })
   }
 

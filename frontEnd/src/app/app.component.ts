@@ -35,4 +35,12 @@ export class AppComponent {
     this.router.navigate(['edit']);
 
   }
+  EditClass(){
+    this.router.navigate(['editClass']);
+
+  }
+  EditCourse(){
+    this.router.navigate(['editCourse']);
+
+  }
 }

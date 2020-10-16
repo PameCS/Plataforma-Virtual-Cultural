@@ -76,10 +76,10 @@ getCourseid(id:number){
 }
 
 updateCourse(course:Course){
-  return this.http.put<Course>(this.Urlclass+"/"+course.pk_courseCode,course);
+  return this.http.put<Course>(this.Urlcourse+"/"+course.pk_courseCode,course);
 }
 
 deleteCourse(course:Course){
-  return this.http.delete<Course>(this.Urlclass+"/"+course.pk_courseCode);
+  return this.http.delete<Course>(this.Urlcourse+"/"+course.pk_courseCode);
 }
 }
