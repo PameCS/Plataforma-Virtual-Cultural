@@ -3,7 +3,7 @@ export class Event{
     // tslint:disable-next-line: variable-name
     pk_idEvent: number;
     name: string;
-    date: Date;
+    dateEvent: Date;
     place: string;
    
 }
