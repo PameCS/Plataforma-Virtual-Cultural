@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddComponent } from './User/add/add.component';
 import { ListComponent } from './User/list/list.component';
@@ -10,6 +10,9 @@ import {ListCourseComponent} from './Course/list/list-course.component';
 import {EditCourseComponent} from './Course/edit/edit-course.component';
 import {AddCourseComponent} from './Course/add/add-course.component';
 
+import { AddEventComponent } from './Events/add-event/add-event.component';
+import { ListEventComponent } from './Events/list-event/list-event.component';
+import { EditEventComponent } from './Events/edit-event/edit-event.component';
 
 const routes: Routes = [
   {path: 'list', component: ListComponent},
@@ -20,8 +23,11 @@ const routes: Routes = [
   {path: 'addClass', component: AddComponentClass},
   {path: 'listCourse', component: ListCourseComponent},
   {path: 'editCourse' , component: EditCourseComponent},
-  {path: 'addCourse', component: AddCourseComponent}
-
+  {path: 'addCourse', component: AddCourseComponent},
+  {path: 'addEvent', component: AddEventComponent},
+  {path: 'listEvent', component: ListEventComponent},
+  {path: 'editEvent', component: EditEventComponent}
+  
 ];
 
 @NgModule({

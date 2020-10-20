@@ -21,6 +21,9 @@ export class AppComponent {
   ListCourse(){
     this.router.navigate(['listCourse']);
   }
+  ListEvent(){
+    this.router.navigate(['listEvent']);
+  }
   // tslint:disable-next-line: typedef
   Add(){
     this.router.navigate(['add']);
@@ -30,6 +33,9 @@ export class AppComponent {
   }
   AddCourse(){
     this.router.navigate(['addCourse']);
+  }
+  AddEvent(){
+    this.router.navigate(['addEvent'])
   }
   Edit(){
     this.router.navigate(['edit']);
@@ -41,6 +47,10 @@ export class AppComponent {
   }
   EditCourse(){
     this.router.navigate(['editCourse']);
+
+  }
+  EditEvent(){
+    this.router.navigate(['editEvent']);
 
   }
 }

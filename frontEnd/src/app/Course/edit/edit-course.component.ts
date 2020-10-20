@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Course } from 'src/app/Model/Course';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-edit-course',
   templateUrl: './edit-course.component.html',

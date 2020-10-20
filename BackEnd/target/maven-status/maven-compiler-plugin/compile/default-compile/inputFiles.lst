@@ -6,6 +6,7 @@ C:\Users\David\Desktop\PVC last version\Plataforma-Virtual-Cultural\BackEnd\src\
 C:\Users\David\Desktop\PVC last version\Plataforma-Virtual-Cultural\BackEnd\src\main\java\com\backEnd\demo\userRepository.java
 C:\Users\David\Desktop\PVC last version\Plataforma-Virtual-Cultural\BackEnd\src\main\java\com\backEnd\demo\Course.java
 C:\Users\David\Desktop\PVC last version\Plataforma-Virtual-Cultural\BackEnd\src\main\java\com\backEnd\demo\courseService.java
+C:\Users\David\Desktop\PVC last version\Plataforma-Virtual-Cultural\BackEnd\src\main\java\com\backEnd\demo\ControllerEvent.java
 C:\Users\David\Desktop\PVC last version\Plataforma-Virtual-Cultural\BackEnd\src\main\java\com\backEnd\demo\ControllerClass.java
 C:\Users\David\Desktop\PVC last version\Plataforma-Virtual-Cultural\BackEnd\src\main\java\com\backEnd\demo\UserService.java
 C:\Users\David\Desktop\PVC last version\Plataforma-Virtual-Cultural\BackEnd\src\main\java\com\backEnd\demo\courseRepository.java
@@ -13,4 +14,8 @@ C:\Users\David\Desktop\PVC last version\Plataforma-Virtual-Cultural\BackEnd\src\
 C:\Users\David\Desktop\PVC last version\Plataforma-Virtual-Cultural\BackEnd\src\main\java\com\backEnd\demo\User.java
 C:\Users\David\Desktop\PVC last version\Plataforma-Virtual-Cultural\BackEnd\src\main\java\com\backEnd\demo\Controller.java
 C:\Users\David\Desktop\PVC last version\Plataforma-Virtual-Cultural\BackEnd\src\main\java\com\backEnd\demo\Application.java
+C:\Users\David\Desktop\PVC last version\Plataforma-Virtual-Cultural\BackEnd\src\main\java\com\backEnd\demo\Event.java
+C:\Users\David\Desktop\PVC last version\Plataforma-Virtual-Cultural\BackEnd\src\main\java\com\backEnd\demo\eventService.java
+C:\Users\David\Desktop\PVC last version\Plataforma-Virtual-Cultural\BackEnd\src\main\java\com\backEnd\demo\eventServiceImp.java
 C:\Users\David\Desktop\PVC last version\Plataforma-Virtual-Cultural\BackEnd\src\main\java\com\backEnd\demo\classService.java
+C:\Users\David\Desktop\PVC last version\Plataforma-Virtual-Cultural\BackEnd\src\main\java\com\backEnd\demo\EventRepository.java

@@ -1,1 +1,32 @@
-<p>list-event works!</p>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3 style="text-align:center" >Lista de eventos</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Fecha del evento</th>
+                        <th>Lugar del evento</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let event of events" class="text-center">
+                        <td>{{event.pk_idEvent}}</td>
+                        <td>{{event.name}}</td>
+                        <td>{{event.date}}</td>
+                        <td>{{event.place}}</td>
+                        <td>
+                            <button (click)="Edit(event)" class="btn btn-warning">Editar</button>
+                            <button (click)="Delete(event)" class="btn btn-danger">Eliminar</button>
+                           
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
