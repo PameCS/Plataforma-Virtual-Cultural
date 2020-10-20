@@ -1,13 +1,12 @@
 package com.backEnd.demo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
 @Entity
 @Table(name="t_event")
-public class Event implements Serializable {
+public class Event  {
     @Id
     @Column
     private int PK_idEvent;
@@ -19,6 +18,8 @@ public class Event implements Serializable {
     private Date dateEvent;
     @Column
     private String place;
+    @Column
+    private String hourEvent;
 
     public int getPK_idEvent() {
         return PK_idEvent;
@@ -52,6 +53,16 @@ public class Event implements Serializable {
     public void setPlace(String place) {
         this.place = place;
     }
+
+    public String getHourEvent() {
+        return hourEvent;
+    }
+
+    public void setHourEvent(String hourEvent) {
+        this.hourEvent = hourEvent;
+    }
+
+
 
    
     

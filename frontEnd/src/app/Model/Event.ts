@@ -5,6 +5,6 @@ export class Event{
     name: string;
     dateEvent: Date;
     place: string;
-    hour: string;
+    hourEvent: string;
    
 }
