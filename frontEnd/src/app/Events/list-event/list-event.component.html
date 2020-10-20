@@ -10,6 +10,7 @@
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Fecha del evento</th>
+                        <th>hora del evento</th>
                         <th>Lugar del evento</th> 
                     </tr>
                 </thead>
@@ -19,6 +20,7 @@
                         <td>{{event.name}}</td>
                         <td>{{event.dateEvent}}</td>
                         <td>{{event.place}}</td>
+                        <td>{{event.hour}}</td>
                         <td>
                             <button (click)="Edit(event)" class="btn btn-warning">Editar</button>
                             <button (click)="Delete(event)" class="btn btn-danger">Eliminar</button>
