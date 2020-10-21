@@ -15,8 +15,6 @@ public class Course {
     @Column
     private String mode;
     @Column
-    private int lapse;
-    @Column
     @JsonFormat(pattern="yyyy-MM-dd")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date startDate;
@@ -62,15 +60,6 @@ public class Course {
     public void setMode(String mode) {
         this.mode = mode;
     }
-
-    public int getLapse() {
-        return lapse;
-    }
-
-    public void setLapse(int lapse) {
-        this.lapse = lapse;
-    }
-
     public Date getStartDate() {
         return startDate;
     }

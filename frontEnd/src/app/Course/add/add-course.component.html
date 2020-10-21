@@ -17,11 +17,7 @@
                     <label for="">Modalidad:</label>
                     <input type="text" [(ngModel)]="course.mode" name="mode" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label for="">Lapso:</label>
-                    <input type="number" [(ngModel)]="course.lapse" name="lapse" class="form-control">
-                </div>
-                <div class="form-group">
+              <div class="form-group">
                     <label for="">Fecha de inicio  </label>
                     <input type="date" #myDate [value]="course.startDate | date:'yyyy-MM-dd'" (input)="course.startDate = $event.target.valueAsDate" />
 
