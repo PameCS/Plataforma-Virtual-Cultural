@@ -4,7 +4,6 @@ export class Course{
     pk_courseCode: number;
     name: string;
     mode: string;
-    lapse: number;
     startDate: Date;
     finishDate: Date;
     shedule: string;

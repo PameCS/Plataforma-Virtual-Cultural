@@ -19,9 +19,10 @@ USE `centro_cultural` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `centro_cultural`.`T_EVENT` (
   `PK_idEvent` INT NOT NULL,
-  `name` VARCHAR(45) NULL,
+  `name` VARCHAR(45) NOT NULL,
   `date` DATE NULL,
-  `place` VARCHAR(45) NULL,
+  `place` VARCHAR(45) NOT NULL,
+  `hour` VARCHAR(45) NULL DEFAULT 'xxxx',
   PRIMARY KEY (`PK_idEvent`))
 ENGINE = InnoDB;
 
@@ -62,7 +63,6 @@ CREATE TABLE IF NOT EXISTS `centro_cultural`.`T_COURSE` (
   `PK_idCustomer` INT NULL,
   `name` VARCHAR(45) NULL,
   `mode` VARCHAR(45) NULL,
-  `lapse` INT NULL,
   `startDate` DATE NULL,
   `finishDate` DATE NULL,
   `shedule` VARCHAR(45) NULL,
@@ -152,4 +152,4 @@ INSERT INTO `centro_cultural`.`t_user` (`PK_idUser`, `password`, `name`, `lastNa
 INSERT INTO `centro_cultural`.`t_classroom` (`PK_idClass`, `capacity`, `availability`, `type`) VALUES ('1', '15', 'Disponible', 'Aula');
 INSERT INTO `centro_cultural`.`t_classroom` (`PK_idClass`, `capacity`, `availability`, `type`) VALUES ('2', '15', 'Disponible', 'Aula');
 INSERT INTO `centro_cultural`.`t_classroom` (`PK_idClass`, `capacity`, `availability`, `type`) VALUES ('3', '15', 'Disponible', 'Salon principal');
-INSERT INTO `centro_cultural`.`t_course` (`PK_courseCode`, `name`, `mode`, `lapse`, `startDate`, `finishDate`, `shedule`, `professor`, `studentQuantity`) VALUES ('14', 'Curso de costura', 'Semestral', '5', '2021-01-3', '2021-05-3', 'L,M', 'Daniela Gonzalez', '30');
+INSERT INTO `centro_cultural`.`t_course` (`PK_courseCode`, `name`, `mode`, `startDate`, `finishDate`, `shedule`, `professor`, `studentQuantity`) VALUES ('14', 'Curso de costura', '5', '2021-01-3', '2021-05-3', 'L,M', 'Daniela Gonzalez', '30');
