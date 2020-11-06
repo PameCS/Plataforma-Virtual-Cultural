@@ -1,5 +1,7 @@
-package com.backEnd.demo;
+package com.backEnd.demo.Controller;
 
+import com.backEnd.demo.Model.Event;
+import com.backEnd.demo.Service.eventService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,34 +16,34 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
 @RestController
-@RequestMapping({"/users"})
-public class Controller {
-  
+@RequestMapping({"/event"})
+
+public class ControllerEvent {
+    
     @Autowired
-    UserService service;
+    eventService service;
     
     @GetMapping
-    public List<User>list(){
+    public List<Event>list(){
         return service.list();
     }
     @PostMapping
-    public User add(@RequestBody User u){
-        return service.add(u);
+    public Event add(@RequestBody Event e){
+        return service.add(e);
     }
     @GetMapping(path = {"/{id}"})
-    public User ListId(@PathVariable("id")int id){
+    public Event ListId(@PathVariable("id")int id){
         return service.listId(id);
     }
     
     @PutMapping(path = {"/{id}"})
-    public User Edit(@RequestBody User u,@PathVariable("id")int id){
-        u.setPK_idUser(id);
-        return service.edit(u);
+    public Event Edit(@RequestBody Event e,@PathVariable("id")int id){
+        e.setPK_idEvent(id);
+        return service.edit(e);
     }
     @DeleteMapping(path = {"/{id}"})
-    public User Delete(@PathVariable("id")int id){
+    public Event Delete(@PathVariable("id")int id){
         return service.delete(id);
     }
-    
-    
 }
+

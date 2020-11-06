@@ -1,4 +1,4 @@
-package com.backEnd.demo;
+package com.backEnd.demo.Model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;

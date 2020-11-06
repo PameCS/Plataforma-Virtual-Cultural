@@ -1,5 +1,7 @@
-package com.backEnd.demo;
+package com.backEnd.demo.Controller;
 
+import com.backEnd.demo.Model.Course;
+import com.backEnd.demo.Service.courseService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,33 +16,33 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
 @RestController
-@RequestMapping({"/event"})
+@RequestMapping({"/course"})
 
-public class ControllerEvent {
+public class ControllerCourse {
     
     @Autowired
-    eventService service;
+    courseService service;
     
     @GetMapping
-    public List<Event>list(){
+    public List<Course>list(){
         return service.list();
     }
     @PostMapping
-    public Event add(@RequestBody Event e){
-        return service.add(e);
+    public Course add(@RequestBody Course c){
+        return service.add(c);
     }
     @GetMapping(path = {"/{id}"})
-    public Event ListId(@PathVariable("id")int id){
+    public Course ListId(@PathVariable("id")int id){
         return service.listId(id);
     }
     
     @PutMapping(path = {"/{id}"})
-    public Event Edit(@RequestBody Event e,@PathVariable("id")int id){
-        e.setPK_idEvent(id);
-        return service.edit(e);
+    public Course Edit(@RequestBody Course c,@PathVariable("id")int id){
+        c.setPK_courseCode(id);
+        return service.edit(c);
     }
     @DeleteMapping(path = {"/{id}"})
-    public Event Delete(@PathVariable("id")int id){
+    public Course Delete(@PathVariable("id")int id){
         return service.delete(id);
     }
 }

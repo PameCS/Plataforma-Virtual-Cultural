@@ -1,5 +1,6 @@
-package com.backEnd.demo;
+package com.backEnd.demo.Repository;
 
+import com.backEnd.demo.Model.User;
 import java.util.List;
 import org.springframework.data.repository.Repository;
 

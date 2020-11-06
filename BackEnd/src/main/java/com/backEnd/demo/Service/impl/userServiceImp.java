@@ -1,5 +1,8 @@
-package com.backEnd.demo;
+package com.backEnd.demo.Service.impl;
 
+import com.backEnd.demo.Service.UserService;
+import com.backEnd.demo.Repository.userRepository;
+import com.backEnd.demo.Model.User;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,5 +1,6 @@
-package com.backEnd.demo;
+package com.backEnd.demo.Service;
 
+import com.backEnd.demo.Model.Course;
 import java.util.List;
 
 
