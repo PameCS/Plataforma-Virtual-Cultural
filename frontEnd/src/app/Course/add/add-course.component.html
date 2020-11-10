@@ -1,45 +1,92 @@
 <div class="container col-md-6">
     <div class="card">
         <div class="card-header">
-            <h3>Agregar cursos</h3>
+            <h3 style="text-align:center">Agregar cursos</h3>
         </div>
         <div class="card-body">
-            <form action="">
+            <form [formGroup]="courseForm" action="">
                 <div class="form-group">
                     <label for="">Id:</label>
-                    <input type="number" [(ngModel)]="course.pk_courseCode" name="pk_courseCode" class="form-control">
+                    <input type="number" [(ngModel)]="course.pk_courseCode" name="pk_courseCode" formControlName="Id" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="">Nombre:</label>
-                    <input type="text" [(ngModel)]="course.name" name="name" class="form-control">
+                    <input type="text" [(ngModel)]="course.name" name="name" formControlName="courseName" class="form-control">
+                    <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+                        <div class="container-error-message" *ngIf="name.errors.required">
+                          El nombre es un campo obligatorio
+                        </div>
+                        <div class="container-error-message" *ngIf="name.errors.pattern">
+                            Caracteres no válidos
+                          </div>
+                          <div class="container-error-message" *ngIf="name.errors.maxlength">
+                            Tamaño máximo 45 caracteres
+                          </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">Modalidad:</label>
-                    <input type="text" [(ngModel)]="course.mode" name="mode" class="form-control">
+                    <input type="text" [(ngModel)]="course.mode" name="mode" formControlName="courseMode" class="form-control">
+                    <div class="alert-danger" *ngIf="mode.invalid && (mode.dirty || mode.touched)">
+                        <div class="container-error-message" *ngIf="mode.errors.required">
+                          La modalidad es un campo obligatorio
+                        </div>
+                    </div>
                 </div>
               <div class="form-group">
                     <label for="">Fecha de inicio  </label>
-                    <input type="date" #myDate [value]="course.startDate | date:'yyyy-MM-dd'" (input)="course.startDate = $event.target.valueAsDate" />
-
+                    <input type="date" #myDate [value]="course.startDate | date:'yyyy-MM-dd'" (input)="course.startDate = $event.target.valueAsDate" formControlName="startDateCourse" />
+                    <div class="alert-danger" *ngIf="startDate.invalid && (startDate.dirty || startDate.touched)">
+                        <div class="container-error-message" *ngIf="startDate.errors.required">
+                          La fecha de inicio es un campo obligatorio
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">Fecha de finalización  </label>
-                    <input type="date" #myDate [value]="course.finishDate | date:'yyyy-MM-dd'" (input)="course.finishDate = $event.target.valueAsDate" />
-
+                    <input type="date" #myDate [value]="course.finishDate | date:'yyyy-MM-dd'" (input)="course.finishDate = $event.target.valueAsDate" formControlName="finishDateCourse"/>
+                    <div class="alert-danger" *ngIf="finishDate.invalid && (finishDate.dirty || finishDate.touched)">
+                        <div class="container-error-message" *ngIf="finishDate.errors.required">
+                          La fecha de finalización es un campo obligatorio
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">Horario:</label>
-                    <input type="text" [(ngModel)]="course.shedule" name="shedule" class="form-control">
+                    <input type="text" [(ngModel)]="course.shedule" name="shedule" class="form-control" formControlName="sheduleCourse">
+                    <div class="alert-danger" *ngIf="shedule.invalid && (shedule.dirty || shedule.touched)">
+                        <div class="container-error-message" *ngIf="shedule.errors.required">
+                          El horario es un campo obligatorio
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">Profesor:</label>
-                    <input type="text" [(ngModel)]="course.professor" name="professor" class="form-control">
+                    <input type="text" [(ngModel)]="course.professor" name="professor" class="form-control" formControlName="professorCourse">
+                    <div class="alert alert-danger" *ngIf="professor.invalid && (professor.dirty || professor.touched)">
+                        <div class="container-error-message" *ngIf="professor.errors.required">
+                          El profesor es un campo obligatorio
+                        </div>
+                        <div class="container-error-message" *ngIf="professor.errors.pattern">
+                            Caracteres no válidos
+                          </div>
+                          <div class="container-error-message" *ngIf="name.errors.maxlength">
+                            Tamaño máximo 45 caracteres
+                          </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">Cantidad de estudiantes:</label>
-                    <input type="number" [(ngModel)]="course.studentQuantity" name="studentQuantity" class="form-control">
+                    <input type="number" [(ngModel)]="course.studentQuantity" name="studentQuantity" class="form-control" formControlName="quantityCourse">
+                    <div class="alert-danger" *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)">
+                        <div class="container-error-message" *ngIf="quantity.errors.required">
+                          La cantidad de estudiantes es un campo obligatorio
+                        </div>
+                    </div>
                 </div>
-                <button (click)="Save()" class="btn btn-danger">Guardar</button>
+                <button
+                [disabled] = "courseForm.invalid" 
+                (click)="Save()" class="btn btn-danger">Guardar</button>
             </form>
         </div>
     </div>

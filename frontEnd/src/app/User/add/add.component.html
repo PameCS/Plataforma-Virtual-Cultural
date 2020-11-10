@@ -1,35 +1,85 @@
 <div class="container col-md-6">
     <div class="card">
         <div class="card-header">
-            <h3>Agregar usuarios</h3>
+            <h3 style="text-align:center">Agregar usuarios</h3>
         </div>
         <div class="card-body">
-            <form action="">
+            <form [formGroup]="userForm" action="">
                 <div class="form-group">
-                    <label for="">Id:</label>
-                    <input type="number" [(ngModel)]="user.pk_idUser" name="pk_idUser" class="form-control">
+                    <label for="">Id</label>
+                    <input type="text" [(ngModel)]="user.pk_idUser" name="pk_idUser" formControlName="Id" class="form-control">
+                    <div class="alert-danger" *ngIf="Id.invalid && (Id.dirty || Id.touched)">
+                        <div class="container-error-message" *ngIf="Id.errors.required">
+                          El id es un campo obligatorio.
+                        </div>
+                        <div class="container-error-message" *ngIf="Id.errors.maxlength">
+                          El id debe tener como máximo 12 números sin cero al inicio ni guiones.
+                          </div>
+                          <div class="container-error-message" *ngIf="Id.errors.minlength">
+                            El id debe tener como minimo 9 números sin cero al inicio ni guiones.
+                            </div>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="">Contraseña:</label>
-                    <input type="text" [(ngModel)]="user.password" name="password" class="form-control">
+                    <label for="">Contraseña</label>
+                    <input type="text" [(ngModel)]="user.password" name="password" formControlName="Userpassword" class="form-control">
+                    <div class="alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+                        <div class="container-error-message" *ngIf="password.errors.required">
+                          La contraseña es un campo obligatorio.
+                        </div>
+                        <div class="container-error-message" *ngIf="password.errors.pattern">
+                            La contraseña debe tener al menos 8 caracteres en los que se incluya una letra mayúscula, una minúscula, un número y un caracter #?!@$%^&*-.
+                          </div>
+                          <div class="container-error-message" *ngIf="password.errors.minlength">
+                            La contraseña debe mínimo 8 caracteres.
+                          </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">Nombre:</label>
-                    <input type="text" [(ngModel)]="user.name" name="name" class="form-control">
+                    <input type="text" [(ngModel)]="user.name" name="name" formControlName="Username" class="form-control">
+                    <div class="alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+                        <div class="container-error-message" *ngIf="name.errors.required">
+                          El nombre es un campo obligatorio
+                        </div>
+                        <div class="container-error-message" *ngIf="name.errors.pattern">
+                            Caracteres no válidos
+                          </div>
+                          <div class="container-error-message" *ngIf="name.errors.maxlength">
+                            Tamaño máximo de caracteres 40
+                          </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">Apellidos:</label>
-                    <input type="text" [(ngModel)]="user.lastName" name="lastName" class="form-control">
+                    <input type="text" [(ngModel)]="user.lastName" name="lastName" formControlName="UserlastName" class="form-control">
+                    <div class="alert-danger" *ngIf="lastName.invalid && (lastName.dirty ||lastName.touched)">
+                        <div class="container-error-message" *ngIf="lastName.errors.required">
+                          El apellido es un campo obligatorio
+                        </div>
+                        <div class="container-error-message" *ngIf="lastName.errors.pattern">
+                            Caracteres no válidos
+                          </div>
+                          <div class="container-error-message" *ngIf="lastName.errors.maxlength">
+                            Tamaño máximo de caracteres 45
+                          </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">Tipo:</label>
-                    <select [(ngModel)]="user.type" class="form-control" name="type">
+                    <select [(ngModel)]="user.type" class="form-control" name="type" formControlName="Usertype">
                         <option>Administrador</option>
                         <option>Super-Administrador</option>
                     </select>
-                    
+                    <div class="alert-danger" *ngIf="type.invalid && (type.dirty || type.touched)">
+                        <div class="container-error-message" *ngIf="type.errors.required">
+                          Debe seleccionar un tipo de usuario
+                        </div>
+                    </div>
                 </div>
-                <button (click)="Save()" class="btn btn-danger">Guardar</button>
+                <button
+                [disabled] = "userForm.invalid" 
+                (click)="Save()" class="btn btn-danger">Guardar</button>
             </form>
         </div>
     </div>

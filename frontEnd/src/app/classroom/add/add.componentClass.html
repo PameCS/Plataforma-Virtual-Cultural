@@ -4,24 +4,41 @@
             <h3>Agregar clases</h3>
         </div>
         <div class="card-body">
-            <form action="">
+            <form [formGroup]="classForm" action="">
                 <div class="form-group">
                     <label for="">Id:</label>
-                    <input type="number" [(ngModel)]="classroom.pk_idClass" name="pk_idClass" class="form-control">
+                    <input type="number" [(ngModel)]="classroom.pk_idClass" name="pk_idClass" formControlName="Id" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="">Capacidad:</label>
-                    <input type="number" [(ngModel)]="classroom.capacity" name="capacity" class="form-control">
+                    <input type="number" [(ngModel)]="classroom.capacity" name="capacity" formControlName="classCapacity" class="form-control">
+                    <div class="alert-danger" *ngIf="capacity.invalid && (capacity.dirty || capacity.touched)">
+                        <div class="container-error-message" *ngIf="capacity.errors.required">
+                          La capacidad es un campo obligatorio
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">Disponibilidad:</label>
-                    <input type="text" [(ngModel)]="classroom.availability" name="availability" class="form-control">
+                    <input type="text" [(ngModel)]="classroom.availability" name="availability" formControlName="classAvailability" class="form-control">
+                    <div class="alert-danger" *ngIf="availability.invalid && (availability.dirty || availability.touched)">
+                        <div class="container-error-message" *ngIf="availability.errors.required">
+                          La disponibilidad es un campo obligatorio
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">Tipo:</label>
-                    <input type="text" [(ngModel)]="classroom.type" name="type" class="form-control">
+                    <input type="text" [(ngModel)]="classroom.type" name="type" formControlName="classType" class="form-control">
+                    <div class="alert-danger" *ngIf="type.invalid && (type.dirty || type.touched)">
+                        <div class="container-error-message" *ngIf="type.errors.required">
+                          Debe seleccionar un tipo                       
+                         </div>
+                    </div>
                 </div>
-               <button (click)="Save()" class="btn btn-danger">Guardar</button>
+               <button
+               [disabled] = "classForm.invalid"
+                (click)="Save()" class="btn btn-danger">Guardar</button>
             </form>
         </div>
     </div>

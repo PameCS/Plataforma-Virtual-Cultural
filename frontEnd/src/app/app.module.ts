@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +21,6 @@ import { EditCourseComponent } from './Course/edit/edit-course.component';
 import { AddEventComponent } from './Events/add-event/add-event.component';
 import { EditEventComponent } from './Events/edit-event/edit-event.component';
 import { ListEventComponent } from './Events/list-event/list-event.component';
-
 
 @NgModule({
   declarations: [
@@ -44,7 +43,8 @@ import { ListEventComponent } from './Events/list-event/list-event.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent]
