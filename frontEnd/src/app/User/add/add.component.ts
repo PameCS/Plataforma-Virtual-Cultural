@@ -37,7 +37,7 @@ export class AddComponent implements OnInit {
     if(this.userForm.valid){
     this.service.createUser(this.user)
     .subscribe(data => {
-      alert('¡Se agregó con exito!');
+      alert('¡Se agregó con exito el usuario!');
       this.router.navigate(['list']);
     });
     }

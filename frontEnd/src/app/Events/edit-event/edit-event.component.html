@@ -4,29 +4,71 @@
             <h3>Editar eventos</h3>
         </div>
         <div class="card-body">
-            <form action="">
+            <form [formGroup]="eventForm" action="">
                 <div class="form-group">
                     <label for="">Id:</label>
-                    <input type="number" [(ngModel)]="event.pk_idEvent" name="pk_idEvent" class="form-control" readonly=»readonly»>
+                    <input type="number" [(ngModel)]="event.pk_idEvent" formControlName="Id" name="pk_idEvent"
+                        class="form-control" readonly=»readonly»>
+                    <div class="alert-danger" *ngIf="Id.invalid && (Id.dirty || Id.touched)">
+                        <div class="container-error-message" *ngIf="Id.errors.required">
+                            El id es un campo obligatorio
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">nombre:</label>
-                    <input type="text" [(ngModel)]="event.name" name="name" class="form-control">
+                    <input type="text" [(ngModel)]="event.name" name="name" formControlName="eventName"
+                        class="form-control">
+                    <div class="alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+                        <div class="container-error-message" *ngIf="name.errors.required">
+                            El nombre es un campo obligatorio
+                        </div>
+                        <div class="container-error-message" *ngIf="name.errors.pattern">
+                            Caracter inválido
+                        </div>
+                        <div class="container-error-message" *ngIf="name.errors.maxlength">
+                            Tamaño máximo de caracteres 45
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">Fecha del evento:</label>
-                    <input type="date" [(ngModel)]="event.dateEvent" name="date" class="form-control">
+                    <input type="date" #myDate [value]="event.dateEvent | date:'yyyy-MM-dd'"
+                        (input)="event.dateEvent = $event.target.valueAsDate" formControlName="eventDate">
+                    <div class="alert-danger" *ngIf="date.invalid && (date.dirty || date.touched)">
+                        <div class="container-error-message" *ngIf="date.errors.required">
+                            La fecha del evento es un campo obligatorio
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">hora del evento:</label>
-                    <input type="text" [(ngModel)]="event.hourEvent" name="hourEvent" class="form-control">
+                    <input type="text" [(ngModel)]="event.hourEvent" name="hourEvent" formControlName="eventHour"
+                        class="form-control">
+                    <div class="alert-danger" *ngIf="hour.invalid && (hour.dirty || hour.touched)">
+                        <div class="container-error-message" *ngIf="hour.errors.required">
+                            La hora del evento es un campo obligatorio
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">Lugar del evento:</label>
-                    <input type="text" [(ngModel)]="event.place" name="place" class="form-control">
+                    <input type="text" [(ngModel)]="event.place" name="place" formControlName="eventPlace"
+                        class="form-control">
+                    <div class="alert-danger" *ngIf="place.invalid && (place.dirty || place.touched)">
+                        <div class="container-error-message" *ngIf="place.errors.required">
+                            El lugar del evento es un campo obligatorio
+                        </div>
+                        <div class="container-error-message" *ngIf="place.errors.pattern">
+                            Caracter inválido
+                        </div>
+                        <div class="container-error-message" *ngIf="place.errors.maxlength">
+                            Tamaño máximo de caracteres 45
+                        </div>
+                    </div>
                 </div>
-                        
-                <button (click)="Update(event)" class="btn btn-danger">Actualizar</button>
+
+                <button [disabled]="eventForm.invalid" (click)="Update(event)" class="btn btn-danger">Actualizar</button>
             </form>
         </div>
     </div>
