@@ -9,11 +9,6 @@
                     <label for="">Id:</label>
                     <input type="number" [(ngModel)]="event.pk_idEvent" formControlName="Id" name="pk_idEvent"
                         class="form-control" readonly=»readonly»>
-                    <div class="alert-danger" *ngIf="Id.invalid && (Id.dirty || Id.touched)">
-                        <div class="container-error-message" *ngIf="Id.errors.required">
-                            El id es un campo obligatorio
-                        </div>
-                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">nombre:</label>
@@ -33,8 +28,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Fecha del evento:</label>
-                    <input type="date" #myDate [value]="event.dateEvent | date:'yyyy-MM-dd'"
-                        (input)="event.dateEvent = $event.target.valueAsDate" formControlName="eventDate">
+                    <input type="date" [(ngModel)]="event.dateEvent" formControlName="eventDate">
                     <div class="alert-danger" *ngIf="date.invalid && (date.dirty || date.touched)">
                         <div class="container-error-message" *ngIf="date.errors.required">
                             La fecha del evento es un campo obligatorio
