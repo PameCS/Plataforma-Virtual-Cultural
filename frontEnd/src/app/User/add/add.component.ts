@@ -16,11 +16,7 @@ export class AddComponent implements OnInit {
    }
 
    userForm = this.fb.group({
-<<<<<<< Updated upstream
       Id: ['',[Validators.required,Validators.maxLength(10),Validators.minLength(9)]],
-=======
-      Id: ['',[Validators.required,Validators.maxLength(12),Validators.minLength(9)]],
->>>>>>> Stashed changes
       Userpassword: ['',[Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$') ]],
       Username: ['',[Validators.required, Validators.pattern("[A-Za-zñÑáéíóúÁÉÍÓÚ ]{1,40}"),Validators.maxLength(40)]],
       UserlastName: ['',[Validators.required,Validators.pattern("[A-Za-zñÑáéíóúÁÉÍÓÚ ]{1,45}"),Validators.maxLength(45)]],

@@ -5,7 +5,7 @@ import { ListComponent } from './User/list/list.component';
 import { EditComponent } from './User/edit/edit.component';
 import {ListComponentClass} from './classroom/list/list.componentClass';
 import {EditComponentClass} from './classroom/edit/edit.componentClass';
-import {AddComponentClass} from './classroom/add/add.componentClass';
+import { AddComponentClass } from "./classroom/add/AddComponentClass";
 import {ListCourseComponent} from './Course/list/list-course.component';
 import {EditCourseComponent} from './Course/edit/edit-course.component';
 import {AddCourseComponent} from './Course/add/add-course.component';

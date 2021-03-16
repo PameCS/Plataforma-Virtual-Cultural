@@ -8,7 +8,7 @@ import { LoginComponent } from './User/login/login.component';
 import { AddComponent } from './User/add/add.component';
 import { EditComponent } from './User/edit/edit.component';
 import { ListComponent } from './User/list/list.component';
-import { AddComponentClass } from './classroom/add/add.componentClass';
+import { AddComponentClass } from './classroom/add/AddComponentClass';
 import { EditComponentClass } from './classroom/edit/edit.componentClass';
 import { ListComponentClass } from './classroom/list/list.componentClass';
 import {ServiceService} from '../app/Service/service.service';
