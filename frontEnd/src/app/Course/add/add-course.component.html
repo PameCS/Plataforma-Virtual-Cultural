@@ -26,7 +26,10 @@
                 </div>
                 <div class="form-group">
                     <label for="">Modalidad:</label>
-                    <input type="text" [(ngModel)]="course.mode" name="mode" formControlName="courseMode" class="form-control">
+                    <select [(ngModel)]="course.mode" name="mode" formControlName="courseMode" class="form-control">
+                    <option>Virtual</option>
+                    <option>Presencial</option>
+                  </select>
                     <div class="alert-danger" *ngIf="mode.invalid && (mode.dirty || mode.touched)">
                         <div class="container-error-message" *ngIf="mode.errors.required">
                           La modalidad es un campo obligatorio
