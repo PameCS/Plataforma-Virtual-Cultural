@@ -1,0 +1,220 @@
+/* Footer
+================================================== */
+.footer {
+    padding: 60px 0 100px;
+    background: #2e2e2e url(/assets/images/footer-bg.jpg) no-repeat center 0;
+    background-size: cover;
+    color: #fff;
+    font-size: 14px;
+  }
+  
+  .footer-logo {
+    margin-bottom: 20px;
+  }
+  
+  .footer-map {
+    padding-bottom: 60px;
+  }
+  
+  .footer2 {
+    background: #2e2e2e;
+  }
+  
+  .footer .widget-title {
+    color: #fff;
+  }
+  
+  .footer .social-icon {
+    padding: 10px 0 20px;
+  }
+  
+  /* Latest Post */
+  .footer-widget .latest-post-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    border: 4px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .footer-widget .latest-post-content h4 a {
+    color: #fff;
+  }
+  
+  .latest-post-items {
+    margin-bottom: 10px;
+  }
+  
+  .latest-post-image img {
+    width: 70px;
+    height: 60px;
+  }
+  
+  .footer-widget .post-meta,
+  .footer-widget .post-meta a {
+    color: #fff;
+  }
+  
+  .latest-post-content h4 {
+    font-size: 14px;
+    line-height: normal;
+  }
+  
+  /* Image Gallery */
+  .footer-widget .img-gallery {
+    margin-top: 5px;
+    display: inline-block;
+  }
+  
+  .img-gallery a.thumb-holder {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .img-gallery a.thumb-holder img {
+    margin: 0 15px 15px 0;
+    display: inline-block;
+    width: 95px;
+    height: 85px;
+    transition: opacity 0.35s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .img-gallery a.thumb-holder:hover img {
+    opacity: 0.7;
+  }
+  
+  .footer2 .img-gallery a.thumb-holder img {
+    width: 90px;
+    height: 75px;
+  }
+  
+  /* Footer about us */
+  .footer-about-us h4 {
+    font-size: 16px;
+    margin-bottom: 0;
+    line-height: normal;
+  }
+  
+  .subscribe {
+    margin-top: 20px;
+  }
+  
+  .subscribe input.form-control {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .subscribe .input-group-addon {
+    background: none;
+    border-radius: 0;
+    border: 0;
+    padding: 0;
+  }
+  
+  .subscribe button {
+    padding: 13px 20px;
+    color: #fff;
+  }
+  
+  .subscribe button:hover {
+    background: #222;
+    color: #fff;
+  }
+  
+  .subscribe button i {
+    font-size: 20px;
+  }
+  
+
+/* Footer links */
+.footer ul li {
+    color: #fff;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .footer ul.arrow li {
+    width: 50%;
+    float: left;
+  }
+  
+  ul.arrow li:before {
+    content: "\f105";
+    font-family: FontAwesome;
+    margin-right: 10px;
+  }
+  
+  .footer ul li a {
+    color: #fff;
+  }
+
+/* Copyright
+================================================== */
+#copyright {
+    padding: 30px 0;
+    background: #191919;
+    color: #fff;
+  }
+  
+  .copyright-info {
+    font-size: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    max-width: 850px;
+    margin: 30px auto 0;
+    padding-top: 15px;
+  }
+  
+  .copyright.angle:before {
+    background: #191919;
+    height: 50px;
+    top: -25px;
+    -webkit-transform: skew(0deg, -2deg);
+    transform: skew(0deg, -2deg);
+  }
+  
+  .footer-social {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .footer-social .icon-pentagon i {
+    font-size: 16px;
+  }
+  
+  /* Footer sytle 2 */
+  .footer2 .social-icon {
+    padding-bottom: 15px;
+  }
+  
+  .footer2 .copyright-info {
+    color: #323232;
+    border-top: 1px solid #e7e7e7;
+  }
+  
+  #back-to-top {
+    right: 40px;
+    top: auto;
+    z-index: 10;
+  }
+  
+  #back-to-top.affix {
+    bottom: 60px;
+  }
+  
+  #back-to-top .btn.btn-primary {
+    border-radius: 100%;
+    padding: 0;
+    font-size: 18px;
+    width: 36px;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid transparent;
+    color: #fff;
+    opacity: .5;
+  }
+  
+  #back-to-top .btn.btn-primary:hover {
+    color: #fff;
+    opacity: 1;
+  }
+  

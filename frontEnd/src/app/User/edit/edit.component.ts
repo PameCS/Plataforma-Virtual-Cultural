@@ -13,7 +13,7 @@ export class EditComponent implements OnInit {
   user: User = new User();
   constructor(private router: Router, private service: ServiceService, private fb: FormBuilder) { }
   userForm = this.fb.group({
-    Id:[''],
+    Id : [''],
     Userpassword: ['', [Validators.required, Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$')]],
     Username: ['', [Validators.required, Validators.pattern("[A-Za-zñÑáéíóúÁÉÍÓÚ ]{1,40}"), Validators.maxLength(40)]],
     UserlastName: ['', [Validators.required, Validators.pattern("[A-Za-zñÑáéíóúÁÉÍÓÚ ]{1,45}"), Validators.maxLength(45)]],
