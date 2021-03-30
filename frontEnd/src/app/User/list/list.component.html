@@ -7,20 +7,20 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Password</th>
+                        <th>Id</th>
                         <th>Nombre</th>
                         <th>Apellidos</th>
+                        <th>Email</th>
                         <th>Tipo</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let user of users" class="text-center">
-                        <td>{{user.pk_idUser}}</td>
-                        <td>{{user.password}}</td>
+                        <td>{{user.username}}</td>
                         <td>{{user.name}}</td>
                         <td>{{user.lastName}}</td>
+                        <td>{{user.email}}</td>
                         <td>{{user.type}}</td>
                         <td>
                             <button (click)="Edit(user)" class="btn btn-warning">Editar</button>

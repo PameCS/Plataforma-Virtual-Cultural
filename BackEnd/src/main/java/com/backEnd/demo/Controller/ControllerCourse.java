@@ -23,7 +23,7 @@ public class ControllerCourse {
     @Autowired
     courseService service;
     
-    @GetMapping
+     @GetMapping
     public List<Course>list(){
         return service.list();
     }

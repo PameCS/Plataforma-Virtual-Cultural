@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from 'src/app/Model/Event';
-import {ServiceService } from '../../Service/service.service';
+import {UserService } from '../../Service/user.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -10,13 +10,17 @@ import {Router} from '@angular/router';
 })
 export class ListEventComponent implements OnInit {
   events: Event[];
-  constructor(private service: ServiceService, private router: Router) { }
+  content: string;
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.service.getEvent()
+    this.userService.getEvent()
     .subscribe(data => {
       this.events = data;
-    });
+    }, err => {
+      this.content = JSON.parse(err.error).message;
+    }
+    );
   }
   Edit(events:Event):void{
     localStorage.setItem("pk_idEvent",events.pk_idEvent.toString());
@@ -25,7 +29,7 @@ export class ListEventComponent implements OnInit {
 
   Delete(events: Event)
   {
-    this.service.deleteEvent(events)
+    this.userService.deleteEvent(events)
     .subscribe(data=>{
       this.events=this.events.filter(u=>u!=events);
       alert("Se elimino un evento!");

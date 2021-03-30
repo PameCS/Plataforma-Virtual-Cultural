@@ -30,7 +30,7 @@ export class EditComponent implements OnInit {
   }
 
   Edit() {
-    let id = localStorage.getItem("pk_idUser");
+    let id = localStorage.getItem("username");
     this.service.getUserId(+id)
       .subscribe(data => {
         this.user = data;

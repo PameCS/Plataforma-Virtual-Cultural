@@ -27,8 +27,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
 @font-face {
   font-family: 'JaapokkiRegular';
-  src: url("/assets/fonts/jaapokki/jaapokki-regular.eot");
-  src: url("/assets/fonts/jaapokki/jaapokki-regular.eot?#iefix") format("embedded-opentype"), url("/src/assets/fonts/jaapokki/jaapokki-regular.woff") format("woff"), url("/src/assets/fonts/jaapokki/jaapokki-regular.ttf") format("truetype"), url("/src/assets/fonts/jaapokki/jaapokki-regular.svg#JaapokkiRegular") format("svg");
+  src: url("/src/assets/fonts/jaapokki/jaapokki-regular.eot");
   font-weight: normal;
   font-style: normal;
 }
@@ -794,10 +793,12 @@ blockquote {
 
 #main-slide .carousel-item img {
   width: 100%;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 #main-slide .carousel-item {
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -1210,7 +1211,7 @@ blockquote {
 
 .isotope-nav {
   margin: -80px auto 80px;
-  display: inline-block;
+  float: right;
   position: relative;
   z-index: 100;
 }
@@ -2173,6 +2174,7 @@ ul.arrow li:before {
   right: 40px;
   top: auto;
   z-index: 10;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -3260,3 +3262,4 @@ a.close-styler {
 /* Custom, iPhone Retina */
 
 /*# sourceMappingURL=maps/style.css.map */
+

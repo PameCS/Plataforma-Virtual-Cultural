@@ -1,13 +1,17 @@
 package com.backEnd.demo.Repository;
 
+
 import com.backEnd.demo.Model.User;
-import java.util.List;
-import org.springframework.data.repository.Repository;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 
-public interface userRepository extends Repository<User,Integer>{
-    List<User>findAll();
-    User findById(int PK_idUser);
-    User save(User u);
-    void delete(User u);
+@Repository
+public interface userRepository extends JpaRepository<User, Long> {
+	Optional<User> findByidUser(String idUser);
+	Boolean existsByidUser(String idUser);
+	Boolean existsByEmail(String email);
+       
 }

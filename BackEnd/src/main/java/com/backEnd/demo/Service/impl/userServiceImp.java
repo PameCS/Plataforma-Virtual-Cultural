@@ -19,8 +19,8 @@ public class userServiceImp implements UserService{
     }
 
     @Override
-    public User listId(int id) {
-        return repository.findById(id);
+    public User listId(String id) {
+        return repository.findByidUser(id).get();
     }
 
     @Override
@@ -34,8 +34,8 @@ public class userServiceImp implements UserService{
     }
 
     @Override
-    public User delete(int id) {
-        User u= repository.findById(id);
+    public User delete(String id) {
+        User u= repository.findByidUser(id).get();
         if(u!= null)
         {
             repository.delete(u);

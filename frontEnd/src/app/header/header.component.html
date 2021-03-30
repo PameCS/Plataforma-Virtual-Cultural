@@ -1,70 +1,150 @@
-<!-- Animation -->
-<link rel="stylesheet" href="/assets/plugins/animate.css">
-<!-- Prettyphoto -->
-<link rel="stylesheet" href="/assets/plugins/prettyPhoto.css">
-<!-- Owl Carousel -->
-<link rel="stylesheet" href="/assets/plugins/owl/owl.carousel.css">
-<link rel="stylesheet" href="/assets/plugins/owl/owl.theme.css">
-<!-- Flexslider -->
-<link rel="stylesheet" href="/assets/plugins/flex-slider/flexslider.css">
-<!-- Flexslider -->
-<link rel="stylesheet" href="/assets/plugins/cd-hero/cd-hero.css">
+  <header id="header" class="fixed-top header4" role="banner">
+      <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light px-4 py-2">
+              <a class="navbar-brand" href="#" routerLink="/home" >   <img class="img-fluid" src="/assets/images/IMG_0674.PNG" alt="logo"></a>
+  
+              <button class="navbar-toggler ml-auto border-0 rounded-0 text-dark" type="button" data-toggle="collapse"
+                      data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="fa fa-bars"></span>
+              </button>
+              <div class="collapse navbar-collapse text-center" id="navigation">
+                <!--
+                  <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                          <a class="nav-link" href="#" routerLink="/home" >Inicio</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Información</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                             aria-expanded="false">
+                              Servicios
+                          </a>
+                          <div class="dropdown-menu">
+                              <a class="dropdown-item" href="portfolio-static.html">Aulas</a>
+                              <a class="dropdown-item" href="portfolio-classic.html">Cursos</a>
+  
+                              <a class="dropdown-item" href="portfolio-item.html">Transmisiones en vivo</a>
+                          </div>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Aula</a>
+                      </li>
+                      <li>
+                        <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Iniciar</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Registrarse</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Contacto</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a *ngIf="loginService.isUserLoggedIn()" class="nav-link dropdown-toggle" href="#" id="navbarEvent" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Eventos
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" routerLink="/listEvent" >Lista de eventos</a>
+                            <a class="dropdown-item" routerLink="/addEvent">Agregar eventos</a>
+                          </div>
+                        </li>
+                      <li class="nav-item dropdown">
+                          <a *ngIf="loginService.isUserLoggedIn()" class="nav-link dropdown-toggle" href="#" id="navbarUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Usuarios
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" routerLink="/list">Lista de usuarios</a>
+                            <a class="dropdown-item" routerLink="/add">Agregar usuarios</a>
+                          </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                          <a *ngIf="loginService.isUserLoggedIn()" class="nav-link dropdown-toggle" href="#" id="navbarClass" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Aulas
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" routerLink="/listClassroom">Lista de aulas</a>
+                            <a class="dropdown-item" routerLink="/addClass">Agregar aulas</a>
+                          </div>
+                        </li>
+                      <li class="nav-item dropdown">
+                          <a *ngIf="loginService.isUserLoggedIn()" class="nav-link dropdown-toggle" href="#" id="navbarCourse" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cursos
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" routerLink="/listCourse" >Lista de cursos</a>
+                            <a class="dropdown-item" routerLink="/addCourse" >Agregar cursos</a>
+                          </div>
+                        </li>
+                        <li class="nav-item" *ngIf="showAdminBoard">
+                          <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+                        </li>
+                        <li class="nav-item" *ngIf="showModeratorBoard">
+                          <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+                        </li>
+                  </ul>
+                  
+                -->
+                  <ul class="navbar-nav mr-auto" routerLinkActive="active">
+                    <li class="nav-item">
+                      <a href="/home" class="nav-link" routerLink="home">Inicio </a>
+                    </li>
+                    <li class="nav-item" *ngIf="!isLoggedIn">
+                      <a class="nav-link" href="#">Información</a>
+                  </li>
+                  <li class="nav-item dropdown" *ngIf="!isLoggedIn">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                         aria-expanded="false">
+                          Servicios
+                      </a>
+                      <div class="dropdown-menu">
+                          <a class="dropdown-item" href="portfolio-static.html">Aulas</a>
+                          <a class="dropdown-item" href="portfolio-classic.html">Cursos</a>
+  
+                          <a class="dropdown-item" href="portfolio-item.html">Transmisiones en vivo</a>
+                      </div>
+                  </li>
+                 
+                  <li class="nav-item" *ngIf="!isLoggedIn">
+                    <a class="nav-link" href="#">Contacto</a>
+                </li>
+               <!--Admin modules-->
+                    <li class="nav-item dropdown" *ngIf="showAdminBoard">
+                      <a class="nav-link dropdown-toggle" href=# id="navbarEvent"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Eventos
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="listEvent" routerLink="/listEvent" >Lista de eventos</a>
+                        <a class="dropdown-item" href="addEvent" routerLink="/addEvent">Agregar eventos</a>
+                      </div>
+                    </li>
+                    <li class="nav-item dropdown" *ngIf="showAdminBoard">
+                      <a  class="nav-link dropdown-toggle" href="#" id="navbarCourse" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Cursos
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="listCourse" routerLink="/listCourse" >Lista de cursos</a>
+                        <a class="dropdown-item" href="listCourse" routerLink="/addCourse" >Agregar cursos</a>
+                      </div>
+                    </li>
+                    <li class="nav-item dropdown" *ngIf="showAdminBoard">
+                      <a  class="nav-link dropdown-toggle" href="#" id="navbarClass" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Aulas
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" routerLink="/listClassroom">Lista de aulas</a>
+                        <a class="dropdown-item" routerLink="/addClass">Agregar aulas</a>
+                      </div>
+                    </li>
+               
+               <!--Admin modules-->
 
-<!---
-
-<header id="header" class="fixed-top header4" role="banner">
-<div class="body-inner">
-  <nav class="navbar navbar-expand-lg navbar-light px-4 py-2">
-    <a class="navbar-brand" href="#">   <img class="img-fluid" src="/assets/images/IMG_0674.PNG" alt="logo"></a>
-
-    <button class="navbar-toggler ml-auto border-0 rounded-0 text-dark" type="button" data-toggle="collapse"
-            data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="fa fa-bars"></span>
-    </button>
-    <div class="collapse navbar-collapse text-center" id="navigation">
-        <ul class="navbar-nav ml-auto">
-        
-            <li class="nav-item active">
-              <a class="nav-link" href="#" routerLink="/home" >Inicio <span class="sr-only">(current)</span></a>
-          </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Información</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false">
-                    Servicios
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Aulas</a>
-                    <a class="dropdown-item" href="#">Cursos</a>
-
-                    <a class="dropdown-item" href="#">Transmisiones en vivo</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Aula</a>
-            </li>
-            <li>
-              <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Iniciar sesión</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Registrarse</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="" href="#">Contacto</a>
-            </li>
-                          <li class="nav-item dropdown">
-                <a *ngIf="loginService.isUserLoggedIn()" class="nav-link dropdown-toggle" href="#" id="navbarEvent" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Eventos
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" routerLink="/listEvent" >Lista de eventos</a>
-                  <a class="dropdown-item" routerLink="/addEvent">Agregar eventos</a>
-                </div>
-              </li>
-            <li class="nav-item dropdown">
-                <a *ngIf="loginService.isUserLoggedIn()" class="nav-link dropdown-toggle" href="#" id="navbarUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <!--Super admin modules-->
+              <li class="nav-item dropdown" *ngIf="showSuperAdminBoard">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Usuarios
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -72,8 +152,27 @@
                   <a class="dropdown-item" routerLink="/add">Agregar usuarios</a>
                 </div>
               </li>
-              <li class="nav-item dropdown">
-                <a *ngIf="loginService.isUserLoggedIn()" class="nav-link dropdown-toggle" href="#" id="navbarClass" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   
+              <li class="nav-item dropdown" *ngIf="showSuperAdminBoard">
+                <a class="nav-link dropdown-toggle" href=# id="navbarEvent"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Eventos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="listEvent" routerLink="/listEvent" >Lista de eventos</a>
+                  <a class="dropdown-item" href="addEvent" routerLink="/addEvent">Agregar eventos</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown" *ngIf="showSuperAdminBoard">
+                <a  class="nav-link dropdown-toggle" href="#" id="navbarCourse" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Cursos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="listCourse" routerLink="/listCourse" >Lista de cursos</a>
+                  <a class="dropdown-item" href="listCourse" routerLink="/addCourse" >Agregar cursos</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown" *ngIf="showSuperAdminBoard">
+                <a  class="nav-link dropdown-toggle" href="#" id="navbarClass" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Aulas
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -81,104 +180,31 @@
                   <a class="dropdown-item" routerLink="/addClass">Agregar aulas</a>
                 </div>
               </li>
-            <li class="nav-item dropdown">
-                <a *ngIf="loginService.isUserLoggedIn()" class="nav-link dropdown-toggle" href="#" id="navbarCourse" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Cursos
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" routerLink="/listCourse" >Lista de cursos</a>
-                  <a class="dropdown-item" routerLink="/addCourse" >Agregar cursos</a>
-                </div>
-              </li>
-              <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Cerrar sesión</a></li>
-        </ul>
-    </div>
-</nav>
-</div>
+         
+               <!--Super admin modules-->
 
-  </header>
--->
-
-  <header id="header" class="fixed-top header4" role="banner">
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light px-4 py-2">
-            <a class="navbar-brand" href="#" routerLink="/home" >   <img class="img-fluid" src="/assets/images/IMG_0674.PNG" alt="logo"></a>
-
-            <button class="navbar-toggler ml-auto border-0 rounded-0 text-dark" type="button" data-toggle="collapse"
-                    data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fa fa-bars"></span>
-            </button>
-            <div class="collapse navbar-collapse text-center" id="navigation">
-                <ul class="navbar-nav ml-auto">
+                <!--User modules-->
+                 <!--User admin modules-->
+                  </ul>
+                  <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" routerLink="/home" >Inicio</a>
+                      <a href="/register" class="nav-link" routerLink="register">Registrarse</a>
                     </li>
+                  
+                    <li class="nav-item" >
+                      <a href="/login" class="nav-link" routerLink="login">Iniciar sesión</a>
+                    </li>
+                  </ul>
+              
+                  <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Información</a>
+                      <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                           aria-expanded="false">
-                            Servicios
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="portfolio-static.html">Aulas</a>
-                            <a class="dropdown-item" href="portfolio-classic.html">Cursos</a>
-
-                            <a class="dropdown-item" href="portfolio-item.html">Transmisiones en vivo</a>
-                        </div>
+                    <li class="nav-item" >
+                      <a href class="nav-link" (click)="logout()">Cerrar sesión</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Aula</a>
-                    </li>
-                    <li>
-                      <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Iniciar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Registrarse</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a *ngIf="loginService.isUserLoggedIn()" class="nav-link dropdown-toggle" href="#" id="navbarEvent" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Eventos
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" routerLink="/listEvent" >Lista de eventos</a>
-                          <a class="dropdown-item" routerLink="/addEvent">Agregar eventos</a>
-                        </div>
-                      </li>
-                    <li class="nav-item dropdown">
-                        <a *ngIf="loginService.isUserLoggedIn()" class="nav-link dropdown-toggle" href="#" id="navbarUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Usuarios
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" routerLink="/list">Lista de usuarios</a>
-                          <a class="dropdown-item" routerLink="/add">Agregar usuarios</a>
-                        </div>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a *ngIf="loginService.isUserLoggedIn()" class="nav-link dropdown-toggle" href="#" id="navbarClass" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Aulas
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" routerLink="/listClassroom">Lista de aulas</a>
-                          <a class="dropdown-item" routerLink="/addClass">Agregar aulas</a>
-                        </div>
-                      </li>
-                    <li class="nav-item dropdown">
-                        <a *ngIf="loginService.isUserLoggedIn()" class="nav-link dropdown-toggle" href="#" id="navbarCourse" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Cursos
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" routerLink="/listCourse" >Lista de cursos</a>
-                          <a class="dropdown-item" routerLink="/addCourse" >Agregar cursos</a>
-                        </div>
-                      </li>
-                      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Cerrar sesión</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-</header>
+                  </ul>
+              </div>
+          </nav>
+      </div>
+    </header>

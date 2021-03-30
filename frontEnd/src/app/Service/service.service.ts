@@ -11,10 +11,10 @@ import { Event } from '../Model/Event';
 export class ServiceService {
 
   constructor(private http: HttpClient) { }
-  Url = 'http://localhost:8084/backEnd/users';
-  Urlclass = 'http://localhost:8084/backEnd/classroom';
-  Urlcourse = 'http://localhost:8084/backEnd/course';
-  Urlevent = 'http://localhost:8084/backEnd/event';
+  Url = 'http://localhost:8084/users';
+  Urlclass = 'http://localhost:8084/classroom';
+  Urlcourse = 'http://localhost:8084/course';
+  Urlevent = 'http://localhost:8084/event';
 
 
   //------------------------------users module----------------------------------------------
@@ -25,7 +25,7 @@ export class ServiceService {
 
   // tslint:disable-next-line: typedef
   createUser(user: User) {
-    return this.http.post<User>(this.Url, user);
+    return this.http.post<User>(this.Url+ "/list", user);
   }
 
   getUserId(id: number) {
@@ -33,13 +33,13 @@ export class ServiceService {
   }
 
   updateUser(user: User) {
-    return this.http.put<User>(this.Url + "/" + user.pk_idUser, user);
+    return this.http.put<User>(this.Url + "/" + user.username, user);
   }
 
 
   //Delete usuario
   deleteUser(user: User) {
-    return this.http.delete<User>(this.Url + "/" + user.pk_idUser);
+    return this.http.delete<User>(this.Url + "/" + user.username);
   }
 
   //------------------------------classroom module----------------------------------------------

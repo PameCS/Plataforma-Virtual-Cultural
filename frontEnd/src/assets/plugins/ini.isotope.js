@@ -35,7 +35,7 @@ jQuery(function($){
 				var $menu = $('[data-isotope-nav="' + id + '"]');
 
 				if ($menu.length) {
-					$menu.find('a').click(function (e) {
+					$menu.find('a').on('click',function (e) {
 						var $link = $(this);
 						if(!$link.hasClass('active')){
 							var selector = $link.attr('data-filter');

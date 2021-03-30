@@ -25,6 +25,10 @@ import {LoginComponent} from './login/login.component';
 import {LogoutComponent} from './logout/logout.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +50,9 @@ import { FooterComponent } from './footer/footer.component';
     LoginComponent,
     LogoutComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +61,7 @@ import { FooterComponent } from './footer/footer.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [ServiceService],
+  providers: [ServiceService, authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

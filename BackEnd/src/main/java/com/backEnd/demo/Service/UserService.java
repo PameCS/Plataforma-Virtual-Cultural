@@ -5,8 +5,8 @@ import java.util.List;
 
 public interface UserService {
     List<User> list();
-    User listId(int id);
+    User listId(String id);
     User add(User u);
     User edit(User u);
-    User delete(int id);
+    User delete(String id);
 }

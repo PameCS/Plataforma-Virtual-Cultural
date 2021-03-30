@@ -528,7 +528,7 @@ Slider navigation
 .cd-slider-nav li {
   display: inline-block;
   width: 60px;
-  float: left;
+
 }
 
 .cd-slider-nav li.selected a {

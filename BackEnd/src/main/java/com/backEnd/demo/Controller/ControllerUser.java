@@ -14,35 +14,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequestMapping({"/users"})
 public class ControllerUser {
-  
+
     @Autowired
     UserService service;
-    
+
     @GetMapping
-    public List<User>list(){
+    public List<User> list() {
         return service.list();
     }
+
     @PostMapping
-    public User add(@RequestBody User u){
+    public User add(@RequestBody User u) {
         return service.add(u);
     }
-    
+
     @GetMapping(path = {"/{id}"})
-    public User ListId(@PathVariable("id")int id){
+    public User ListId(@PathVariable("id") String id) {
         return service.listId(id);
     }
-    
+
     @PutMapping(path = {"/{id}"})
-    public User Edit(@RequestBody User u,@PathVariable("id")int id){
+    public User Edit(@RequestBody User u, @PathVariable("id") String id) {
         u.setPK_idUser(id);
         return service.edit(u);
     }
+
     @DeleteMapping(path = {"/{id}"})
-    public User Delete(@PathVariable("id")int id){
+    public User Delete(@PathVariable("id") String id) {
         return service.delete(id);
     }
 }

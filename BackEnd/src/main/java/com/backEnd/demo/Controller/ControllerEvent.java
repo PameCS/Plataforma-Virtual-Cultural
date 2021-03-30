@@ -23,7 +23,7 @@ public class ControllerEvent {
     @Autowired
     eventService service;
     
-    @GetMapping
+    @GetMapping("/list")
     public List<Event>list(){
         return service.list();
     }

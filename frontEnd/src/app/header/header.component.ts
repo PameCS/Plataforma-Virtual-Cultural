@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../service/authentication.service';
-import { HostListener } from '@angular/core';
+import { TokenStorageService } from '../Service/token-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -8,12 +7,32 @@ import { HostListener } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  private roles: string[];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showSuperAdminBoard = false;
+  username: string;
 
-  constructor(public loginService:AuthenticationService) { }
+  constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit() {
-    
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showSuperAdminBoard  = this.roles.includes('ROLE_SUPER_ADMIN');
+
+      this.username = user.username;
+    }
+
   }
   
+  logout(): void {
+    this.tokenStorageService.signOut();
+    window.location.reload();
+  }
 
 }
