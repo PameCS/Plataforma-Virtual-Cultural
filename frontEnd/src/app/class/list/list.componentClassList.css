@@ -1,0 +1,56 @@
+.container{
+
+    background: #2f5bd4;
+    left:20%; 
+    width: 60%;
+height: 10%;
+ top:170px;
+ position: absolute;
+}
+.card-body table table-hover{
+
+    left:10%; 
+       width: 30%;
+  height: 20%;
+    top:100px;
+    position: absolute;
+}
+.table table-hover caption h1 {
+    padding-left: 36px;
+    text-align: left;
+    text-shadow: 2px 2px #4a4e88;
+    color: white;
+    width: 25%;
+    left:10%; 
+       width: 30%;
+  height: 20%;
+    top:100px;
+position: absolute;
+}
+
+.table table-hover tr:nth-child(odd) {
+    background-color: bisque;
+    position: absolute;
+
+}
+
+.table table-hover tr:nth-child(even) {
+    background-color: #ffffff;
+    position: absolute;
+
+}
+
+.table table-hover th {
+    background-color: darkcyan;
+    color: lemonchiffon;
+    position: absolute;
+
+}
+
+.table table-hover th,
+.table table-hover td {
+    border: 1px solid darkslateblue;
+    padding: 4px 16px 4px 16px;
+    position: absolute;
+
+}

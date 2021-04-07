@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3 style="text-align:center">Lista de aulas</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+               
+                    <tr>
+                        <th>ID</th>
+                        <th>Capacidad</th>
+                        <th>Disponibilidad</th>
+                        <th>Tipo</th>
+                        <th>Acciones</th>
+                    </tr>
+               
+               
+                    <tr *ngFor="let classroom of clases" class="text-center">
+                        <td>{{classroom.pk_idClass}}</td>
+                        <td>{{classroom.capacity}}</td>
+                        <td>{{classroom.availability}}</td>
+                        <td>{{classroom.type}}</td>
+                       
+                        
+                    </tr>
+                
+            </table>
+        </div>
+    </div>
+</div>

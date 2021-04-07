@@ -18,12 +18,14 @@ import { LogoutComponent } from './logout/logout.component';
 import {HomeComponent} from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ListComponentClassList } from './class/list/list.componentClassList';
 
 const routes: Routes = [
   {path: 'list', component: ListComponent},
   {path: 'add', component: AddComponent},
   {path: 'edit', component: EditComponent},
   {path: 'listClassroom', component: ListComponentClass},
+  {path: 'listClass' , component: ListComponentClassList},
   {path: 'editClass' , component: EditComponentClass},
   {path: 'addClass', component: AddComponentClass},
   {path: 'listCourse', component: ListCourseComponent},
