@@ -1,6 +1,11 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
             <h3 style="text-align:center">Lista de aulas</h3>
         </div>
         <div class="card-body">
@@ -11,7 +16,7 @@
                         <th>Capacidad</th>
                         <th>Disponibilidad</th>
                         <th>Tipo</th>
-                        <th>Acciones</th>
+                        <th><em class="fa fa-cog"></em></th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -20,11 +25,16 @@
                         <td>{{classroom.capacity}}</td>
                         <td>{{classroom.availability}}</td>
                         <td>{{classroom.type}}</td>
-                       
+                       <!--
                         <td>
                             <button (click)="Edit(classroom)" class="btn btn-warning">Editar</button>
                             <button (click)="Delete(classroom)" class="btn btn-danger">Eliminar</button>
                         </td>
+                        -->
+                        <td align="center">
+                            <a class="btn btn-default" (click)="Edit(classroom)" ><em class="fa fa-pencil"></em></a>
+                            <a class="btn btn-danger" (click)= "Delete(classroom)" ><em class="fa fa-trash"></em></a>
+                          </td>
                     </tr>
                 </tbody>
             </table>

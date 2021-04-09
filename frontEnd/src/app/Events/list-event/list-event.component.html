@@ -1,6 +1,11 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
             <h3 style="text-align:center" >Lista de eventos</h3>
         </div>
         <div class="card-body">
@@ -11,7 +16,8 @@
                         <th>Nombre</th>
                         <th>Fecha del evento</th>
                         <th>Hora del evento</th>
-                        <th>Lugar del evento</th> 
+                        <th>Lugar del evento</th>
+                        <th><em class="fa fa-cog"></em></th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -21,11 +27,17 @@
                         <td>{{event.dateEvent}}</td>
                         <td>{{event.hourEvent}}</td>
                         <td>{{event.place}}</td>
+                        <!--
                         <td>
                             <button (click)="Edit(event)" class="btn btn-warning">Editar</button>
                             <button (click)="Delete(event)" class="btn btn-danger">Eliminar</button>
                            
                         </td>
+                        -->
+                        <td align="center">
+                            <a class="btn btn-default" (click)="Edit(event)" ><em class="fa fa-pencil"></em></a>
+                            <a class="btn btn-danger" (click)= "Delete(event)" ><em class="fa fa-trash"></em></a>
+                          </td>
                     </tr>
                 </tbody>
             </table>

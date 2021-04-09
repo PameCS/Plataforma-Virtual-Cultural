@@ -1,6 +1,11 @@
 <div class="container col-md-6">
     <div class="card">
         <div class="card-header">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
             <h3>Agregar clases</h3>
         </div>
         <div class="card-body">
@@ -21,8 +26,8 @@
                 <div class="form-group">
                     <label for="">Disponibilidad:</label>
                     <select [(ngModel)]="classroom.availability" name="availability" formControlName="classAvailability" class="form-control">
-                    <option>Diurna</option>
-                    <option>Nocturna</option>
+                    <option>Disponible</option>
+                    <option>Cerrada</option>
                   </select>
                     <div class="alert-danger" *ngIf="availability.invalid && (availability.dirty || availability.touched)">
                         <div class="container-error-message" *ngIf="availability.errors.required">
@@ -33,8 +38,8 @@
                 <div class="form-group">
                     <label for="">Tipo:</label>
                     <select [(ngModel)]="classroom.type" name="type" formControlName="classType" class="form-control">
-                    <option>Salon</option>
-                    <option>Aula-normal</option>
+                    <option>Salón</option>
+                    <option>Salón principal</option>
                   </select>
                     <div class="alert-danger" *ngIf="type.invalid && (type.dirty || type.touched)">
                         <div class="container-error-message" *ngIf="type.errors.required">

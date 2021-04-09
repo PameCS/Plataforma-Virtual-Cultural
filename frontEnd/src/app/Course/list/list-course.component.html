@@ -1,6 +1,11 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
             <h3 style="text-align:center" >Lista de cursos</h3>
         </div>
         <div class="card-body">
@@ -15,7 +20,7 @@
                         <th>Horario</th>
                         <th>Profesor(a)</th>
                         <th>Cantidad de estudiantes</th>
-                        <th>Acciones</th>
+                        <th><em class="fa fa-cog"></em></th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -28,11 +33,17 @@
                         <td>{{course.shedule}}</td>
                         <td>{{course.professor}}</td>
                         <td>{{course.studentQuantity}}</td>
+                        <!--
                         <td>
                             <button (click)="Edit(course)" class="btn btn-warning">Editar</button>
                             <button (click)="Delete(course)" class="btn btn-danger">Eliminar</button>
                            
                         </td>
+                        -->
+                        <td align="center">
+                            <a class="btn btn-default" (click)="Edit(course)" ><em class="fa fa-pencil"></em></a>
+                            <a class="btn btn-danger" (click)= "Delete(course)" ><em class="fa fa-trash"></em></a>
+                          </td>
                     </tr>
                 </tbody>
             </table>

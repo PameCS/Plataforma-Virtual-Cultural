@@ -21,10 +21,8 @@ export class HeaderComponent implements OnInit {
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
-
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showSuperAdminBoard  = this.roles.includes('ROLE_SUPER_ADMIN');
-
       this.username = user.username;
     }
 

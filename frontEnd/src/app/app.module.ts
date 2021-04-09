@@ -28,7 +28,8 @@ import { FooterComponent } from './footer/footer.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
-
+import {YoutubeliveComponent} from './youtubelive/youtubelive.component';
+import {YouTubePlayerModule} from '@angular/youtube-player';
 
 @NgModule({
   declarations: [
@@ -52,14 +53,16 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     HomeComponent,
     FooterComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    YoutubeliveComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    YouTubePlayerModule
   ],
   providers: [ServiceService, authInterceptorProviders],
   bootstrap: [AppComponent]

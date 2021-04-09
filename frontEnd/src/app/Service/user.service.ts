@@ -10,7 +10,7 @@ const API_URL = 'http://localhost:8084/api/test/';
 const Url = 'http://localhost:8084/users';
 const Urlclass = 'http://localhost:8084/classroom';
 const Urlcourse = 'http://localhost:8084/course';
-const Urlevent = 'http://localhost:8084/event/list';
+const Urlevent = 'http://localhost:8084/event';
 
 @Injectable({
   providedIn: 'root'

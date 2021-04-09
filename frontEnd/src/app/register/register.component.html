@@ -1,14 +1,38 @@
-<div class="col-md-12">
-  <br>
-  <br>
-  <br>
-  <br>
-    <div class="card card-container">
-      <img
-        id="profile-img"
-        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-        class="profile-img-card"
-      />
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="Slide Login Form template Responsive, Login form web template, Flat Pricing tables, Flat Drop downs Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+  
+     <script>
+          addEventListener("load", function () {
+              setTimeout(hideURLbar, 0);
+          }, false);
+  
+          function hideURLbar() {
+              window.scrollTo(0, 1);
+          }
+      </script>
+  	<link href="/src/assets/fonts/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
+     web font 
+    <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+    web font 
+  
+  </head>
+
+<body> 
+  <div class="w3layouts-main"> 
+    <div class="bg-layer">
+      <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      <div class="header-main">
+        <div class="main-icon">
+          <h1>Registrarse</h1>     
+         </div>
+    <div class="header-left-bottom">
       <form
         *ngIf="!isSuccessful"
         name="form"
@@ -16,8 +40,7 @@
         #f="ngForm"
         novalidate
       >
-        <div class="form-group">
-          <label for="idUser">Identificación</label>
+        <div class="icon1">
           <input
             type="text"
             class="form-control"
@@ -27,6 +50,7 @@
             minlength="3"
             maxlength="20"
             #idUser="ngModel"
+            placeholder="Identificación"
           />
           <div class="alert-danger" *ngIf="f.submitted && idUser.invalid">
             <div *ngIf="idUser.errors.required">La Identificación es un campo requerido</div>
@@ -38,8 +62,7 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <label for="password">Contraseña</label>
+        <div class="icon1">
           <input
             type="password"
             class="form-control"
@@ -48,6 +71,7 @@
             required
             minlength="6"
             #password="ngModel"
+            placeholder= "Contraseña"
           />
           <div class="alert-danger" *ngIf="f.submitted && password.invalid">
             <div *ngIf="password.errors.required">La contraseña es un campo requerido</div>
@@ -56,8 +80,7 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <label for="name">Nombre</label>
+        <div class="icon1">
           <input
             type="text"
             class="form-control"
@@ -67,6 +90,7 @@
             minlength="3"
             maxlength="20"
             #name="ngModel"
+            placeholder= "Nombre"
           />
           <div class="alert-danger" *ngIf="f.submitted && name.invalid">
             <div *ngIf="name.errors.required">El nombre es requerido</div>
@@ -78,8 +102,7 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <label for="lastName">Apellidos</label>
+        <div class="icon1">
           <input
             type="text"
             class="form-control"
@@ -89,6 +112,7 @@
             minlength="3"
             maxlength="20"
             #lastName="ngModel"
+            placeholder= "Apellidos"
           />
           <div class="alert-danger" *ngIf="f.submitted && lastName.invalid">
             <div *ngIf="lastName.errors.required">Los apellidos son requeridos</div>
@@ -100,8 +124,7 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <label for="email">Email</label>
+        <div class="icon1">
           <input
             type="email"
             class="form-control"
@@ -110,6 +133,7 @@
             required
             email
             #email="ngModel"
+            placeholder= "Email"
           />
           <div class="alert-danger" *ngIf="f.submitted && email.invalid">
             <div *ngIf="email.errors.required">El email es requerido</div>
@@ -119,8 +143,7 @@
           </div>
         </div>
         
-        <div class="form-group">
-          <label for="address">Dirección</label>
+        <div class="icon1">
           <input
             type="text"
             class="form-control"
@@ -130,6 +153,7 @@
             minlength="3"
             maxlength="20"
             #address="ngModel"
+            placeholder= "Dirección"
           />
           <div class="alert-danger" *ngIf="f.submitted && address.invalid">
             <div *ngIf="address.errors.required">La dirección es requerida</div>
@@ -155,4 +179,6 @@
       </div>
     </div>
   </div>
-  
+</div>
+  </div>
+</body>
