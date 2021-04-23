@@ -19,6 +19,9 @@ import {HomeComponent} from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { YoutubeliveComponent } from './youtubelive/youtubelive.component';
+import {CourseCatalogComponent} from './course-catalog/course-catalog.component';
+import {ClassroomCatalogComponent} from './classroom-catalog/classroom-catalog.component';
+import {EventCatalogComponent} from './event-catalog/event-catalog.component';
 
 const routes: Routes = [
   {path: 'list', component: ListComponent},
@@ -39,6 +42,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   {path: 'youtubelive',component: YoutubeliveComponent},
+  {path: 'courseCatalog',component: CourseCatalogComponent},
+  {path: 'classroomCatalog',component: ClassroomCatalogComponent},
+  {path: 'eventCatalog',component: EventCatalogComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

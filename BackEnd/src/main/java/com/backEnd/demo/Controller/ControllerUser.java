@@ -26,6 +26,11 @@ public class ControllerUser {
     public List<User> list() {
         return service.list();
     }
+    
+     @GetMapping(path = {"/listProfessors"})
+    public List<User> listProfessors() {
+        return service.listProfessors();
+    }
 
     @PostMapping
     public User add(@RequestBody User u) {

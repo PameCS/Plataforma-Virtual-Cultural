@@ -2,14 +2,20 @@ package com.backEnd.demo.Model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@Table(name="t_course")
+@Table(name = "T_COURSES",
+        uniqueConstraints = {
+            @UniqueConstraint(columnNames = "PK_idCourse")
+        })
 public class Course {
     @Id
     @Column
-    private int PK_courseCode;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int PK_idCourse;
     @Column
     private String name;
     @Column
@@ -29,6 +35,12 @@ public class Course {
     @Column
     private int studentQuantity;
 
+     @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "T_COURSE_USERS",
+            joinColumns = @JoinColumn(name = "FK_CourseId"),
+            inverseJoinColumns = @JoinColumn(name = "FK_UserId"))
+    private Set<User> users = new HashSet<>();
+    
     public int getStudentQuantity() {
         return studentQuantity;
     }
@@ -38,11 +50,11 @@ public class Course {
     }
 
     public int getPK_courseCode() {
-        return PK_courseCode;
+        return PK_idCourse;
     }
 
-    public void setPK_courseCode(int PK_courseCode) {
-        this.PK_courseCode = PK_courseCode;
+    public void setPK_courseCode(int PK_idCourse) {
+        this.PK_idCourse = PK_idCourse;
     }
 
     public String getName() {
@@ -92,5 +104,12 @@ public class Course {
         this.professor = professor;
     }
     
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
     
 }

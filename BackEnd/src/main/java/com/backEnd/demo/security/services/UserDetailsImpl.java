@@ -24,11 +24,10 @@ public class UserDetailsImpl implements UserDetails {
         private String lastName;
         private String type;
 	private String email;
-        private String address;
 	
 	private Collection<? extends GrantedAuthority> authorities;
 
-	public UserDetailsImpl(Long id, String PK_idUser,String name,String lastName,String type ,String email,String address ,String password,
+	public UserDetailsImpl(Long id, String PK_idUser,String name,String lastName,String type ,String email,String password,
 			Collection<? extends GrantedAuthority> authorities) {
 		this.id = id;
                 this.PK_idUser = PK_idUser;
@@ -36,7 +35,6 @@ public class UserDetailsImpl implements UserDetails {
                 this.lastName = lastName;
                 this.type = type;
 		this.email = email;
-                this.address = address;
 		this.password = password;
 		this.authorities = authorities;
 	}
@@ -53,7 +51,6 @@ public class UserDetailsImpl implements UserDetails {
                                 user.getLastName(),
                                 user.getType(),
 				user.getEmail(),
-                                user.getAddress(),
 				user.getPassword(), 
 				authorities);
 	}
@@ -105,16 +102,7 @@ public class UserDetailsImpl implements UserDetails {
         this.type = type;
     }
 
-   
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-	@Override
+    @Override
 	public boolean isAccountNonExpired() {
 		return true;
 	}

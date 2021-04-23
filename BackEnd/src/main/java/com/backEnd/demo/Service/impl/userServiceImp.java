@@ -3,18 +3,19 @@ package com.backEnd.demo.Service.impl;
 import com.backEnd.demo.Service.UserService;
 import com.backEnd.demo.Repository.userRepository;
 import com.backEnd.demo.Model.User;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 @Service
-public class userServiceImp implements UserService{
-    
+public class userServiceImp implements UserService {
+
     @Autowired
     private userRepository repository;
+
     @Override
-    public List<User> list(){
+    public List<User> list() {
         return repository.findAll();
     }
 
@@ -35,12 +36,22 @@ public class userServiceImp implements UserService{
 
     @Override
     public User delete(String id) {
-        User u= repository.findByidUser(id).get();
-        if(u!= null)
-        {
+        User u = repository.findByidUser(id).get();
+        if (u != null) {
             repository.delete(u);
         }
         return u;
     }
-   
+
+    @Override
+    public List<User> listProfessors() {
+        List<User> professors = new ArrayList<>();
+        List<User> list = repository.findAll();
+        for (int i = 0; i <= list.size() - 1; i++) {
+            if (list.get(i).getType().equals("Profesor")) {
+                professors.add(list.get(i));
+            }
+        }
+        return professors;
+    }
 }

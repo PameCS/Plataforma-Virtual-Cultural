@@ -9,4 +9,5 @@ public interface UserService {
     User add(User u);
     User edit(User u);
     User delete(String id);
+    List<User> listProfessors();
 }

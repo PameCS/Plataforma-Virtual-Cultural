@@ -1,8 +1,7 @@
 package com.backEnd.demo.Model;
-
-import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -38,8 +37,8 @@ public class User {
     @Size(max = 20)
     private String lastName;
 
+   @Column(nullable = true)
     @Size(max = 20)
-    @Column(nullable = true)
     private String type;
    
     @NotBlank
@@ -47,28 +46,46 @@ public class User {
     @Email
     private String email;
     
+   @Column(nullable = true)
+    @Size(max = 20) 
+    private String bornDate;
+    
     @Column(nullable = true)
-    @Size(max = 20)
-    private String address;
-
+    @Size(max = 8) 
+    private String tel;
+    
+    @Column(nullable = true)
+    @Size(max = 15)
+    private String gender;
+    
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "T_USER_ROLES",
-            joinColumns = @JoinColumn(name = "FK_userId"),
+    @JoinTable(name = "T_USERS_ROLES",
+            joinColumns = @JoinColumn(name = "FK_UserId"),
             inverseJoinColumns = @JoinColumn(name = "FK_roleId"))
     private Set<Role> roles = new HashSet<>();
-
+    
+     @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "T_USERS_COURSES",
+            joinColumns = @JoinColumn(name = "FK_UserId"),
+            inverseJoinColumns = @JoinColumn(name = "FK_CourseId"))
+    private Set<Course> courses = new HashSet<>();
+    
     public User() {
     }
 
-    public User(String idUser, String password, String name, String lastName, String type, String email, String address) {
+    public User(String idUser, String password, String name, String lastName, String type, String email, String bornDate, String tel, String gender) {
         this.idUser = idUser;
         this.password = password;
         this.name = name;
         this.lastName = lastName;
         this.type = type;
         this.email = email;
-        this.address = address;
+        this.bornDate = bornDate;
+        this.tel = tel;
+        this.gender = gender;
     }
+
+    
 
     public Long getId() {
         return PK_id;
@@ -134,19 +151,61 @@ public class User {
         this.type = type;
     }
 
-    public String getAddress() {
-        return address;
+    public Long getPK_id() {
+        return PK_id;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPK_id(Long PK_id) {
+        this.PK_id = PK_id;
     }
 
-    public Set<Role> getRoles() {
+    public String getIdClient() {
+        return idUser;
+    }
+
+    public void setIdClient(String idClient) {
+        this.idUser = idClient;
+    }
+
+    public String getBornDate() {
+        return bornDate;
+    }
+
+    public void setBornDate(String bornDate) {
+        this.bornDate = bornDate;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+    
+     public Set<Role> getRoles() {
         return roles;
     }
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+    
+     
+     public Set<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(Set<Course> courses) {
+        this.courses = courses;
+    }
+
 }

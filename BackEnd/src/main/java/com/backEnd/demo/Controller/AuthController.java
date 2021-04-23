@@ -69,7 +69,7 @@ public class AuthController {
                 userDetails.getId(),
                 userDetails.getUsername(),
                 userDetails.getEmail(),
-                roles)); 
+                roles));
     }
 
     @PostMapping(path = {"/signup"})
@@ -89,9 +89,8 @@ public class AuthController {
         // Create new user's account
         User user = new User(signUpRequest.getIdUser(), encoder.encode(signUpRequest.getPassword()),
                 signUpRequest.getName(), signUpRequest.getLastName(), signUpRequest.getType(),
-                  signUpRequest.getEmail(), signUpRequest.getAddress());
+                signUpRequest.getEmail(), signUpRequest.getBornDate(), signUpRequest.getTel(), signUpRequest.getGender());
 
-       
         Set<Role> roles = new HashSet<>();
 
         if (user.getType() == null) {
@@ -99,22 +98,27 @@ public class AuthController {
                     .orElseThrow(() -> new RuntimeException("Error: No se encontró el rol"));
             roles.add(userRole);
         } else {
-            if(user.getType().equals("Administrador")){
-                 Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
-                                .orElseThrow(() -> new RuntimeException("Error: No se encontró el rol"));
-                        roles.add(adminRole);
-            }else{
-                if(user.getType().equals("Super-administrador")){
-                      Role superAdminRole = roleRepository.findByName(ERole.ROLE_SUPER_ADMIN)
-                                .orElseThrow(() -> new RuntimeException("Error:No se encontró el rol"));
-                        roles.add(superAdminRole);
+            if (user.getType().equals("Administrador")) {
+                Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
+                        .orElseThrow(() -> new RuntimeException("Error: No se encontró el rol"));
+                roles.add(adminRole);
+            } else {
+                if (user.getType().equals("Super-administrador")) {
+                    Role superAdminRole = roleRepository.findByName(ERole.ROLE_SUPER_ADMIN)
+                            .orElseThrow(() -> new RuntimeException("Error:No se encontró el rol"));
+                    roles.add(superAdminRole);
 
-                }else{
-                        Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-                                .orElseThrow(() -> new RuntimeException("Error: No se encontró el rol"));
-                        roles.add(userRole);
+                } else if (user.getType().equals("Profesor")) {
+                    Role superAdminRole = roleRepository.findByName(ERole.ROLE_PROFESSOR)
+                            .orElseThrow(() -> new RuntimeException("Error:No se encontró el rol"));
+                    roles.add(superAdminRole);
+
+                } else {
+                    Role userRole = roleRepository.findByName(ERole.ROLE_USER)
+                            .orElseThrow(() -> new RuntimeException("Error: No se encontró el rol"));
+                    roles.add(userRole);
+                }
             }
-        }
         }
         user.setRoles(roles);
         userRepository.save(user);

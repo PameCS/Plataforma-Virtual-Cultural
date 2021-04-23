@@ -30,6 +30,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import {YoutubeliveComponent} from './youtubelive/youtubelive.component';
 import {YouTubePlayerModule} from '@angular/youtube-player';
+import { CourseCatalogComponent } from './course-catalog/course-catalog.component';
+import { ClassroomCatalogComponent } from './classroom-catalog/classroom-catalog.component';
+import { EventCatalogComponent } from './event-catalog/event-catalog.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,10 @@ import {YouTubePlayerModule} from '@angular/youtube-player';
     FooterComponent,
     RegisterComponent,
     ProfileComponent,
-    YoutubeliveComponent
+    YoutubeliveComponent,
+    CourseCatalogComponent,
+    ClassroomCatalogComponent,
+    EventCatalogComponent
   ],
   imports: [
     BrowserModule,
