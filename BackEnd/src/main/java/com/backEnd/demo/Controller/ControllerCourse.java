@@ -6,6 +6,7 @@ import com.backEnd.demo.Service.UserService;
 import com.backEnd.demo.Service.courseService;
 import com.backEnd.demo.payload.response.MessageResponse;
 import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -34,6 +35,11 @@ public class ControllerCourse {
     public List<Course> list() {
         return service.list();
     }
+    
+    @GetMapping(path = {"/listStudents/{id}"})
+    public Set<User> listStudents(@PathVariable("id") int id) {
+        return service.listStudents(id);
+    }
 
     @PostMapping
     public Course add(@RequestBody Course c) {
@@ -60,7 +66,7 @@ public class ControllerCourse {
     public ResponseEntity<?> enroll(@RequestBody Course c, @PathVariable("id") String id) {
         if (c != null && id != null && c.getStudentQuantity() > 0) {
             User u = user.listId(id);
-            if (!c.getUsers().contains(u)) {
+            if (!c.isEnroll(u)) {
                 service.enroll(c, u);
             } else {
                 return ResponseEntity

@@ -6,7 +6,6 @@ import com.backEnd.demo.Model.Course;
 import com.backEnd.demo.Model.User;
 import com.backEnd.demo.Repository.userRepository;
 import com.backEnd.demo.Service.UserService;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,18 +55,26 @@ public class courseServiceImp implements courseService {
     @Override
     public Course enroll(Course c, User u) {
         try {
-            Set<User> users = new HashSet<>();
-            Set<Course> courses = new HashSet<>();
+            Set<User> users = c.getUsers();
+            Set<Course> courses = u.getCourses();
             users.add(u);
+            courses.add(c);
             c.setStudentQuantity(c.getStudentQuantity() - 1);
             c.setUsers(users);
-            courseService.edit(c);
-            courses.add(c);
             u.setCourses(courses);
-             userService.edit(u);
+            courseService.edit(c);
+            userService.edit(u);
+            
         } catch (Exception ex) {
             System.out.print(ex);
         }
         return c;
     }
+    
+     @Override
+     public Set<User> listStudents(int id){
+         Course c = courseService.listId(id);
+         Set<User> list = c.getUsers();
+         return list;
+     }
 }

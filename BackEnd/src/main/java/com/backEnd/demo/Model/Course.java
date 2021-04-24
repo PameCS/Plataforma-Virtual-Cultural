@@ -3,6 +3,7 @@ package com.backEnd.demo.Model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import javax.persistence.*;
 
@@ -12,6 +13,7 @@ import javax.persistence.*;
             @UniqueConstraint(columnNames = "PK_idCourse")
         })
 public class Course {
+
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,11 +23,11 @@ public class Course {
     @Column
     private String mode;
     @Column
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date startDate;
     @Column
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date finishDate;
     @Column
@@ -35,12 +37,11 @@ public class Course {
     @Column
     private int studentQuantity;
 
-     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "T_COURSE_USERS",
-            joinColumns = @JoinColumn(name = "FK_CourseId"),
-            inverseJoinColumns = @JoinColumn(name = "FK_UserId"))
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "T_USER_COURSES",
+            joinColumns = @JoinColumn(name = "FK_UserId"))
     private Set<User> users = new HashSet<>();
-    
+
     public int getStudentQuantity() {
         return studentQuantity;
     }
@@ -72,6 +73,7 @@ public class Course {
     public void setMode(String mode) {
         this.mode = mode;
     }
+
     public Date getStartDate() {
         return startDate;
     }
@@ -103,7 +105,7 @@ public class Course {
     public void setProfessor(String professor) {
         this.professor = professor;
     }
-    
+
     public Set<User> getUsers() {
         return users;
     }
@@ -111,5 +113,17 @@ public class Course {
     public void setUsers(Set<User> users) {
         this.users = users;
     }
-    
+
+    public boolean isEnroll(User u) {
+        boolean value = false;
+        Iterator<User> it = users.iterator();
+
+        while (it.hasNext()) {
+            if (it.next().getPK_idUser().equals(u.getPK_idUser())) {
+                value = true;
+            }
+        }
+        return value;
+    }
+
 }

@@ -64,12 +64,11 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "FK_roleId"))
     private Set<Role> roles = new HashSet<>();
     
-     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "T_USERS_COURSES",
-            joinColumns = @JoinColumn(name = "FK_UserId"),
-            inverseJoinColumns = @JoinColumn(name = "FK_CourseId"))
+     @OneToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "T_ENROLLMENT",
+            joinColumns = @JoinColumn(name = "FK_CourseId"))
     private Set<Course> courses = new HashSet<>();
-    
+     
     public User() {
     }
 
