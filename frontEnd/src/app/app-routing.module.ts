@@ -22,7 +22,7 @@ import { YoutubeliveComponent } from './youtubelive/youtubelive.component';
 import {CourseCatalogComponent} from './course-catalog/course-catalog.component';
 import {ClassroomCatalogComponent} from './classroom-catalog/classroom-catalog.component';
 import {EventCatalogComponent} from './event-catalog/event-catalog.component';
-
+import {ListProfessorsComponent} from './User/listProfesors/listProfessors.component';
 const routes: Routes = [
   {path: 'list', component: ListComponent},
   {path: 'add', component: AddComponent},
@@ -45,6 +45,7 @@ const routes: Routes = [
   {path: 'courseCatalog',component: CourseCatalogComponent},
   {path: 'classroomCatalog',component: ClassroomCatalogComponent},
   {path: 'eventCatalog',component: EventCatalogComponent},
+  {path: 'professorList',component: ListProfessorsComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

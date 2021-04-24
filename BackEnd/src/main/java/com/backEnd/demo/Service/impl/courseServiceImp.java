@@ -55,15 +55,15 @@ public class courseServiceImp implements courseService {
     @Override
     public Course enroll(Course c, User u) {
         try {
-            Set<User> users = c.getUsers();
+         //   Set<User> users = c.getUsers();
             Set<Course> courses = u.getCourses();
-            users.add(u);
+           // users.add(u);
             courses.add(c);
             c.setStudentQuantity(c.getStudentQuantity() - 1);
-            c.setUsers(users);
+            //c.setUsers(users);
             u.setCourses(courses);
             courseService.edit(c);
-            userService.edit(u);
+            //userService.edit(u);
             
         } catch (Exception ex) {
             System.out.print(ex);

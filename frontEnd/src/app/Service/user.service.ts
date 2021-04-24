@@ -11,6 +11,7 @@ const Url = 'http://localhost:8084/users';
 const Urlclass = 'http://localhost:8084/classroom';
 const Urlcourse = 'http://localhost:8084/course';
 const Urlevent = 'http://localhost:8084/event';
+const UrlListProfessor = 'http://localhost:8084/users/listProfessors';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,10 @@ export class UserService {
   // tslint:disable-next-line: typedef
   getUsers() {
     return this.http.get<User[]>(Url);
+  }
+
+  getProfessorUsers() {
+    return this.http.get<User[]>(UrlListProfessor);
   }
 
   // tslint:disable-next-line: typedef
@@ -101,6 +106,10 @@ export class UserService {
 
   deleteCourse(course: Course) {
     return this.http.delete<Course>(Urlcourse + "/" + course.pk_courseCode);
+  }
+
+  courseEnroll(course: Course, user: User){
+    return this.http.post<Course>(Urlcourse + "/enroll/" + user.username,course);
   }
   //--------------------------Event module------------------------------
   getEvent() : Observable<any>{

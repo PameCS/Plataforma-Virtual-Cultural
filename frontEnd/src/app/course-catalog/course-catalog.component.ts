@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Course } from 'src/app/Model/Course';
+import {ServiceService } from '../Service/service.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-course-catalog',
@@ -6,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course-catalog.component.css']
 })
 export class CourseCatalogComponent implements OnInit {
-
-  constructor() { }
+  courses: Course[];
+  constructor(private service: ServiceService, private router: Router) { }
 
   ngOnInit(): void {
+    this.service.getCourse()
+    .subscribe(data => {
+      this.courses = data;
+    });
   }
 
 }

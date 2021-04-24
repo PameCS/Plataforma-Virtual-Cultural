@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AddComponent } from './User/add/add.component';
 import { EditComponent } from './User/edit/edit.component';
 import { ListComponent } from './User/list/list.component';
+import { ListProfessorsComponent } from './User/listProfesors/listProfessors.component';
 import { AddComponentClass } from './classroom/add/add.componentClass';
 import { EditComponentClass } from './classroom/edit/edit.componentClass';
 import { ListComponentClass } from './classroom/list/list.componentClass';
@@ -60,7 +61,8 @@ import { EventCatalogComponent } from './event-catalog/event-catalog.component';
     YoutubeliveComponent,
     CourseCatalogComponent,
     ClassroomCatalogComponent,
-    EventCatalogComponent
+    EventCatalogComponent,
+    ListProfessorsComponent
   ],
   imports: [
     BrowserModule,

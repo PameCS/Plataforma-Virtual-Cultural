@@ -51,7 +51,16 @@
         <li class="nav-item" *ngIf="!isLoggedIn">
           <a class="nav-link" href="#">Contacto</a>
       </li>
-     
+      <!-- admin modules -->
+      <li class="nav-item dropdown" *ngIf="showAdminBoard">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Profesores
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/professorList">Lista de profesores</a>
+          <a class="dropdown-item" routerLink="/add">Agregar profesor</a>
+        </div>
+      </li>
           <li class="nav-item dropdown" *ngIf="showAdminBoard">
             <a class="nav-link dropdown-toggle" href=# id="navbarEvent"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Eventos
@@ -79,7 +88,17 @@
               <a class="dropdown-item" routerLink="/addClass">Agregar aulas</a>
             </div>
           </li>
-
+          <li class="nav-item dropdown" *ngIf="showAdminBoard">
+            <a  class="nav-link dropdown-toggle" href="#" id="navbarClass" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Solicitudes
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" routerLink="/listClassroom">Aulas</a>
+              <a class="dropdown-item" routerLink="/addClass">Cursos</a>
+            </div>
+          </li>
+<!-- admin modules -->
+<!-- super admin modules -->
     <li class="nav-item dropdown" *ngIf="showSuperAdminBoard">
       <a class="nav-link dropdown-toggle" href="#" id="navbarUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Usuarios
@@ -117,6 +136,7 @@
         <a class="dropdown-item" routerLink="/addClass">Agregar aulas</a>
       </div>
     </li>
+    <!-- super admin modules -->
       </ul>
 
       <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">

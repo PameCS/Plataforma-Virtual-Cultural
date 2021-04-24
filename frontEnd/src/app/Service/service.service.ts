@@ -15,12 +15,16 @@ export class ServiceService {
   Urlclass = 'http://localhost:8084/classroom';
   Urlcourse = 'http://localhost:8084/course';
   Urlevent = 'http://localhost:8084/event';
-
+  UrlListProfessor = 'http://localhost:8084/users/listProfessors';
 
   //------------------------------users module----------------------------------------------
   // tslint:disable-next-line: typedef
   getUsers() {
     return this.http.get<User[]>(this.Url);
+  }
+
+  getProfessorUsers() {
+    return this.http.get<User[]>(this.UrlListProfessor);
   }
 
   // tslint:disable-next-line: typedef

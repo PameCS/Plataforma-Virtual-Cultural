@@ -18,7 +18,7 @@ export class AddCourseComponent implements OnInit {
   }
 
   courseForm = this.fb.group({
-     Id: ['',Validators.required],
+  
      courseName:['',[Validators.pattern("[A-Za-zñÑáéíóúÁÉÍÓÚ0-9 ]{1,45}"),Validators.maxLength(45)]],
      courseMode: ['',Validators.required],
      startDateCourse: ['',Validators.required],
@@ -29,7 +29,7 @@ export class AddCourseComponent implements OnInit {
     });
   
 
-  get Id() { return this.courseForm.get('Id'); }
+  
   get name() { return this.courseForm.get('courseName'); }
   get mode() { return this.courseForm.get('courseMode'); }
   get startDate() { return this.courseForm.get('startDateCourse'); }
