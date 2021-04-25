@@ -1,8 +1,10 @@
 package com.backEnd.demo.Controller;
 
+import com.backEnd.demo.Model.Course;
 import com.backEnd.demo.Model.User;
 import com.backEnd.demo.Service.UserService;
 import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,9 +29,14 @@ public class ControllerUser {
         return service.list();
     }
     
-     @GetMapping(path = {"/listProfessors"})
+    @GetMapping(path = {"/listProfessors"})
     public List<User> listProfessors() {
         return service.listProfessors();
+    }
+    
+    @GetMapping(path = {"/myCourses/{id}"})
+    public Set<Course> listCourses(@PathVariable("id") String id) {
+        return service.listMyCourses(id);
     }
 
     @PostMapping

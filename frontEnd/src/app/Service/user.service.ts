@@ -5,13 +5,20 @@ import { Classroom } from '../Model/Classroom';
 import { Course } from '../Model/Course';
 import { Event } from '../Model/Event';
 import { Observable } from 'rxjs';
+import { CourseRequest } from '../Model/CourseRequest';
+import { ClassRequest } from '../Model/ClassRequest';
 
 const API_URL = 'http://localhost:8084/api/test/';
 const Url = 'http://localhost:8084/users';
 const Urlclass = 'http://localhost:8084/classroom';
 const Urlcourse = 'http://localhost:8084/course';
+const UrlclassRequest = 'http://localhost:8084/classroomRequest';
+const UrlcourseRequest = 'http://localhost:8084/courseRequest';
 const Urlevent = 'http://localhost:8084/event';
 const UrlListProfessor = 'http://localhost:8084/users/listProfessors';
+const UrlmyCourses = 'http://localhost:8084/users/myCourses';
+const UrlEnroll = 'http://localhost:8084/course/enroll';
+
 
 @Injectable({
   providedIn: 'root'
@@ -36,8 +43,8 @@ export class UserService {
     return this.http.get(API_URL + 'admin', { responseType: 'text' });
   }
 
-  //------------------------------users module----------------------------------------------
-  // tslint:disable-next-line: typedef
+  //------------------------------admin module----------------------------------------------
+  
   getUsers() {
     return this.http.get<User[]>(Url);
   }
@@ -46,9 +53,17 @@ export class UserService {
     return this.http.get<User[]>(UrlListProfessor);
   }
 
-  // tslint:disable-next-line: typedef
+  getUserCourses(user: User) {
+    return this.http.get<Course[]>(UrlmyCourses+ "/" + user.username);
+  }
+
+  
   createUser(user: User) {
     return this.http.post<User>(Url, user);
+  }
+
+  enrollToCourse(course: Course, id:String) {
+    return this.http.post<Course>(UrlEnroll+ "/" + id, course);
   }
 
   getUserId(id: number) {
@@ -87,6 +102,23 @@ export class UserService {
     return this.http.delete<User>(Urlclass + "/" + Classroom.pk_idClass);
   }
 
+  //----------------------------------class request--------------------------------------------
+  getClassRequests() {
+    return this.http.get<ClassRequest[]>(UrlclassRequest);
+  }
+
+  createClassRequest(classRequest: ClassRequest) {
+    return this.http.post<ClassRequest>(UrlclassRequest, classRequest);
+  }
+
+  getClassRequestid(id: number) {
+    return this.http.get<ClassRequest>(UrlclassRequest + "/" + id);
+  }
+
+  deleteClassRequest(classRequest: ClassRequest) {
+    return this.http.delete<ClassRequest>(UrlclassRequest + "/" + classRequest.PK_idRequest);
+  }
+
   //----------------------------------course module----------------------------------------------
   getCourse() {
     return this.http.get<Course[]>(Urlcourse);
@@ -111,6 +143,24 @@ export class UserService {
   courseEnroll(course: Course, user: User){
     return this.http.post<Course>(Urlcourse + "/enroll/" + user.username,course);
   }
+
+  //----------------------------------course requests--------------------------------------------
+  getCourseRequests() {
+    return this.http.get<CourseRequest[]>(UrlcourseRequest);
+  }
+
+  createCourseRequest(courseRequest: CourseRequest) {
+    return this.http.post<CourseRequest>(UrlcourseRequest, courseRequest);
+  }
+
+  getCourseRequestid(id: number) {
+    return this.http.get<CourseRequest>(UrlcourseRequest + "/" + id);
+  }
+
+  deleteCourseRequest(courseRequest: CourseRequest) {
+    return this.http.delete<CourseRequest>(UrlcourseRequest + "/" + courseRequest.PK_idRequest);
+  }
+
   //--------------------------Event module------------------------------
   getEvent() : Observable<any>{
     return this.http.get<Event[]>(Urlevent);

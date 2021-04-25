@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ServiceService } from '../../Service/service.service';
 import {Classroom} from 'src/app/Model/Classroom';
 import {Router} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -12,7 +13,7 @@ import {Router} from '@angular/router';
 export class ListComponentClass implements OnInit {
 
   clases: Classroom[];
-  constructor(private service: ServiceService, private router: Router) { }
+  constructor(private service: ServiceService, private router: Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.service.getClass()
@@ -31,7 +32,8 @@ export class ListComponentClass implements OnInit {
     this.service.deleteClass(clases)
     .subscribe(data=>{
       this.clases=this.clases.filter(u=>u!=clases);
-      alert("Se elimino una clase!");
+      this.toastr.success('Se ha eliminado un aula','¡Éxito!',
+      {timeOut: 1500,progressBar:true,progressAnimation:'increasing'});
     })
   }
 

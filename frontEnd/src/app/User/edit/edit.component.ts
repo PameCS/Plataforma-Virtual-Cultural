@@ -3,6 +3,7 @@ import { ServiceService } from 'src/app/Service/service.service';
 import { User } from 'src/app/Model/User';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -11,7 +12,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class EditComponent implements OnInit {
 
   user: User = new User();
-  constructor(private router: Router, private service: ServiceService, private fb: FormBuilder) { }
+  constructor(private router: Router, private service: ServiceService, private fb: FormBuilder,private toastr: ToastrService) { }
   userForm = this.fb.group({
     Id : [''],
     Userpassword: ['', [Validators.required, Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$')]],
@@ -41,7 +42,8 @@ export class EditComponent implements OnInit {
     this.service.updateUser(user)
       .subscribe(data => {
         this.user = data;
-        alert("Se actualizo con exito el usuario!!");
+        this.toastr.success('Se ha actualizado el usuario','¡Éxito!',
+        {timeOut: 1500,progressBar:true,progressAnimation:'increasing'});
         this.router.navigate(["list"])
       })
   }

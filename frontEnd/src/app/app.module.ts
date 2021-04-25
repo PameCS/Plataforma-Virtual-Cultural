@@ -34,6 +34,9 @@ import {YouTubePlayerModule} from '@angular/youtube-player';
 import { CourseCatalogComponent } from './course-catalog/course-catalog.component';
 import { ClassroomCatalogComponent } from './classroom-catalog/classroom-catalog.component';
 import { EventCatalogComponent } from './event-catalog/event-catalog.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -70,7 +73,10 @@ import { EventCatalogComponent } from './event-catalog/event-catalog.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    NoopAnimationsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [ServiceService, authInterceptorProviders],
   bootstrap: [AppComponent]

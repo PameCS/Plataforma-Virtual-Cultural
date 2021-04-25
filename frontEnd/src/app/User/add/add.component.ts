@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/Service/auth.service';
 import { TokenStorageService } from 'src/app/Service/token-storage.service';
 
@@ -19,7 +20,7 @@ export class AddComponent implements OnInit {
   username: string;
 
   
-  constructor(private authService: AuthService,private tokenStorageService: TokenStorageService) {
+  constructor(private authService: AuthService,private tokenStorageService: TokenStorageService,private toastr: ToastrService) {
    }
 
   ngOnInit(): void {
@@ -40,6 +41,8 @@ export class AddComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        this.toastr.success('Se ha agregado un usuario','¡Éxito!',
+        {timeOut: 1500,progressBar:true,progressAnimation:'increasing'});
       },
       err => {
         this.errorMessage = err.error.message;

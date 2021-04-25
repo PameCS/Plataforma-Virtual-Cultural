@@ -1,172 +1,179 @@
 {
-    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-    "version": 1,
-    "newProjectRoot": "projects",
-    "projects": {
-        "centro-cultural": {
-            "projectType": "application",
-            "schematics": {},
-            "root": "",
-            "sourceRoot": "src",
-            "prefix": "app",
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
-                    "options": {
-                        "outputPath": "dist/centro-cultural",
-                        "index": "src/index.html",
-                        "main": "src/main.ts",
-                        "polyfills": "src/polyfills.ts",
-                        "tsConfig": "tsconfig.app.json",
-                        "aot": true,
-                        "assets": [
-                            "src/favicon.ico",
-                            "src/assets"
-                        ],
-                        "styles": [
-                            "node_modules/bootstrap/dist/css/bootstrap.min.css",
-                            "src/styles.css",
-                            "src/assets/css/presets/preset3.css",
-                            "src/assets/plugins/fontawesome/font-awesome.min.css",
-                            "src/assets/plugins/animate.css",
-                            "src/assets/plugins/prettyPhoto.css",
-                            "src/assets/plugins/cd-hero/cd-hero.css",
-                            "src/assets/plugins/owl/owl.carousel.css",
-                            "src/assets/plugins/owl/owl.theme.css",
-                            "node_modules/flexslider/flexslider.css"
-                        ],
-                        "scripts": [ "src/assets/plugins/jquery.prettyPhoto.js",
-                            "src/assets/plugins/cd-hero/cd-hero.js",
-                            "src/assets/plugins/owl/owl.carousel.js",
-                            "src/assets/plugins/style-switcher.js",
-                            "src/assets/plugins/isotope.js",
-                            "node_modules/flexslider/jquery.flexslider.js",
-                            "src/assets/plugins/ini.isotope.js",
-                            "src/assets/plugins/wow.min.js",
-                            "src/assets/plugins/jquery.easing.1.3.js",
-                            "src/assets/plugins/jquery.counterup.min.js",
-                            "src/assets/plugins/waypoints.min.js",
-                            "src/assets/plugins/google-map/gmap.js",
-                            "src/assets/js/script.js",
-                            "src/assets/plugins/bootstrap/bootstrap.min.js"
-                            
-                            ]
-                    },
-                    "configurations": {
-                        "production": {
-                            "fileReplacements": [{
-                                "replace": "src/environments/environment.ts",
-                                "with": "src/environments/environment.prod.ts"
-                            }],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "extractCss": true,
-                            "namedChunks": false,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true,
-                            "budgets": [{
-                                    "type": "initial",
-                                    "maximumWarning": "2mb",
-                                    "maximumError": "5mb"
-                                },
-                                {
-                                    "type": "anyComponentStyle",
-                                    "maximumWarning": "6kb",
-                                    "maximumError": "10kb"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
-                    "options": {
-                        "browserTarget": "centro-cultural:build"
-                    },
-                    "configurations": {
-                        "production": {
-                            "browserTarget": "centro-cultural:build:production"
-                        }
-                    }
-                },
-                "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
-                    "options": {
-                        "browserTarget": "centro-cultural:build"
-                    }
-                },
-                "test": {
-                    "builder": "@angular-devkit/build-angular:karma",
-                    "options": {
-                        "main": "src/test.ts",
-                        "polyfills": "src/polyfills.ts",
-                        "tsConfig": "tsconfig.spec.json",
-                        "karmaConfig": "karma.conf.js",
-                        "assets": [
-                            "src/favicon.ico",
-                            "src/assets"
-                        ],
-                        "styles": ["../node_modules/bootstrap/dist/css/bootstrap.min.css",
-                            "../src/styles.css",
-                            "../src/assets/css/presets/preset3.css",
-                            "../src/assets/plugins/fontawesome/font-awesome.min.css",
-                            "../src/assets/plugins/animate.css",
-                            "../src/assets/plugins/prettyPhoto.css",
-                            "../src/assets/plugins/owl/owl.carousel.css",
-                            "../src/assets/plugins/owl/owl.theme.css",
-                            "../node_modules/flexslider/flexslider.css",
-                            "../src/assets/plugins/cd-hero/cd-hero.css"
-                        ],
-                        "scripts": ["src/assets/plugins/jQuery/dist/jquery.min.js",
-                            "src/assets/plugins/bootstrap/bootstrap.min.js",
-                            "src/assets/plugins/style-switcher.js",
-                            "src/assets/plugins/owl/owl.carousel.js",
-                            "src/assets/plugins/jquery.prettyPhoto.js",
-                            "src/assets/plugins/cd-hero/cd-hero.js",
-                            "src/assets/plugins/isotope.js",
-                            "src/assets/plugins/ini.isotope.js",
-                            "src/assets/plugins/wow.min.js",
-                            "src/assets/plugins/jquery.easing.1.3.js",
-                            "src/assets/plugins/jquery.counterup.min.js",
-                            "src/assets/plugins/waypoints.min.js",
-                            "https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places",
-                            "src/assets/plugins/google-map/gmap.js",
-                            "src/assets/js/script.js",
-                            "../node_modules/jquery/dist/jquery.min.js",
-                            "../node_modules/flexslider/jquery.flexslider.js"
-
-                        ]
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "tsconfig.app.json",
-                            "tsconfig.spec.json",
-                            "e2e/tsconfig.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
-                    }
-                },
-                "e2e": {
-                    "builder": "@angular-devkit/build-angular:protractor",
-                    "options": {
-                        "protractorConfig": "e2e/protractor.conf.js",
-                        "devServerTarget": "centro-cultural:serve"
-                    },
-                    "configurations": {
-                        "production": {
-                            "devServerTarget": "centro-cultural:serve:production"
-                        }
-                    }
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "centro-cultural": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/centro-cultural",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css",
+              "src/assets/css/presets/preset3.css",
+              "src/assets/plugins/fontawesome/font-awesome.min.css",
+              "src/assets/plugins/animate.css",
+              "src/assets/plugins/prettyPhoto.css",
+              "src/assets/plugins/cd-hero/cd-hero.css",
+              "src/assets/plugins/owl/owl.carousel.css",
+              "src/assets/plugins/owl/owl.theme.css",
+              "node_modules/flexslider/flexslider.css",
+              "node_modules/ngx-toastr/toastr.css"
+            ],
+            "scripts": [
+              "src/assets/plugins/jquery.prettyPhoto.js",
+              "src/assets/plugins/cd-hero/cd-hero.js",
+              "src/assets/plugins/owl/owl.carousel.js",
+              "src/assets/plugins/style-switcher.js",
+              "src/assets/plugins/isotope.js",
+              "node_modules/flexslider/jquery.flexslider.js",
+              "src/assets/plugins/ini.isotope.js",
+              "src/assets/plugins/wow.min.js",
+              "src/assets/plugins/jquery.easing.1.3.js",
+              "src/assets/plugins/jquery.counterup.min.js",
+              "src/assets/plugins/waypoints.min.js",
+              "src/assets/plugins/google-map/gmap.js",
+              "src/assets/js/script.js",
+              "src/assets/plugins/bootstrap/bootstrap.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
             }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "centro-cultural:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "centro-cultural:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "centro-cultural:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "../src/styles.css",
+              "../src/assets/css/presets/preset3.css",
+              "../src/assets/plugins/fontawesome/font-awesome.min.css",
+              "../src/assets/plugins/animate.css",
+              "../src/assets/plugins/prettyPhoto.css",
+              "../src/assets/plugins/owl/owl.carousel.css",
+              "../src/assets/plugins/owl/owl.theme.css",
+              "../node_modules/flexslider/flexslider.css",
+              "../src/assets/plugins/cd-hero/cd-hero.css"
+            ],
+            "scripts": [
+              "src/assets/plugins/jQuery/dist/jquery.min.js",
+              "src/assets/plugins/bootstrap/bootstrap.min.js",
+              "src/assets/plugins/style-switcher.js",
+              "src/assets/plugins/owl/owl.carousel.js",
+              "src/assets/plugins/jquery.prettyPhoto.js",
+              "src/assets/plugins/cd-hero/cd-hero.js",
+              "src/assets/plugins/isotope.js",
+              "src/assets/plugins/ini.isotope.js",
+              "src/assets/plugins/wow.min.js",
+              "src/assets/plugins/jquery.easing.1.3.js",
+              "src/assets/plugins/jquery.counterup.min.js",
+              "src/assets/plugins/waypoints.min.js",
+              "https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places",
+              "src/assets/plugins/google-map/gmap.js",
+              "src/assets/js/script.js",
+              "../node_modules/jquery/dist/jquery.min.js",
+              "../node_modules/flexslider/jquery.flexslider.js"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "centro-cultural:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "centro-cultural:serve:production"
+            }
+          }
         }
-    },
-    "defaultProject": "centro-cultural"
+      }
+    }
+  },
+  "defaultProject": "centro-cultural"
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Classroom } from 'src/app/Model/Classroom';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class EditComponentClass implements OnInit {
 
   classroom :Classroom=new Classroom();
-  constructor(private router:Router,private service:ServiceService) { }
+  constructor(private router:Router,private service:ServiceService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.Edit();
@@ -30,7 +31,8 @@ export class EditComponentClass implements OnInit {
     this.service.updateClass(classroom)
     .subscribe(data=>{
       this.classroom=data;
-      alert("Se actualizo con exito!!");
+      this.toastr.success('Se ha actualizado un aula','¡Éxito!',
+      {timeOut: 1500,progressBar:true,progressAnimation:'increasing'});
       this.router.navigate(["listClassroom"])
     })
   }

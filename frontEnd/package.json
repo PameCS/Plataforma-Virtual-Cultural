@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~10.1.2",
+    "@angular/animations": "^10.1.6",
     "@angular/cdk": "^10.2.7",
     "@angular/common": "~10.1.2",
     "@angular/compiler": "~10.1.2",
@@ -25,6 +25,7 @@
     "@types/jquery": "^3.5.5",
     "angular-flexslider-nsp": "^2.0.5",
     "bootstrap": "^4.5.2",
+    "ngx-toastr": "^13.2.1",
     "rxjs": "~6.6.0",
     "script-loader": "^0.7.2",
     "tslib": "^2.0.0",

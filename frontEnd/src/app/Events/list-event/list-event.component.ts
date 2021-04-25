@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Event } from 'src/app/Model/Event';
 import {UserService } from '../../Service/user.service';
 import {Router} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-list-event',
@@ -11,7 +12,7 @@ import {Router} from '@angular/router';
 export class ListEventComponent implements OnInit {
   events: Event[];
   content: string;
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.userService.getEvent()
@@ -32,7 +33,8 @@ export class ListEventComponent implements OnInit {
     this.userService.deleteEvent(events)
     .subscribe(data=>{
       this.events=this.events.filter(u=>u!=events);
-      alert("Se elimino un evento!");
+      this.toastr.success('Se ha eliminado un evento','¡Éxito!',
+      {timeOut: 1500,progressBar:true,progressAnimation:'increasing'});
     })
   }
 

@@ -142,26 +142,25 @@
             </div>
           </div>
         </div>
-        
         <div class="icon1">
           <input
-            type="text"
+            type="number"
             class="form-control"
-            name="address"
-            [(ngModel)]="form.address"
+            name="tel"
+            [(ngModel)]="form.tel"
             required
-            minlength="3"
-            maxlength="20"
-            #address="ngModel"
-            placeholder= "Dirección"
+            minlength="8"
+            maxlength="8"
+            #tel="ngModel"
+            placeholder= "Teléfono"
           />
-          <div class="alert-danger" *ngIf="f.submitted && address.invalid">
-            <div *ngIf="address.errors.required">La dirección es requerida</div>
-            <div *ngIf="address.errors.minlength">
-              El nombre debe tener mínimo 3 caracteres
+          <div class="alert-danger" *ngIf="f.submitted && tel.invalid">
+            <div *ngIf="tel.errors.required">El teléfono es requerida</div>
+            <div *ngIf="tel.errors.minlength">
+              El teléfono debe tener mínimo 8 dígitos
             </div>
-            <div *ngIf="address.errors.maxlength">
-              El nombre debe tener máximo 20 caracteres
+            <div *ngIf="tel.errors.maxlength">
+              El teléfono debe tener máximo 8 dígitos
             </div>
           </div>
         </div>

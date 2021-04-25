@@ -1,10 +1,12 @@
 package com.backEnd.demo.Service.impl;
 
+import com.backEnd.demo.Model.Course;
 import com.backEnd.demo.Service.UserService;
 import com.backEnd.demo.Repository.userRepository;
 import com.backEnd.demo.Model.User;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,10 +50,19 @@ public class userServiceImp implements UserService {
         List<User> professors = new ArrayList<>();
         List<User> list = repository.findAll();
         for (int i = 0; i < list.size()-1; i++) {
+            if(list.get(i).getType() != null){
             if (list.get(i).getType().equals("Profesor")) {
                 professors.add(list.get(i));
             }
+            }
         }
         return professors;
+    }
+
+    @Override
+    public Set<Course> listMyCourses(String id) {
+        User user = repository.findByidUser(id).get();
+        Set<Course> listCourses = user.getCourses();
+        return listCourses;
     }
 }

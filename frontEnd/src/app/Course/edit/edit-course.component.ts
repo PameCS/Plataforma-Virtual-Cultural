@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Course } from 'src/app/Model/Course';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-course',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 export class EditCourseComponent implements OnInit {
 
   course :Course=new Course();
-  constructor(private router:Router,private service:ServiceService) { }
+  constructor(private router:Router,private service:ServiceService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.Edit();
@@ -32,7 +33,8 @@ export class EditCourseComponent implements OnInit {
     this.service.updateCourse(course)
     .subscribe(data=>{
       this.course=data;
-      alert("Se actualizo con exito!!");
+      this.toastr.success('Se ha editado un curso','¡Éxito!',
+      {timeOut: 1500,progressBar:true,progressAnimation:'increasing'});
       this.router.navigate(["listCourse"])
     })
   }

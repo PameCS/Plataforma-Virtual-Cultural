@@ -3,6 +3,7 @@ import { ServiceService } from 'src/app/Service/service.service';
 import { Router } from '@angular/router';
 import { Event } from 'src/app/Model/Event'
 import { FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-event',
@@ -12,7 +13,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class EditEventComponent implements OnInit {
 
   event: Event = new Event();
-  constructor(private router: Router, private service: ServiceService, private fb: FormBuilder) { }
+  constructor(private router: Router, private service: ServiceService, private fb: FormBuilder,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.Edit();
@@ -42,7 +43,8 @@ export class EditEventComponent implements OnInit {
     this.service.updateEvent(event)
       .subscribe(data => {
         this.event = data;
-        alert("Se actualizo con exito!!");
+        this.toastr.success('Se ha actualizado un curso','¡Éxito!',
+        {timeOut: 1500,progressBar:true,progressAnimation:'increasing'});
         this.router.navigate(["listEvent"])
       })
   }

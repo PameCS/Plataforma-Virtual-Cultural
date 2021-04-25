@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ServiceService } from '../../Service/service.service';
 import {User} from 'src/app/Model/User';
 import {Router} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-list',
@@ -11,7 +12,7 @@ import {Router} from '@angular/router';
 export class ListProfessorsComponent implements OnInit {
 
   users: User[];
-  constructor(private service: ServiceService, private router: Router) { }
+  constructor(private service: ServiceService, private router: Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.service.getProfessorUsers()
@@ -30,7 +31,8 @@ export class ListProfessorsComponent implements OnInit {
     this.service.deleteUser(user)
     .subscribe(data=>{
       this.users=this.users.filter(u=>u!=user);
-      alert("Se elimino un usuario!");
+      this.toastr.success('Se ha agregado un usuario','¡Éxito!',
+      {timeOut: 1500,progressBar:true,progressAnimation:'increasing'});
     })
   }
 

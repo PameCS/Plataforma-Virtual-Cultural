@@ -60,7 +60,7 @@
                             <!-- Portfolio Modal - Text-->
                             <p class="mb-5">Modalidad: {{course.mode}} <br> Fecha de inicio: {{course.startDate}}<br> 
                                     Fecha de finalización: {{course.finishDate}} <br> Horario: {{course.shedule}} <br>  Profesor(a): {{course.professor}} </p>
-                          <button class="btn btn-primary" data-dismiss="modal">
+                          <button *ngIf="showUser"  (click)="Enroll(course)" class="btn btn-primary" data-dismiss="modal">
                              
                                 MATRICULAR
                             </button>

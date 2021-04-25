@@ -63,7 +63,7 @@ public class courseServiceImp implements courseService {
             //c.setUsers(users);
             u.setCourses(courses);
             courseService.edit(c);
-            //userService.edit(u);
+            userService.edit(u);
             
         } catch (Exception ex) {
             System.out.print(ex);

@@ -3,6 +3,7 @@ import { Event } from 'src/app/Model/Event'
 import {ServiceService } from '../../Service/service.service';
 import {Router} from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-event',
@@ -12,7 +13,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class AddEventComponent implements OnInit {
 
   event: Event = new Event();
-  constructor(private router: Router, private service: ServiceService,private fb: FormBuilder) {
+  constructor(private router: Router, private service: ServiceService,private fb: FormBuilder,private toastr: ToastrService) {
    }
 
   ngOnInit(): void {
@@ -36,7 +37,8 @@ export class AddEventComponent implements OnInit {
     if(this.eventForm.valid){
       this.service.createEvent(this.event)
       .subscribe(data => {
-        alert('¡Se agregó con exito!');
+        this.toastr.success('Se ha agregado un evento','¡Éxito!',
+        {timeOut: 1500,progressBar:true,progressAnimation:'increasing'});
         this.router.navigate(['listEvent']);
       });
     }

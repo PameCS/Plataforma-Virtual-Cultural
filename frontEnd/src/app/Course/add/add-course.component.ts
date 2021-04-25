@@ -3,6 +3,7 @@ import { Course } from 'src/app/Model/Course';
 import {ServiceService } from '../../Service/service.service';
 import {Router} from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-course',
@@ -12,7 +13,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class AddCourseComponent implements OnInit {
 
   course: Course = new Course();
-  constructor(private router: Router, private service: ServiceService,private fb: FormBuilder) {
+  constructor(private router: Router, private service: ServiceService,private fb: FormBuilder,private toastr: ToastrService) {
    }
   ngOnInit(): void {
   }
@@ -44,7 +45,8 @@ export class AddCourseComponent implements OnInit {
     if(this.courseForm.valid){
       this.service.createCourse(this.course)
       .subscribe(data => {
-        alert('¡Se agregó con exito!');
+        this.toastr.success('Se ha agregado un curso','¡Éxito!',
+        {timeOut: 1500,progressBar:true,progressAnimation:'increasing'});
         this.router.navigate(['listCourse']);
       });
     }
