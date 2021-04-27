@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../Model/User';
 import { Classroom } from '../Model/Classroom';
+import { Advertisement } from '../Model/Advertisement';
 import { Course } from '../Model/Course';
 import { Event } from '../Model/Event';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { CourseRequest } from '../Model/CourseRequest';
 import { ClassRequest } from '../Model/ClassRequest';
 
@@ -12,6 +13,7 @@ const API_URL = 'http://localhost:8084/api/test/';
 const Url = 'http://localhost:8084/users';
 const Urlclass = 'http://localhost:8084/classroom';
 const Urlcourse = 'http://localhost:8084/course';
+const Urladvertisement = 'http://localhost:8084/Advertisement';
 const UrlclassRequest = 'http://localhost:8084/classroomRequest';
 const UrlcourseRequest = 'http://localhost:8084/courseRequest';
 const Urlevent = 'http://localhost:8084/event';
@@ -181,4 +183,25 @@ export class UserService {
   deleteEvent(event: Event) {
     return this.http.delete<Event>(Urlevent + "/" + event.pk_idEvent);
   }
+  //----------------------------------Advertisement module----------------------------------------------
+  getAdvertisement() {
+    return this.http.get<Advertisement[]>(Urladvertisement);
+  }
+
+  createAvertisement(Advertisement: Advertisement) {
+    return this.http.post<Advertisement>(Urladvertisement, Advertisement);
+  }
+
+  getAdvertisementid(id: number) {
+    return this.http.get<Advertisement>(Urladvertisement + "/" + id);
+  }
+
+  updateAdvertisement(Advertisement: Advertisement) {
+    return this.http.put<Advertisement>(Urladvertisement+ "/" + Advertisement.pk_AdCode, Advertisement);
+  }
+
+  deleteAdvertisement(Advertisement: Advertisement) {
+    return this.http.delete<Advertisement>(Urladvertisement + "/" + Advertisement.pk_AdCode);
+}
+
 }

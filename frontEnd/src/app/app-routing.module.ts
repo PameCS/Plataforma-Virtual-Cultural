@@ -9,7 +9,9 @@ import {AddComponentClass} from './classroom/add/add.componentClass';
 import {ListCourseComponent} from './Course/list/list-course.component';
 import {EditCourseComponent} from './Course/edit/edit-course.component';
 import {AddCourseComponent} from './Course/add/add-course.component';
-
+import {AddComponentAdvertisement} from './advertisements/add/add.componentAdvertisement';
+import {EditComponentAdvertisement} from './advertisements/edit/edit.componentAdvertisement';
+import {ListComponentAdvertisement} from './advertisements/list/list.componentAdvertisement';
 import { AddEventComponent } from './Events/add-event/add-event.component';
 import { ListEventComponent } from './Events/list-event/list-event.component';
 import { EditEventComponent } from './Events/edit-event/edit-event.component';
@@ -27,6 +29,9 @@ const routes: Routes = [
   {path: 'list', component: ListComponent},
   {path: 'add', component: AddComponent},
   {path: 'edit', component: EditComponent},
+  {path: 'listAd', component: AddComponentAdvertisement},
+  {path: 'editAd', component: EditComponentAdvertisement},
+  {path: 'addAd', component: ListComponentAdvertisement},
   {path: 'listClassroom', component: ListComponentClass},
   {path: 'editClass' , component: EditComponentClass},
   {path: 'addClass', component: AddComponentClass},

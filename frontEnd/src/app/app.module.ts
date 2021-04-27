@@ -13,11 +13,12 @@ import { EditComponentClass } from './classroom/edit/edit.componentClass';
 import { ListComponentClass } from './classroom/list/list.componentClass';
 import {ServiceService} from '../app/Service/service.service';
 import {HttpClientModule} from '@angular/common/http';
-
+import {AddComponentAdvertisement} from './advertisements/add/add.componentAdvertisement';
+import {EditComponentAdvertisement} from './advertisements/edit/edit.componentAdvertisement';
+import {ListComponentAdvertisement} from './advertisements/list/list.componentAdvertisement';
 import { ListCourseComponent } from './Course/list/list-course.component';
 import { AddCourseComponent } from './Course/add/add-course.component';
 import { EditCourseComponent } from './Course/edit/edit-course.component';
-
 import { AddEventComponent } from './Events/add-event/add-event.component';
 import { EditEventComponent } from './Events/edit-event/edit-event.component';
 import { ListEventComponent } from './Events/list-event/list-event.component';
@@ -45,6 +46,9 @@ import {ToastrModule} from "ngx-toastr";
     AddComponent,
     EditComponent,
     ListComponent,
+    AddComponentAdvertisement,
+    EditComponentAdvertisement,
+    ListComponentAdvertisement,
     AddComponentClass,
     EditComponentClass,
     ListComponentClass,

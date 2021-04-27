@@ -24,6 +24,9 @@ export class AppComponent {
   ListEvent(){
     this.router.navigate(['listEvent']);
   }
+  ListAdvertisement(){
+    this.router.navigate(['listAd']);
+  }
   // tslint:disable-next-line: typedef
   Add(){
     this.router.navigate(['add']);
@@ -33,6 +36,9 @@ export class AppComponent {
   }
   AddCourse(){
     this.router.navigate(['addCourse']);
+  }
+  AddAdvertisement(){
+    this.router.navigate(['addAd']);
   }
   AddEvent(){
     this.router.navigate(['addEvent'])
@@ -53,4 +59,8 @@ export class AppComponent {
     this.router.navigate(['editEvent']);
 
   }
+  EditAdvertisement(){
+    this.router.navigate(['editAd']);
+  }
+
 }

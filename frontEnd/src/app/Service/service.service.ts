@@ -4,6 +4,7 @@ import { User } from '../Model/User';
 import { Classroom } from '../Model/Classroom';
 import { Course } from '../Model/Course';
 import { Event } from '../Model/Event';
+import { Advertisement } from '../Model/Advertisement';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class ServiceService {
   Urlclass = 'http://localhost:8084/classroom';
   Urlcourse = 'http://localhost:8084/course';
   Urlevent = 'http://localhost:8084/event';
+  Urladvertisement =  'http://localhost:8084/Advertisement';
   UrlListProfessor = 'http://localhost:8084/users/listProfessors';
 
   //------------------------------users module----------------------------------------------
@@ -87,6 +89,26 @@ export class ServiceService {
 
   deleteCourse(course: Course) {
     return this.http.delete<Course>(this.Urlcourse + "/" + course.pk_courseCode);
+  }
+  //----------------------------------Advertisement module----------------------------------------------
+  getAdvertisement() {
+    return this.http.get<Advertisement[]>(this.Urladvertisement);
+  }
+
+  createAvertisement(Advertisement: Advertisement) {
+    return this.http.post<Advertisement>(this.Urladvertisement, Advertisement);
+  }
+
+  getAdvertisementid(id: number) {
+    return this.http.get<Advertisement>(this.Urladvertisement + "/" + id);
+  }
+
+  updateAdvertisement(Advertisement: Advertisement) {
+    return this.http.put<Advertisement>(this.Urladvertisement+ "/" + Advertisement.pk_AdCode, Advertisement);
+  }
+
+  deleteAdvertisement(Advertisement: Advertisement) {
+    return this.http.delete<Advertisement>(this.Urladvertisement + "/" + Advertisement.pk_AdCode);
   }
   //--------------------------Event module------------------------------
   getEvent() {

@@ -1,0 +1,28 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h3>Editar anuncios</h3>
+        </div>
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                    <label for="">Id:</label>
+                    <input type="number" [(ngModel)]="Advertisement.pk_idAd" name="pk_idAd" class="form-control" readonly=»readonly»>
+                </div>
+               
+                <div class="form-group">
+                    <label for="">Descrip:</label>
+                    <input type="text" [(ngModel)]="Advertisement.Descrip" name="Descrip" class="form-control">
+                </div>
+              
+               <button (click)="Update(Advertisement)" class="btn btn-danger">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
