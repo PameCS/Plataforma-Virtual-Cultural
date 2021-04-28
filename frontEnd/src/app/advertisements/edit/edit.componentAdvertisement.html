@@ -12,12 +12,12 @@
             <form action="">
                 <div class="form-group">
                     <label for="">Id:</label>
-                    <input type="number" [(ngModel)]="Advertisement.pk_idAd" name="pk_idAd" class="form-control" readonly=»readonly»>
+                    <input type="number" [(ngModel)]="Advertisement.pk_AdCode" name="pk_idAd" class="form-control" readonly=»readonly»>
                 </div>
                
                 <div class="form-group">
                     <label for="">Descrip:</label>
-                    <input type="text" [(ngModel)]="Advertisement.Descrip" name="Descrip" class="form-control">
+                    <input type="text" [(ngModel)]="Advertisement.Description" name="Descrip" class="form-control">
                 </div>
               
                <button (click)="Update(Advertisement)" class="btn btn-danger">Actualizar</button>

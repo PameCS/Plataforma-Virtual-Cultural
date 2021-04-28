@@ -1,7 +1,9 @@
 package com.backEnd.demo.Controller;
 
 import com.backEnd.demo.Model.Course;
+import com.backEnd.demo.Model.CourseAds;
 import com.backEnd.demo.Model.User;
+import com.backEnd.demo.Service.CourseAdsService;
 import com.backEnd.demo.Service.UserService;
 import com.backEnd.demo.Service.courseService;
 import com.backEnd.demo.payload.response.MessageResponse;
@@ -27,6 +29,9 @@ public class ControllerCourse {
 
     @Autowired
     courseService service;
+    
+    @Autowired
+    CourseAdsService courseAdsservice;
 
     @Autowired
     UserService user;
@@ -79,6 +84,21 @@ public class ControllerCourse {
                     .body(new MessageResponse("Error: Ya no hay más cupos este curso!"));
         }
         return ResponseEntity.ok(new MessageResponse("¡Se ha matriculado con éxito!"));
+    }
+
+     @PostMapping(path = {"/CourseAds/{id}"})
+    public ResponseEntity<?> addCourseAds(@RequestBody String c, @PathVariable("id") int id) {
+        if (c != null) {
+            CourseAds newAd = new CourseAds(c);
+            courseAdsservice.add(newAd);
+            Course course = service.listId(id);
+            service.addCourseAds(course,newAd);
+        } else {
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse("Error: No se pudo agregar el aviso correctamente!"));
+        }
+        return ResponseEntity.ok(new MessageResponse("¡Se ha agregado un nuevo aviso!"));
     }
 
 }

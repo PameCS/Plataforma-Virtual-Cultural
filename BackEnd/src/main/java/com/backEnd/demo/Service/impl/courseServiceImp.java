@@ -3,8 +3,8 @@ package com.backEnd.demo.Service.impl;
 import com.backEnd.demo.Service.courseService;
 import com.backEnd.demo.Repository.courseRepository;
 import com.backEnd.demo.Model.Course;
+import com.backEnd.demo.Model.CourseAds;
 import com.backEnd.demo.Model.User;
-import com.backEnd.demo.Repository.userRepository;
 import com.backEnd.demo.Service.UserService;
 import java.util.List;
 import java.util.Set;
@@ -16,7 +16,7 @@ public class courseServiceImp implements courseService {
 
     @Autowired
     private courseRepository repository;
-
+    
     @Autowired
     courseService courseService;
 
@@ -64,6 +64,20 @@ public class courseServiceImp implements courseService {
             u.setCourses(courses);
             courseService.edit(c);
             userService.edit(u);
+            
+        } catch (Exception ex) {
+            System.out.print(ex);
+        }
+        return c;
+    }
+    
+    @Override
+    public Course addCourseAds(Course c, CourseAds curAds){
+     try {
+            Set<CourseAds> coursesAds = c.getAds();
+            coursesAds.add(curAds);
+            c.setAds(coursesAds);
+            courseService.edit(c);
             
         } catch (Exception ex) {
             System.out.print(ex);

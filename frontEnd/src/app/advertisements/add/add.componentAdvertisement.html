@@ -7,21 +7,21 @@
             <form [formGroup]="adForm" action="">
                 <div class="form-group">
                     <label for="">Id:</label>
-                    <input type="number" [(ngModel)]="Advertisement.pk_idAd" name="pk_idAd" formControlName="Id" class="form-control">
+                    <input type="number" [(ngModel)]="Advertisement.pk_AdCode" name="pk_idAd" formControlName="Id" class="form-control">
                 </div>
         
          
                 <div class="form-group">
                     <label for="">Descripcion:</label>
-                    <input type="text" [(ngModel)]="Advertisement.Descrip" name="Descrip" formControlName="AdDescrip" class="form-control">
-                    <div class="alert alert-danger" *ngIf="Descrip.invalid && (Descrip.dirty || Descrip.touched)">
-                        <div class="container-error-message" *ngIf="Descrip.errors.required">
+                    <input type="text" [(ngModel)]="Advertisement.Description" name="descrip" formControlName="descrip" class="form-control">
+                    <div class="alert alert-danger" *ngIf="descrip.invalid && (descrip.dirty ||descrip.touched)">
+                        <div class="container-error-message" *ngIf="descrip.errors.required">
                           La Descrip es un campo obligatorio
                         </div>
-                        <div class="container-error-message" *ngIf="Descrip.errors.pattern">
+                        <div class="container-error-message" *ngIf="descrip.errors.pattern">
                             Caracteres no válidos
                           </div>
-                          <div class="container-error-message" *ngIf="Descrip.errors.maxlength">
+                          <div class="container-error-message" *ngIf="descrip.errors.maxlength">
                             Tamaño máximo 100 caracteres
                           </div>
                     </div>

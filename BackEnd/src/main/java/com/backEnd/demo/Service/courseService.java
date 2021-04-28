@@ -1,6 +1,7 @@
 package com.backEnd.demo.Service;
 
 import com.backEnd.demo.Model.Course;
+import com.backEnd.demo.Model.CourseAds;
 import com.backEnd.demo.Model.User;
 import java.util.List;
 import java.util.Set;
@@ -14,4 +15,5 @@ public interface courseService {
     Course delete(int id);
     Course enroll(Course c, User u);
     Set<User> listStudents(int id);
+    Course addCourseAds(Course c, CourseAds curAds);
 }

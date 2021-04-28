@@ -41,6 +41,11 @@ public class Course {
     @JoinTable(name = "T_USER_COURSES",
             joinColumns = @JoinColumn(name = "FK_UserId"))
     private Set<User> users = new HashSet<>();
+    
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "T_COURSE_ADS",
+            joinColumns = @JoinColumn(name = "FK_Id"))
+    private Set<CourseAds> ads = new HashSet<>();
 
     public int getStudentQuantity() {
         return studentQuantity;
@@ -112,6 +117,22 @@ public class Course {
 
     public void setUsers(Set<User> users) {
         this.users = users;
+    }
+
+    public int getPK_idCourse() {
+        return PK_idCourse;
+    }
+
+    public void setPK_idCourse(int PK_idCourse) {
+        this.PK_idCourse = PK_idCourse;
+    }
+
+    public Set<CourseAds> getAds() {
+        return ads;
+    }
+
+    public void setAds(Set<CourseAds> ads) {
+        this.ads = ads;
     }
 
     public boolean isEnroll(User u) {

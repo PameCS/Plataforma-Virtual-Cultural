@@ -25,6 +25,10 @@ import {CourseCatalogComponent} from './course-catalog/course-catalog.component'
 import {ClassroomCatalogComponent} from './classroom-catalog/classroom-catalog.component';
 import {EventCatalogComponent} from './event-catalog/event-catalog.component';
 import {ListProfessorsComponent} from './User/listProfesors/listProfessors.component';
+import {LoginVirtualClassroomComponent} from './login-virtual-classroom/login-virtual-classroom.component';
+import {VirtualClassroomComponent} from './virtual-classroom/virtual-classroom.component';
+import { HomeVirtualClassRoomComponent } from './home-virtual-class-room/home-virtual-class-room.component';
+
 const routes: Routes = [
   {path: 'list', component: ListComponent},
   {path: 'add', component: AddComponent},
@@ -51,6 +55,9 @@ const routes: Routes = [
   {path: 'classroomCatalog',component: ClassroomCatalogComponent},
   {path: 'eventCatalog',component: EventCatalogComponent},
   {path: 'professorList',component: ListProfessorsComponent},
+  {path:'loginVirtualClass',component: LoginVirtualClassroomComponent},
+  {path:'virtualClassroom',component: VirtualClassroomComponent},
+  {path: 'HomeVirtualClassRoom', component: HomeVirtualClassRoomComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

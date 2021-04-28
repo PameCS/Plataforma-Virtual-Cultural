@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +8,10 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'centro-cultural';
-  constructor(private router: Router){}
-
+  visible:boolean=true;
+  
+  constructor(private router: Router,private activatedRoute:ActivatedRoute){}
+  
   // tslint:disable-next-line: typedef
   List(){
     this.router.navigate(['list']);

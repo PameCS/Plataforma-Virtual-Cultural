@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../Service/token-storage.service';
 import { Course } from 'src/app/Model/Course';
 import {UserService } from '../Service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +19,7 @@ export class HeaderComponent implements OnInit {
   showUserBoard = false;
   username: string;
 
-  constructor(private tokenStorageService: TokenStorageService,private service: UserService) { }
+  constructor(private tokenStorageService: TokenStorageService,private service: UserService,private router: Router) { }
 
   ngOnInit() {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -36,6 +37,11 @@ export class HeaderComponent implements OnInit {
       this.courses = data;
     });
     }
+  }
+
+  courseHome(courses: Course):void{
+    localStorage.setItem("pk_courseCode",courses.pk_courseCode.toString());
+    this.router.navigate(["HomeVirtualClassRoom"]);
   }
   
   logout(): void {

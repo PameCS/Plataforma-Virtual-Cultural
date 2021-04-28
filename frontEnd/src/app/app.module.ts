@@ -38,6 +38,11 @@ import { EventCatalogComponent } from './event-catalog/event-catalog.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastrModule} from "ngx-toastr";
+import { LoginVirtualClassroomComponent } from './login-virtual-classroom/login-virtual-classroom.component';
+import { VirtualClassroomComponent } from './virtual-classroom/virtual-classroom.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeVirtualClassRoomComponent } from './home-virtual-class-room/home-virtual-class-room.component';
+import { SpaceAssignmentComponent } from './space-assignment/space-assignment.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +74,12 @@ import {ToastrModule} from "ngx-toastr";
     CourseCatalogComponent,
     ClassroomCatalogComponent,
     EventCatalogComponent,
-    ListProfessorsComponent
+    ListProfessorsComponent,
+    LoginVirtualClassroomComponent,
+    VirtualClassroomComponent,
+    DashboardComponent,
+    HomeVirtualClassRoomComponent,
+    SpaceAssignmentComponent
   ],
   imports: [
     BrowserModule,
