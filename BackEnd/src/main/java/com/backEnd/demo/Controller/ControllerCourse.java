@@ -71,7 +71,7 @@ public class ControllerCourse {
     public ResponseEntity<?> enroll(@RequestBody Course c, @PathVariable("id") String id) {
         if (c != null && id != null && c.getStudentQuantity() > 0) {
             User u = user.listId(id);
-            if (!c.isEnroll(u)) {
+            if (!u.isEnroll(c)) {
                 service.enroll(c, u);
             } else {
                 return ResponseEntity

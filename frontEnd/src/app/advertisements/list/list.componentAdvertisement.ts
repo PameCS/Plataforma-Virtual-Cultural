@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {ServiceService } from '../../Service/service.service';
 import {Advertisement} from 'src/app/Model/Advertisement';
 import {Router} from '@angular/router';
-
+import { Course } from 'src/app/Model/Course';
+import {UserService } from 'src/app/Service/user.service';
+import { TokenStorageService } from 'src/app/Service/token-storage.service';
 
 @Component({
   selector: 'app-list',
@@ -11,14 +13,37 @@ import {Router} from '@angular/router';
 })
 export class ListComponentAdvertisement implements OnInit {
 
-  Ad: Advertisement[];
-  constructor(private service: ServiceService, private router: Router) { }
+  Ads: Advertisement[];
+  private roles: string[];
+  courses: Course[];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showSuperAdminBoard = false;
+  showProfessorBoard = false;
+  showUserBoard = false;
+  username: string;
+  constructor(private service: ServiceService, private router: Router,private tokenStorageService: TokenStorageService,private Userservice: UserService) { }
 
   ngOnInit(): void {
     this.service.getAdvertisement()
     .subscribe(data => {
-      this.Ad = data;
+      this.Ads = data;
     });
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+ 
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showSuperAdminBoard  = this.roles.includes('ROLE_SUPER_ADMIN');
+      this.showProfessorBoard  = this.roles.includes('ROLE_PROFESSOR');
+      this.showUserBoard  = this.roles.includes('ROLE_USER');
+      this.username = user.username;
+      this.Userservice.getUserCourses(user)
+    .subscribe(data => {
+      this.courses = data;
+    });
+    }
   }
 
   Edit(Ad:Advertisement):void{
@@ -26,13 +51,19 @@ export class ListComponentAdvertisement implements OnInit {
     this.router.navigate(["editAd"])
   }
 
-  Delete(Ad:Advertisement)
+  Delete(Ads:Advertisement)
   {
-    this.service.deleteAdvertisement(Ad)
+    this.service.deleteAdvertisement(Ads)
     .subscribe(data=>{
-      this.Ad=this.Ad.filter(u=>u!=Ad);
+      this.Ads=this.Ads.filter(u=>u!=Ads);
       alert("Se elimino una anuncio!");
     })
+  }
+
+  logout(): void {
+    this.tokenStorageService.signOut();
+    window.location.reload();
+    this.router.navigate(["home"]);
   }
 
 }

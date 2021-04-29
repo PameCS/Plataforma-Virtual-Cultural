@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../Service/token-storage.service';
 import { Course } from 'src/app/Model/Course';
 import {UserService } from '../Service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-virtual-classroom',
@@ -17,7 +18,7 @@ export class VirtualClassroomComponent implements OnInit {
   showProfessorBoard = false;
   showUserBoard = false;
   username: string;
-  constructor(private tokenStorageService: TokenStorageService,private service: UserService) { }
+  constructor(private tokenStorageService: TokenStorageService,private service: UserService,private router: Router) { }
 
   ngOnInit(){
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -40,6 +41,11 @@ export class VirtualClassroomComponent implements OnInit {
   logout(): void {
     this.tokenStorageService.signOut();
     window.location.reload();
+  }
+
+  courseHome(courses: Course):void{
+    localStorage.setItem("pk_courseCode",courses.pk_courseCode.toString());
+    this.router.navigate(["HomeVirtualClassRoom"]);
   }
 
 }

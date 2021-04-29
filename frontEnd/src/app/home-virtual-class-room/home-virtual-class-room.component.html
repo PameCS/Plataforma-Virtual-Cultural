@@ -1,41 +1,151 @@
-<div class="container-fluid">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="card">
-        <div class="card-header">
-            <h1 class="h4">{{course.name}}</h1>
+<!doctype html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/x-icon" href="images/IMG_0640.PNG" />
+        <title>Plataforma Virtual Cultural</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Goole Font -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ <!-- Font awsome CSS -->
+ <link rel="stylesheet" href="/assets2/font-awesome.min.css">    
+ <link rel="stylesheet" href="/assets2/flaticon.css">
+ <link rel="stylesheet" href="/assets2/magnific-popup.css">    
+ <!-- owl carousel -->
+ <link rel="stylesheet" href="/assets2/owl.carousel.css">
+ <link rel="stylesheet" href="/assets2/owl.theme.css">     
+ <link rel="stylesheet" href="/assets2/animate.css"> 
+ <!-- Slick Carousel -->
+ <link rel="stylesheet" href="/assets2/slick.css">  
+ <link rel="stylesheet" href="/assets/preloader.css"/>    
+
+ <!-- Revolution Slider -->
+ <link rel="stylesheet" href="/assets2/revolution/layers.css">
+ <link rel="stylesheet" href="/assets2/revolution/navigation.css">
+ <link rel="stylesheet" href="/assets2/revolution/settings.css">    
+ <!-- Mean Menu-->
+ <link rel="stylesheet" href="/assets2/meanmenu.css">
+</head>
+<body>
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <header class="home_1_update">
+
+        <div class="header_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-lg-12">
+                        <div class="info_wrapper">
+                            <div class="contact_info">                   
+                                <ul class="list-unstyled">
+                                    <li><i class="flaticon-phone-receiver"></i>+(506) 25605608</li>
+                                    <li><i class="flaticon-mail-black-envelope-symbol"></i>centrocultural@sanpablo.go.cr</li>
+                                </ul>                    
+                            </div>
+                            <div class="social_wrapper d-flex">
+                                <ul class="social-items d-flex list-unstyled">
+                                    <li><a href="#" (click)="logout()" ><i class="fa fa-sign-out"></i></a></li>
+                                </ul>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="edu_nav">
+            <div class="container">
+                <nav class="navbar navbar-expand-md navbar-light bg-faded">
+                    <a class="navbar-brand" href="virtualClassroom"><img src="/assets/images/logA.png" alt="logo"></a>
+                    <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
+                        <ul class="navbar-nav nav lavalamp ml-auto menu" >
+                            <li class="nav-item"><a href="virtualClassroom" class="nav-link active">Inicio</a> </li>
+                            <li class="nav-item dropdown" *ngIf="showUserBoard" >
+                                <a  style ="color: #ffffff" class="nav-link dropdown-toggle" href="#" id="navbarClass" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Mis cursos
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                                  <a class="dropdown-item" (click)="courseHome(course)" *ngFor="let course of courses" routerLink="">{{course.name}}</a>
+                               
+                                </div>
+                              </li>
+                        </ul>
+                    </div>
+                </nav><!-- END NAVBAR -->
+            </div> 
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="h4">{{course.name}}</h1>
+            </div>
         </div>
     </div>
-</div>
-<div class="container" id="principal">
-    <div class="row nav nav-tabs">
-        <div class="col-xs-12">
-            <h1 class="h4">AVISOS</h1>
+    <div class="container" id="principal">
+        <div class="row nav nav-tabs">
+            <div class="col-xs-12">
+                <h1 class="h4">AVISOS<i class="fa fa-comments-o fa-1x" aria-hidden="true"></i></h1> 
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <p>AVISOS</p>
+        <div class="row">
+             <a href="advertisementList" routerLink="/advertisementList">AVISOS</a>
+        </div>
+        
+    
+    
+    
+        <div class="row nav nav-tabs">
+            <div class="col-md-12">
+                <h1 class="h4">Semana 1</h1>
+            </div>
+        </div>
+        <div class="row nav nav-tabs">
+            <div class="col-md-12">
+                <h1 class="h4">Semana 2</h1>
+            </div>
+        </div>
+        <div class="row nav nav-tabs">
+            <div class="col-md-12">
+                <h1 class="h4">Semana 3</h1>
+            </div>
+        </div>
     </div>
     
 
+     <!-- JavaScript -->
+     <script src="/assets/js/popper.min.js"></script>
+     <script src="/assets/js/bootstrap.min.js"></script>
+     <!-- Revolution Slider -->
+     <script src="/assets/js/assets/revolution/jquery.themepunch.revolution.min.js"></script>
+     <script src="/assets/js/assets/revolution/jquery.themepunch.tools.min.js"></script> 
+     <script src="/assets/js/jquery.magnific-popup.min.js"></script>     
+     <script src="/assets/js/owl.carousel.min.js"></script>   
+     <script src="/assets/js/slick.min.js"></script>   
+     <script src="/assets/js/jquery.meanmenu.min.js"></script>  
+     <!-- Counter Script -->
+     <script src="/assets/js/waypoints.min.js"></script>
+     <script src="/assets/js/jquery.counterup.min.js"></script>    
+     <script src="/assets/js/wow.min.js"></script> 
+     <!-- Revolution Extensions -->
+     <script src="/assets/js/assets/revolution/extensions/revolution.extension.actions.min.js"></script>
+     <script src="/assets/js/assets/revolution/extensions/revolution.extension.carousel.min.js"></script>
+     <script src="/assets/js/assets/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+     <script src="/assets/js/assets/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+     <script src="/assets/js/assets/revolution/extensions/revolution.extension.migration.min.js"></script>
+     <script src="/assets/js/assets/revolution/extensions/revolution.extension.navigation.min.js"></script>
+     <script src="/assets/js/assets/revolution/extensions/revolution.extension.parallax.min.js"></script>
+     <script src="/assets/js/assets/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+     <script src="/assets/js/assets/revolution/extensions/revolution.extension.video.min.js"></script>
+     <script src="/assets/js/assets/revolution/revolution.js"></script>
+     <script src="/assets/js/custom.js"></script> 
+</body>
+
+</html>
 
 
-    <div class="row nav nav-tabs">
-        <div class="col-md-12">
-            <h1 class="h4">Semana 1</h1>
-        </div>
-    </div>
-    <div class="row nav nav-tabs">
-        <div class="col-md-12">
-            <h1 class="h4">Semana 2</h1>
-        </div>
-    </div>
-    <div class="row nav nav-tabs">
-        <div class="col-md-12">
-            <h1 class="h4">Semana 3</h1>
-        </div>
-    </div>
-</div>

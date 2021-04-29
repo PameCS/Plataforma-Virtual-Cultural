@@ -6,7 +6,7 @@ import {UserService } from '../Service/user.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css','../header/header.component.css']
 })
 export class HomeComponent implements OnInit {
   private roles: string[];

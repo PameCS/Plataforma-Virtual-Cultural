@@ -1,5 +1,6 @@
 package com.backEnd.demo.Model;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -205,6 +206,18 @@ public class User {
 
     public void setCourses(Set<Course> courses) {
         this.courses = courses;
+    }
+    
+    public boolean isEnroll(Course c) {
+        boolean value = false;
+        Iterator<Course> it = courses.iterator();
+
+        while (it.hasNext()) {
+            if (it.next().getPK_idCourse() == c.getPK_idCourse()) {
+                value = true;
+            }
+        }
+        return value;
     }
 
 }

@@ -58,6 +58,7 @@ const routes: Routes = [
   {path:'loginVirtualClass',component: LoginVirtualClassroomComponent},
   {path:'virtualClassroom',component: VirtualClassroomComponent},
   {path: 'HomeVirtualClassRoom', component: HomeVirtualClassRoomComponent},
+  {path: 'advertisementList', component: ListComponentAdvertisement},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

@@ -16,6 +16,7 @@ export class CourseCatalogComponent implements OnInit {
   course :Course=new Course();
   isLoggedIn = false;
   showUser = false;
+  errorMessage = '';
   constructor(private service: UserService, private router: Router,private tokenStorageService: TokenStorageService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -41,7 +42,13 @@ export class CourseCatalogComponent implements OnInit {
     .subscribe(data=>{
       this.course=data;
       this.toastr.success('Se ha matriculado con exito','¡Éxito!',
-      {timeOut: 1500,progressBar:true,progressAnimation:'increasing'});
+      {timeOut: 1800,progressBar:true,progressAnimation:'increasing'});
+      this.router.navigate(['courseCatalog']);
+    },
+    err => {
+      this.errorMessage = err.error.message;
+      this.toastr.error(this.errorMessage,'¡Error!',
+      {timeOut: 1800,progressBar:true,progressAnimation:'increasing'});
       this.router.navigate(['courseCatalog']);
     })
   }

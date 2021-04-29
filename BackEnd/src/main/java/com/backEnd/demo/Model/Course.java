@@ -135,16 +135,6 @@ public class Course {
         this.ads = ads;
     }
 
-    public boolean isEnroll(User u) {
-        boolean value = false;
-        Iterator<User> it = users.iterator();
-
-        while (it.hasNext()) {
-            if (it.next().getPK_idUser().equals(u.getPK_idUser())) {
-                value = true;
-            }
-        }
-        return value;
-    }
+    
 
 }

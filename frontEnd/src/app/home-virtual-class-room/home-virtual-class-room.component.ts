@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Course } from '../Model/Course';
-import { ServiceService } from '../Service/service.service';
+import { UserService } from '../Service/user.service';
+import { TokenStorageService } from '../Service/token-storage.service';
 
 @Component({
   selector: 'app-home-virtual-class-room',
@@ -10,10 +11,30 @@ import { ServiceService } from '../Service/service.service';
 })
 export class HomeVirtualClassRoomComponent implements OnInit {
   course :Course= new Course();
-  constructor(private router:Router,private service:ServiceService) { }
+  showUserBoard = false;
+  courses: Course[];
+  private roles: string[];
+  isLoggedIn = false;
+  showProfessorBoard = false;
+  username: string;
+
+  constructor(private router:Router,private service:UserService,private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
     this.courseHome();
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+ 
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+      this.showProfessorBoard  = this.roles.includes('ROLE_PROFESSOR');
+      this.showUserBoard  = this.roles.includes('ROLE_USER');
+      this.username = user.username;
+      this.service.getUserCourses(user)
+    .subscribe(data => {
+      this.courses = data;
+    });
+    }
   }
 
   courseHome(){
@@ -24,4 +45,10 @@ export class HomeVirtualClassRoomComponent implements OnInit {
     })
   }
   
+  logout(): void {
+    this.tokenStorageService.signOut();
+    window.location.reload();
+    this.router.navigate(["home"]);
+  }
+
 }

@@ -49,7 +49,7 @@ public class userServiceImp implements UserService {
     public List<User> listProfessors() {
         List<User> professors = new ArrayList<>();
         List<User> list = repository.findAll();
-        for (int i = 0; i < list.size()-1; i++) {
+        for (int i = 0; i < list.size(); i++) {
             if(list.get(i).getType() != null){
             if (list.get(i).getType().equals("Profesor")) {
                 professors.add(list.get(i));
