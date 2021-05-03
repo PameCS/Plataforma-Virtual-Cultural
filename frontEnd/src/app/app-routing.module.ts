@@ -28,6 +28,7 @@ import {ListProfessorsComponent} from './User/listProfesors/listProfessors.compo
 import {LoginVirtualClassroomComponent} from './login-virtual-classroom/login-virtual-classroom.component';
 import {VirtualClassroomComponent} from './virtual-classroom/virtual-classroom.component';
 import { HomeVirtualClassRoomComponent } from './home-virtual-class-room/home-virtual-class-room.component';
+import { SpaceAssignmentComponent } from './space-assignment/space-assignment.component';
 
 const routes: Routes = [
   {path: 'list', component: ListComponent},
@@ -59,6 +60,7 @@ const routes: Routes = [
   {path:'virtualClassroom',component: VirtualClassroomComponent},
   {path: 'HomeVirtualClassRoom', component: HomeVirtualClassRoomComponent},
   {path: 'advertisementList', component: ListComponentAdvertisement},
+  {path: 'spaceassignment', component: SpaceAssignmentComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

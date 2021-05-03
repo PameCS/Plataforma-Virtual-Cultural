@@ -1,1 +1,140 @@
-<p>space-assignment works!</p>
+<!doctype html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="shortcut icon" type="image/x-icon" href="images/IMG_0640.PNG" />
+            <title>Plataforma Virtual Cultural</title>
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <!-- Goole Font -->
+        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!-- Font awsome CSS -->
+     <link rel="stylesheet" href="/assets2/font-awesome.min.css">    
+     <link rel="stylesheet" href="/assets2/flaticon.css">
+     <link rel="stylesheet" href="/assets2/magnific-popup.css">    
+     <!-- owl carousel -->
+     <link rel="stylesheet" href="/assets2/owl.carousel.css">
+     <link rel="stylesheet" href="/assets2/owl.theme.css">     
+     <link rel="stylesheet" href="/assets2/animate.css"> 
+     <!-- Slick Carousel -->
+     <link rel="stylesheet" href="/assets2/slick.css">  
+     <link rel="stylesheet" href="/assets/preloader.css"/>    
+    
+     <!-- Revolution Slider -->
+     <link rel="stylesheet" href="/assets2/revolution/layers.css">
+     <link rel="stylesheet" href="/assets2/revolution/navigation.css">
+     <link rel="stylesheet" href="/assets2/revolution/settings.css">    
+     <!-- Mean Menu-->
+     <link rel="stylesheet" href="/assets2/meanmenu.css">
+    </head>
+    <body>
+        <div id="preloader">
+            <div id="status">&nbsp;</div>
+        </div>
+        <header class="home_1_update">
+
+            <div class="header_top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-lg-12">
+                            <div class="info_wrapper">
+                                <div class="contact_info">                   
+                                    <ul class="list-unstyled">
+                                        <li><i class="flaticon-phone-receiver"></i>+(506) 25605608</li>
+                                        <li><i class="flaticon-mail-black-envelope-symbol"></i>centrocultural@sanpablo.go.cr</li>
+                                    </ul>                    
+                                </div>
+                                <div class="social_wrapper d-flex">
+                                    <!-- 
+                                    <ul class="social-items d-flex list-unstyled">
+                                        <li><a href="#" (click)="logout()" ><i class="fa fa-sign-out"></i></a></li>
+                                    </ul> 
+                                    --> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="edu_nav">
+                <div class="container">
+                    <nav class="navbar navbar-expand-md navbar-light bg-faded">
+                        <a class="navbar-brand" href="virtualClassroom"><img src="/assets/images/logA.png" alt="logo"></a>
+                        <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
+                            <!--
+                            <ul class="navbar-nav nav lavalamp ml-auto menu" >
+                                <li class="nav-item"><a href="virtualClassroom" class="nav-link active">Inicio</a> </li>
+                                <li class="nav-item dropdown" *ngIf="showUserBoard" >
+                                    <a  style ="color: #ffffff" class="nav-link dropdown-toggle" href="#" id="navbarClass" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Mis cursos
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                                      <a class="dropdown-item" (click)="courseHome(course)" *ngFor="let course of courses" routerLink="">{{course.name}}</a>
+                                   
+                                    </div>
+                                  </li>
+                            </ul>
+                            -->
+                        </div>
+                    </nav><!-- END NAVBAR -->
+                </div> 
+            </div>
+        </header>
+        <div class="container-fluid">
+            <div class="row">
+                <section class="content-col col-md-12">
+                    <div id="page-content">
+                        <div role="main">
+                            <span></span>
+                            <h2>**Nombre de la entrega**</h2>
+                            <div id="intro" class="box py-3 generalbox boxaligncenter">
+                                <div class="no-overflow">
+                                    <p dir="ltr" style="text-align: left;">Por favor subir su respectiva solución.</p>
+                                </div>
+                            </div>
+                            <div class="submissionstatustable">
+                                <h3>Estado de la entrega</h3>
+                                <div class="box py-3 boxaligncenter submissionsummarytable">
+                                    <div class="theme-table-wrap">
+                                        <table class="generaltable table table-striped">           
+                                            <tbody>
+                                                <tr class="">
+                                                    <th class="cell c0"  scope="row">Estado de la entrega</th>
+                                                    <td class="cell c1 lastcol" >Enviado para calificar</td>
+                                                </tr>
+                                                <tr class="">
+                                                <th class="cell c0"  scope="row">Estado de la calificación</th>
+                                                <td class="cell c1 lastcol">Sin calificar</td>
+                                                </tr>
+                                                <tr class="">
+                                                <th class="cell c0"  scope="row">Fecha de entrega</th>
+                                                <td class="cell c1 lastcol" >Por definir</td>
+                                                </tr>
+                                                <tr class="">
+                                                <th class="cell c0"  scope="row">Archivos enviados</th>
+                                                <td class="cell c1 lastcol" >Espacio para subir archivos</td>
+                                                </tr>
+                                                <tr class="lastrow">
+                                                <th class="cell c0"  scope="row">Comentarios de la entrega</th>
+                                                <td class="cell c1 lastcol" >Aqui ingresaran los comententarios</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+            
+    </body>
+</html>
+
+<!doctype html>
+
