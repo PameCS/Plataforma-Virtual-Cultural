@@ -2,6 +2,7 @@ com\backEnd\demo\security\jwt\AuthTokenFilter.class
 com\backEnd\demo\Repository\EventRepository.class
 com\backEnd\demo\payload\request\LoginRequest.class
 com\backEnd\demo\Repository\userRepository.class
+com\backEnd\demo\Service\impl\FileStorageServiceImp.class
 com\backEnd\demo\Controller\ControllerClass.class
 com\backEnd\demo\Controller\AuthController.class
 com\backEnd\demo\Model\Event.class
@@ -20,16 +21,20 @@ com\backEnd\demo\security\jwt\JwtUtils.class
 com\backEnd\demo\Service\impl\CourseAdsImp.class
 com\backEnd\demo\security\jwt\AuthEntryPointJwt.class
 com\backEnd\demo\Controller\ControllerClassRequest.class
+com\backEnd\demo\message\ResponseMessage.class
 com\backEnd\demo\payload\response\JwtResponse.class
 com\backEnd\demo\Service\ClassRequestService.class
 com\backEnd\demo\Service\courseService.class
 com\backEnd\demo\Model\Course.class
+com\backEnd\demo\Repository\FileDBRepository.class
 com\backEnd\demo\Service\impl\userServiceImp.class
+com\backEnd\demo\Model\FileDB.class
 com\backEnd\demo\Service\UserService.class
 com\backEnd\demo\Repository\CourseAdsRepository.class
 com\backEnd\demo\Repository\ClassRequestRepository.class
 com\backEnd\demo\Repository\ClassroomRepository.class
 com\backEnd\demo\Controller\ControllerUser.class
+com\backEnd\demo\Controller\FileController.class
 com\backEnd\demo\Controller\TestController.class
 com\backEnd\demo\Repository\RoleRepository.class
 com\backEnd\demo\security\services\UserDetailsImpl.class
@@ -39,6 +44,7 @@ com\backEnd\demo\payload\response\MessageResponse.class
 com\backEnd\demo\Controller\ControllerCourse.class
 com\backEnd\demo\Service\classService.class
 com\backEnd\demo\Service\impl\eventServiceImp.class
+com\backEnd\demo\exception\FileUploadExceptionAdvice.class
 com\backEnd\demo\Service\eventService.class
 com\backEnd\demo\Model\Classroom.class
 com\backEnd\demo\security\WebSecurityConfig.class
@@ -46,6 +52,7 @@ com\backEnd\demo\Model\ClassRequest.class
 com\backEnd\demo\Application.class
 com\backEnd\demo\Controller\ControllerCourseRequest.class
 com\backEnd\demo\Controller\ControllerEvent.class
+com\backEnd\demo\message\ResponseFile.class
 com\backEnd\demo\payload\request\SignupRequest.class
 com\backEnd\demo\Service\impl\classroomServiceImp.class
 com\backEnd\demo\Service\impl\CourseRequestServiceImp.class

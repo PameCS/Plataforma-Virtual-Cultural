@@ -10,6 +10,14 @@ import { TokenStorageService } from '../Service/token-storage.service';
   styleUrls: ['./home-virtual-class-room.component.css']
 })
 export class HomeVirtualClassRoomComponent implements OnInit {
+  //Aca de ingresar el numero de semanas que quiero itere en el component
+  
+ 
+  semanas(semana:number) {
+    
+    return new Array(semana);
+}
+
   course :Course= new Course();
   showUserBoard = false;
   courses: Course[];

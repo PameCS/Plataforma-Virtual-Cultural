@@ -80,6 +80,7 @@
             </div> 
         </div>
     </header>
+
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
@@ -87,7 +88,7 @@
             </div>
         </div>
     </div>
-    <div class="container" id="principal">
+    <div class="container-fluid" id="principal">
         <div class="row nav nav-tabs">
             <div class="col-xs-12">
                 <h1 class="h4">AVISOS<i class="fa fa-comments-o fa-1x" aria-hidden="true"></i></h1> 
@@ -99,12 +100,13 @@
         
     
     
-    
-        <div class="row nav nav-tabs">
+        <!--Debo iterar este pedacito las veces que el curso ocupe-->
+        <div class="row nav nav-tabs" *ngFor='let in of semanas(5);let i = index'>
             <div class="col-md-12">
                 <h1 class="h4">Semana 1</h1>
             </div>
         </div>
+  
         <div class="row nav nav-tabs">
             <div class="col-md-12">
                 <h1 class="h4">Semana 2</h1>
