@@ -20,6 +20,11 @@ export class SpaceAssignmentComponent implements OnInit {
 
   ngOnInit(): void { this.fileInfos = this.uploadService.getFiles(); }
 
+  onSubmit(): void {
+    console.log("Funciono el onsubmit")
+    this.upload();
+  }
+
   selectFile(event) {
     this.selectedFiles = event.target.files;
   }
