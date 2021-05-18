@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest, HttpHeaders, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Course } from '../Model/Course';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpaceAssignmentService {
 
-  private baseUrl = 'http://localhost:8084';
+  private baseUrl = 'http://localhost:8084/file';
 
   constructor(private http: HttpClient) { }
 
@@ -27,5 +28,11 @@ export class SpaceAssignmentService {
   getFiles(): Observable<any> {
     return this.http.get(`${this.baseUrl}/files`);
   }
+
+  getFile(id: String): Observable<any>{
+    return this.http.get(`${this.baseUrl}/files/`+id);
+
+  }
+
   
 }

@@ -62,7 +62,8 @@ public class userServiceImp implements UserService {
     @Override
     public Set<Course> listMyCourses(String id) {
         User user = repository.findByidUser(id).get();
-        Set<Course> listCourses = user.getCourses();
+//        Set<Course> listCourses = user.getCourses();
+        Set<Course> listCourses = null;
         return listCourses;
     }
 }

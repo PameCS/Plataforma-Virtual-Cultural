@@ -12,24 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
- <!-- Font awsome CSS -->
- <link rel="stylesheet" href="/assets2/font-awesome.min.css">    
- <link rel="stylesheet" href="/assets2/flaticon.css">
- <link rel="stylesheet" href="/assets2/magnific-popup.css">    
- <!-- owl carousel -->
- <link rel="stylesheet" href="/assets2/owl.carousel.css">
- <link rel="stylesheet" href="/assets2/owl.theme.css">     
- <link rel="stylesheet" href="/assets2/animate.css"> 
- <!-- Slick Carousel -->
- <link rel="stylesheet" href="/assets2/slick.css">  
- <link rel="stylesheet" href="/assets/preloader.css"/>    
-
- <!-- Revolution Slider -->
- <link rel="stylesheet" href="/assets2/revolution/layers.css">
- <link rel="stylesheet" href="/assets2/revolution/navigation.css">
- <link rel="stylesheet" href="/assets2/revolution/settings.css">    
- <!-- Mean Menu-->
- <link rel="stylesheet" href="/assets2/meanmenu.css">
+ 
 </head>
 <body>
     <div id="preloader">
@@ -44,13 +27,13 @@
                         <div class="info_wrapper">
                             <div class="contact_info">                   
                                 <ul class="list-unstyled">
-                                    <li><i class="flaticon-phone-receiver"></i>+(506) 25605608</li>
-                                    <li><i class="flaticon-mail-black-envelope-symbol"></i>centrocultural@sanpablo.go.cr</li>
+                                    <li><i class="fi-creative-phone-call"></i>+(506) 25605608</li>
+                                    <li><i class="fi-creative-email"></i>centrocultural@sanpablo.go.cr</li>
                                 </ul>                    
                             </div>
                             <div class="social_wrapper d-flex">
                                 <ul class="social-items d-flex list-unstyled">
-                                    <li><a href="#" (click)="logout()" ><i class="fa fa-sign-out"></i></a></li>
+                                    <li><a (click)="logout()" ><fa-icon [icon]="signOut" style="color:white"></fa-icon>></a></li>
                                 </ul>   
                             </div>
                         </div>
@@ -65,12 +48,12 @@
                     <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
                         <ul class="navbar-nav nav lavalamp ml-auto menu" >
                             <li class="nav-item"><a href="virtualClassroom" class="nav-link active">Inicio</a> </li>
-                            <li class="nav-item dropdown" *ngIf="showUserBoard" >
+                            <li class="nav-item dropdown" *ngIf="showUserBoard || showProfessorBoard" >
                                 <a  style ="color: #ffffff" class="nav-link dropdown-toggle" href="#" id="navbarClass" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   Mis cursos
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
-                                  <a class="dropdown-item" (click)="courseHome(course)" *ngFor="let course of courses" routerLink="">{{course.name}}</a>
+                                  <a class="dropdown-item" (click)="refresh(course)" *ngFor="let course of courses" routerLink="">{{course.name}}</a>
                                
                                 </div>
                               </li>
@@ -80,10 +63,25 @@
             </div> 
         </div>
     </header>
+<<<<<<< Updated upstream
 
+=======
+    <div>
+    
+    </div>
+>>>>>>> Stashed changes
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
+                <main *ngIf="showProfessorBoard">
+    
+                    <div class="btn-group" role="group" aria-label="Vertical button group">
+                        <button (click)="return()" type="button"class="btn btn-warning "><span class="fa fa-arrow-left"></span> &nbsp;Volver&nbsp;</button>
+                        <button (click)="studentList()"  type="button" class="btn btn-danger ">&nbsp;<span class="fa fa-list"></span> &nbsp;Lista de estudiantes &nbsp;</button>
+                        <button (click)="attendance()" type="button" class="btn btn-success ">&nbsp;<span class="fa fa-file-excel-o"></span> &nbsp;Generar reporte de asistencia &nbsp;</button>
+                      </div>
+                </main>
+                <br>
                 <h1 class="h4">{{course.name}}</h1>
             </div>
         </div>
@@ -91,61 +89,76 @@
     <div class="container-fluid" id="principal">
         <div class="row nav nav-tabs">
             <div class="col-xs-12">
-                <h1 class="h4">AVISOS<i class="fa fa-comments-o fa-1x" aria-hidden="true"></i></h1> 
+            <a style="font-size: 27px;  color: #333146;" href="advertisementList" routerLink="/advertisementList"> <i class="fa fa-comments-o fa-1x" aria-hidden="true"></i>Avisos</a>
             </div>
         </div>
         <div class="row">
-             <a href="advertisementList" routerLink="/advertisementList">AVISOS</a>
+            
         </div>
         
     
     
+<<<<<<< Updated upstream
         <!--Debo iterar este pedacito las veces que el curso ocupe-->
         <div class="row nav nav-tabs" *ngFor='let in of semanas(5);let i = index'>
             <div class="col-md-12">
                 <h1 class="h4">Semana 1</h1>
+=======
+    
+        <div class="row nav nav-tabs">
+            <div data-toggle="modal" data-target="#portfolioModal3" class="col-md-12">
+                <h1 class="h4">Material de clase <button *ngIf="showProfessorBoard" style="background-color: transparent; border: none;"><i class="fa fa-plus" aria-hidden="true"></i></button></h1>
+                <div class="card">
+                    <ul
+                      class="list-group list-group-flush"
+                      *ngFor="let file of fileInfos"
+                    >
+                      <li class="list-group-item">
+                        <a href="{{ file.url }}"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;{{ file.name }}</a>
+                      </li>
+                    </ul>
+                  </div>
+            
+>>>>>>> Stashed changes
             </div>
+
         </div>
   
         <div class="row nav nav-tabs">
             <div class="col-md-12">
-                <h1 class="h4">Semana 2</h1>
+                <h1 class="h4">Tareas <button *ngIf="showProfessorBoard" style="background-color: transparent; border: none;"><i class="fa fa-plus" aria-hidden="true"></i></button></h1>
             </div>
         </div>
-        <div class="row nav nav-tabs">
-            <div class="col-md-12">
-                <h1 class="h4">Semana 3</h1>
+       
+    </div>
+    
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fa fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <br><br>
+                                <label class="btn btn-default">
+                                    <input type="file" (change)="selectFile($event)" />
+                                  </label>
+                                  <br><br>
+                                  <button id="boton1" class="btn btn-success " (click)="upload()" data-dismiss="modal">Subir</button>
+                                  <br><br>
+                                  
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    
 
-     <!-- JavaScript -->
-     <script src="/assets/js/popper.min.js"></script>
-     <script src="/assets/js/bootstrap.min.js"></script>
-     <!-- Revolution Slider -->
-     <script src="/assets/js/assets/revolution/jquery.themepunch.revolution.min.js"></script>
-     <script src="/assets/js/assets/revolution/jquery.themepunch.tools.min.js"></script> 
-     <script src="/assets/js/jquery.magnific-popup.min.js"></script>     
-     <script src="/assets/js/owl.carousel.min.js"></script>   
-     <script src="/assets/js/slick.min.js"></script>   
-     <script src="/assets/js/jquery.meanmenu.min.js"></script>  
-     <!-- Counter Script -->
-     <script src="/assets/js/waypoints.min.js"></script>
-     <script src="/assets/js/jquery.counterup.min.js"></script>    
-     <script src="/assets/js/wow.min.js"></script> 
-     <!-- Revolution Extensions -->
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.actions.min.js"></script>
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.carousel.min.js"></script>
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.kenburn.min.js"></script>
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.migration.min.js"></script>
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.navigation.min.js"></script>
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.parallax.min.js"></script>
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.slideanims.min.js"></script>
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.video.min.js"></script>
-     <script src="/assets/js/assets/revolution/revolution.js"></script>
-     <script src="/assets/js/custom.js"></script> 
+   
 </body>
 
 </html>

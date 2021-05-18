@@ -6,29 +6,23 @@
         <div class="card-body">
             <form [formGroup]="adForm" action="">
                 <div class="form-group">
-                    <label for="">Id:</label>
-                    <input type="number" [(ngModel)]="Advertisement.pk_AdCode" name="pk_idAd" formControlName="Id" class="form-control">
+                    <label for="">Título</label>
+                    <input type="text" [(ngModel)] = "advertisement.title" name="title" formControlName="AdvertisementTitle" class="form-control">
                 </div>
-        
-         
                 <div class="form-group">
-                    <label for="">Descripcion:</label>
-                    <input type="text" [(ngModel)]="Advertisement.Description" name="descrip" formControlName="descrip" class="form-control">
-                    <div class="alert alert-danger" *ngIf="descrip.invalid && (descrip.dirty ||descrip.touched)">
-                        <div class="container-error-message" *ngIf="descrip.errors.required">
-                          La Descrip es un campo obligatorio
-                        </div>
-                        <div class="container-error-message" *ngIf="descrip.errors.pattern">
-                            Caracteres no válidos
-                          </div>
-                          <div class="container-error-message" *ngIf="descrip.errors.maxlength">
-                            Tamaño máximo 100 caracteres
-                          </div>
-                    </div>
+                    <label for="">Descripción</label>
+                    <input type="text"  [(ngModel)] = "advertisement.description" name="descrip" formControlName="AdvertisementDescrip" class="form-control">
+                </div>
+
+                <div class="form-group">
+                  <label for="type">Estado</label>
+                  <select  name="state"  [(ngModel)] = "advertisement.state"  formControlName="AdvertisementState" class="form-control" name="type">
+                    <option  >Urgente</option>
+                    <option  >Informativo</option>
+                  </select>
                 </div>
                <button
-               [disabled] = "adForm.invalid"
-                (click)="Save()" class="btn btn-danger">Guardar</button>
+                (click)="Save()" class="btn btn-danger"><i class="fa fa-floppy-o" aria-hidden="true"></i>Guardar</button>
             </form>
         </div>
     </div>

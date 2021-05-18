@@ -4,30 +4,26 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <app-header ></app-header>
 <body>
+
 <div class="body-inner">
 
-        <!-- Masthead-->
+      
         <br>  <br> 
-        <!-- Portfolio Section-->
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
-                <!-- Portfolio Section Heading-->
                 
                
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Cursos Disponibles</h2>
-                <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fa fa-book" aria-hidden="true"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center" *ngFor="let course of courses">
-                    <!-- Portfolio Item 1-->
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fa fa-plus fa-3x" aria-hidden="true"></i></div>
+                                <div class="portfolio-item-caption-content text-center text-white"><button style="background-color: transparent; border: none;" (click) = "currentCourse(course)"><i class="fa fa-plus fa-3x" aria-hidden="true"></i></button></div>
                             </div>
                             <img class="img-fluid" src="/assets/images/portfolio/1.png" alt="" />
                         </div>
@@ -37,29 +33,25 @@
             </div>
         </section>
             
-                  <!-- Portfolio Modals-->
-  <!-- Portfolio Modal 1-->
+
   <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
             </button>
-            <div class="modal-body text-center"  *ngFor="let course of courses">
+            <div class="modal-body text-center">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
-                            <!-- Portfolio Modal - Title-->
+                     
                             <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">{{course.name}}</h2>
-                            <!-- Icon Divider-->
                             <div class="divider-custom">
                                 <div class="divider-custom-line"></div>
                                 <div class="divider-custom-icon"><i class="fa fa-book" aria-hidden="true"></i></div>
                                 <div class="divider-custom-line"></div>
                             </div>
-                            <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" src="/assets/img/portfolio/1.png" alt="" />
-                            <!-- Portfolio Modal - Text-->
+                           
                             <p class="mb-5">Modalidad: {{course.mode}} <br> Fecha de inicio: {{course.startDate}}<br> 
                                     Fecha de finalización: {{course.finishDate}} <br> Horario: {{course.shedule}} <br>  Profesor(a): {{course.professor}} </p>
                           <button *ngIf="showUser"  (click)="Enroll(course)" class="btn btn-primary" data-dismiss="modal">
@@ -78,34 +70,61 @@
     </div>
 </div>
 
- <!-- Portfolio Modal 2-->
- <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
+</div> 
+<!--
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+                <main>
+                    <div class="btn-group" role="group" aria-label="Vertical button group">
+                        <button type="button"class="btn btn-warning "><span class="fa fa-arrow-left"></span> &nbsp;Volver&nbsp;</button>
+                        <button  type="button" class="btn btn-danger ">&nbsp;<span class="fa fa-list"></span> &nbsp;Lista de estudiantes &nbsp;</button>
+                        <button  type="button" class="btn btn-success ">&nbsp;<span class="fa fa-file-excel-o"></span> &nbsp;Generar reporte de asistencia &nbsp;</button>
+                      </div>
+                </main>
+                <br>                
+            <h3 style="text-align:center" >Lista de anuncios</h3>
+            
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-sm">
+                <thead >
+                    <tr class="text-center">
+                        <th >Título</th>
+                        <th >Estado</th>
+                        <th></th>  
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr  *ngFor="let course of courses">
+                        <td scope="row">{{course.name}}</td>
+                        <td align="center">
+                            <button style="background-color: transparent; border: none;" (click) = "currentCourse(course)" data-toggle="modal" data-target="#portfolioModal"><i class="fa fa-eye fa-2x" aria-hidden="true"></i>&nbsp;</button>
+                            <a ><em class="fa fa-pencil fa-2x"></em></a>&nbsp;
+                            <button style="background-color: transparent; border: none;" data-toggle="modal" data-target="#portfolioModal1"><a ><em class="fa fa-trash fa-2x"></em></a>&nbsp;</button>
+                          </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                <span aria-hidden="true"><i class="fa fa-times"></i></span>
             </button>
-            <div class="modal-body text-center">
+            <div class="modal-body text-center" >
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <!-- Portfolio Modal - Title-->
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal2Label">Curso de guitarra</h2>
-                            <!-- Icon Divider-->
-                            <div class="divider-custom">
-                                <div class="divider-custom-line"></div>
-                                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                <div class="divider-custom-line"></div>
-                            </div>
-                            <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" src="/assets/img/portfolio/2.png" alt="" />
-                            <!-- Portfolio Modal - Text-->
-                           <p class="mb-5">Modalidad: Trimestral <br> Fecha de inicio: 29/03/2021<br> 
-                                    Fecha de finalización: 28/05/2021 <br> Horario: Martes y Viernes 1PM <br>  Profesor(a): Jairo Jimenez </p>
-                            <button class="btn btn-primary" data-dismiss="modal">
-                               
-                                MATRICULAR
-                            </button>
+                        <div class="col-lg-8" >
+                           
+                             <br>
+                      <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">{{course.name}}</h2>
+                   
+                      <br>
+                      <p class="mb-5">{{course.pk_idCourse}}</p>
                         </div>
                     </div>
                 </div>
@@ -113,149 +132,5 @@
         </div>
     </div>
 </div>
-
-<!-- Portfolio Modal 3-->
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"><i class="fas fa-times"></i></span>
-            </button>
-            <div class="modal-body text-center">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <!-- Portfolio Modal - Title-->
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal3Label">Curso de cocina</h2>
-                            <!-- Icon Divider-->
-                            <div class="divider-custom">
-                                <div class="divider-custom-line"></div>
-                                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                <div class="divider-custom-line"></div>
-                            </div>
-                            <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" src="/assets/img/portfolio/3.png" alt="" />
-                            <!-- Portfolio Modal - Text-->
-                          <p class="mb-5">Modalidad: Semestral <br> Fecha de inicio: 24/03/2021<br> 
-                                    Fecha de finalización: 29/03/2021 <br> Horario: Lunes y Viernes 12PM <br>  Profesor(a): Daniela González </p> <button class="btn btn-primary" data-dismiss="modal">
-                              
-                                MATRICULAR
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Portfolio Modal 4-->
-<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"><i class="fas fa-times"></i></span>
-            </button>
-            <div class="modal-body text-center">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <!-- Portfolio Modal - Title-->
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal4Label">Curso de inglés</h2>
-                            <!-- Icon Divider-->
-                            <div class="divider-custom">
-                                <div class="divider-custom-line"></div>
-                                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                <div class="divider-custom-line"></div>
-                            </div>
-                            <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" src="/assets/img/portfolio/4.png" alt="" />
-                            <!-- Portfolio Modal - Text-->
-                          <p class="mb-5">Modalidad: Virtual <br> Fecha de inicio: 22/03/2021<br> 
-                                    Fecha de finalización: 22/03/2021 <br> Horario: Lunes y Viernes 9AM <br>  Profesor(a): Luis González </p> <button class="btn btn-primary" data-dismiss="modal">
-                               
-                                MATRICULAR
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Portfolio Modal 5-->
-<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="portfolioModal5Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"><i class="fas fa-times"></i></span>
-            </button>
-            <div class="modal-body text-center">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <!-- Portfolio Modal - Title-->
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal5Label">Curso de maquillaje</h2>
-                            <!-- Icon Divider-->
-                            <div class="divider-custom">
-                                <div class="divider-custom-line"></div>
-                                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                <div class="divider-custom-line"></div>
-                            </div>
-                            <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" src="/assets/img/portfolio/5.png" alt="" />
-                            <!-- Portfolio Modal - Text-->
-                           <p class="mb-5">Modalidad: Virtual <br> Fecha de inicio: 22/03/2021<br> 
-                                    Fecha de finalización: 22/03/2021 <br> Horario: Lunes y Viernes 9AM <br>  Profesor(a): María González </p><button class="btn btn-primary" data-dismiss="modal">
-                               
-                                MATRICULAR
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Portfolio Modal 6-->
-<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"><i class="fas fa-times"></i></span>
-            </button>
-            <div class="modal-body text-center">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <!-- Portfolio Modal - Title-->
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal6Label">Curso de dibujo</h2>
-                            <!-- Icon Divider-->
-                            <div class="divider-custom">
-                                <div class="divider-custom-line"></div>
-                                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                <div class="divider-custom-line"></div>
-                            </div>
-                            <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" src="/assets/img/portfolio/6.png" alt="" />
-                            <!-- Portfolio Modal - Text-->
-                         <p class="mb-5">Modalidad: Presencial <br> Fecha de inicio: 22/03/2021<br> 
-                                    Fecha de finalización: 22/03/2021 <br> Horario: Lunes y Viernes 9AM <br>  Profesor(a): Marco González </p>  <button class="btn btn-primary" data-dismiss="modal">
-                               
-                                MATRICULAR
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>  
-
-
-
-</div><!-- Body inner end -->
-
+-->
 </body>

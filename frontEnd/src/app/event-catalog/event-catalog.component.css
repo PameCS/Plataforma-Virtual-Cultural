@@ -479,6 +479,11 @@ mark,
   height: auto;
 }
 
+.img-fluid2 {
+  max-width: 60%;
+  height: auto;
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
@@ -5377,7 +5382,7 @@ a.close.disabled {
   z-index: 1050;
   display: none;
   width: 100%;
-  height: 100%;
+  height: 630px;
   overflow: hidden;
   outline: 0;
 }
@@ -7608,7 +7613,7 @@ button.bg-dark:focus {
 
 .mb-5,
 .my-5 {
-  margin-bottom: 3rem !important;
+  margin-bottom: 1rem !important;
 }
 
 .ml-5,
@@ -10167,7 +10172,7 @@ h3 {
 }
 @media (min-width: 992px) {
   .portfolio-modal .portfolio-modal-title {
-    font-size: 3rem;
+    font-size: 2rem;
     line-height: 2.5rem;
   }
 }

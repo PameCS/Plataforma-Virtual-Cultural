@@ -12,24 +12,6 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
 
- <!-- Font awsome CSS -->
- <link rel="stylesheet" href="/src/assets2/font-awesome.min.css">    
- <link rel="stylesheet" href="/src/assets2/flaticon.css">
- <link rel="stylesheet" href="/src/assets2/magnific-popup.css">    
- <!-- owl carousel -->
- <link rel="stylesheet" href="/src/assets2/owl.carousel.css">
- <link rel="stylesheet" href="/src/assets2/owl.theme.css">     
- <link rel="stylesheet" href="/src/assets2/animate.css"> 
- <!-- Slick Carousel -->
- <link rel="stylesheet" href="/src/assets2/slick.css">  
- <link rel="stylesheet" href="/src/assets2/preloader.css"/>    
-
- <!-- Revolution Slider -->
- <link rel="stylesheet" href="/src/assets2/revolution/layers.css">
- <link rel="stylesheet" href="/src/assets2/revolution/navigation.css">
- <link rel="stylesheet" href="/src/assets2/revolution/settings.css">    
- <!-- Mean Menu-->
- <link rel="stylesheet" href="/src/assets2/meanmenu.css">
 </head>
 <body>
     <div id="preloader">
@@ -44,13 +26,13 @@
                         <div class="info_wrapper">
                             <div class="contact_info">                   
                                 <ul class="list-unstyled">
-                                    <li><i class="flaticon-phone-receiver"></i>+(506) 25605608</li>
-                                    <li><i class="flaticon-mail-black-envelope-symbol"></i>centrocultural@sanpablo.go.cr</li>
+                                    <li><i class="fi-creative-phone-call"></i>+(506) 25605608</li>
+                                    <li><i class="fi-creative-email"></i>centrocultural@sanpablo.go.cr</li>
                                 </ul>                    
                             </div>
                             <div class="social_wrapper d-flex">
                                 <ul class="social-items d-flex list-unstyled">
-                                    <li><a href="#"><i class="fa fa-sign-out"></i></a></li>
+                                    <li><a (click)="logout()" href="#"><fa-icon [icon]="signOut" style="color:white"></fa-icon>></a></li>
                                 </ul>   
                             </div>
                         </div>
@@ -65,7 +47,7 @@
                     <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
                         <ul class="navbar-nav nav lavalamp ml-auto menu" >
                             <li style ="color: #ffffff" class="nav-item"><a href="virtualClassroom" class="nav-link active">Inicio</a> </li>
-                            <li style ="color: #ffffff" class="nav-item dropdown" *ngIf="showUserBoard" >
+                            <li style ="color: #ffffff" class="nav-item dropdown" *ngIf="showUserBoard || showProfessorBoard" >
                                 <a  style ="color: #ffffff" class="nav-link dropdown-toggle" href="#" id="navbarClass" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   Mis cursos
                                 </a>
@@ -201,32 +183,6 @@
         </div><!-- END SLIDER CONTAINER -->
     </div><!-- END SLIDER CONTAINER WRAPPER -->
     </header>
-     <!-- JavaScript -->
-     <script src="/src/assets/js/popper.min.js"></script>
-     <script src="/src/assets/js/bootstrap.min.js"></script>
-     <!-- Revolution Slider -->
-     <script src="/src/assets/js/assets/revolution/jquery.themepunch.revolution.min.js"></script>
-     <script src="/src/assets/js/assets/revolution/jquery.themepunch.tools.min.js"></script> 
-     <script src="/src/assets/js/jquery.magnific-popup.min.js"></script>     
-     <script src="/src/assets/js/owl.carousel.min.js"></script>   
-     <script src="/src/assets/js/slick.min.js"></script>   
-     <script src="/src/assets/js/jquery.meanmenu.min.js"></script>  
-     <!-- Counter Script -->
-     <script src="/src/assets/js/waypoints.min.js"></script>
-     <script src="/src/assets/js/jquery.counterup.min.js"></script>    
-     <script src="/src/assets/js/wow.min.js"></script> 
-     <!-- Revolution Extensions -->
-     <script src="/src/assets/js/assets/revolution/extensions/revolution.extension.actions.min.js"></script>
-     <script src="/src/assets/js/assets/revolution/extensions/revolution.extension.carousel.min.js"></script>
-     <script src="/src/assets/js/assets/revolution/extensions/revolution.extension.kenburn.min.js"></script>
-     <script src="/src/assets/js/assets/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
-     <script src="/src/assets/js/assets/revolution/extensions/revolution.extension.migration.min.js"></script>
-     <script src="/src/assets/js/assets/revolution/extensions/revolution.extension.navigation.min.js"></script>
-     <script src="/src/assets/js/assets/revolution/extensions/revolution.extension.parallax.min.js"></script>
-     <script src="/src/assets/js/assets/revolution/extensions/revolution.extension.slideanims.min.js"></script>
-     <script src="/src/assets/js/assets/revolution/extensions/revolution.extension.video.min.js"></script>
-     <script src="/src/assets/js/assets/revolution/revolution.js"></script>
-     <script src="/src/assets/js/custom.js"></script> 
 </body>
 
 </html>

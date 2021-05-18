@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
 package com.backEnd.demo.message;
 
@@ -7,6 +8,12 @@ package com.backEnd.demo.message;
  */
 public class ResponseMessage {
   private String message;
+=======
+package com.backEnd.demo.message;
+
+public class ResponseMessage {
+     private String message;
+>>>>>>> Stashed changes
 
   public ResponseMessage(String message) {
     this.message = message;

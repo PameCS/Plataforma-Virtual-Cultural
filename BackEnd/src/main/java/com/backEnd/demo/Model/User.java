@@ -1,6 +1,5 @@
 package com.backEnd.demo.Model;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -65,10 +64,6 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "FK_roleId"))
     private Set<Role> roles = new HashSet<>();
     
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "T_ENROLLMENT",
-            joinColumns = @JoinColumn(name = "FK_CourseId"))
-    private Set<Course> courses = new HashSet<>();
      
     public User() {
     }
@@ -197,27 +192,6 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
-    }
-    
-     
-     public Set<Course> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(Set<Course> courses) {
-        this.courses = courses;
-    }
-    
-    public boolean isEnroll(Course c) {
-        boolean value = false;
-        Iterator<Course> it = courses.iterator();
-
-        while (it.hasNext()) {
-            if (it.next().getPK_idCourse() == c.getPK_idCourse()) {
-                value = true;
-            }
-        }
-        return value;
     }
 
 }

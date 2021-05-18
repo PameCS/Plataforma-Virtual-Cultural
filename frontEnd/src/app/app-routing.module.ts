@@ -29,14 +29,18 @@ import {LoginVirtualClassroomComponent} from './login-virtual-classroom/login-vi
 import {VirtualClassroomComponent} from './virtual-classroom/virtual-classroom.component';
 import { HomeVirtualClassRoomComponent } from './home-virtual-class-room/home-virtual-class-room.component';
 import { SpaceAssignmentComponent } from './space-assignment/space-assignment.component';
+import {StudentsListComponent} from './students-list/students-list.component';
+import {AttendanceListComponent} from './attendance-list/attendance-list.component';
+import {RequestComponent} from './request/request.component';
+
 
 const routes: Routes = [
   {path: 'list', component: ListComponent},
   {path: 'add', component: AddComponent},
   {path: 'edit', component: EditComponent},
-  {path: 'listAd', component: AddComponentAdvertisement},
+  {path: 'listAd', component: ListComponentAdvertisement},
   {path: 'editAd', component: EditComponentAdvertisement},
-  {path: 'addAd', component: ListComponentAdvertisement},
+  {path: 'addAd', component: AddComponentAdvertisement},
   {path: 'listClassroom', component: ListComponentClass},
   {path: 'editClass' , component: EditComponentClass},
   {path: 'addClass', component: AddComponentClass},
@@ -61,6 +65,9 @@ const routes: Routes = [
   {path: 'HomeVirtualClassRoom', component: HomeVirtualClassRoomComponent},
   {path: 'advertisementList', component: ListComponentAdvertisement},
   {path: 'spaceassignment', component: SpaceAssignmentComponent},
+  {path: 'studentList', component: StudentsListComponent},
+  {path: 'attendanceList', component: AttendanceListComponent},
+  {path: 'request', component: RequestComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

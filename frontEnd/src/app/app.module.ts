@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { OwlModule } from 'ngx-owl-carousel';  
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -43,6 +46,9 @@ import { VirtualClassroomComponent } from './virtual-classroom/virtual-classroom
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeVirtualClassRoomComponent } from './home-virtual-class-room/home-virtual-class-room.component';
 import { SpaceAssignmentComponent } from './space-assignment/space-assignment.component';
+import { StudentsListComponent } from './students-list/students-list.component';
+import { AttendanceListComponent } from './attendance-list/attendance-list.component';
+import { RequestComponent } from './request/request.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +85,10 @@ import { SpaceAssignmentComponent } from './space-assignment/space-assignment.co
     VirtualClassroomComponent,
     DashboardComponent,
     HomeVirtualClassRoomComponent,
-    SpaceAssignmentComponent
+    SpaceAssignmentComponent,
+    StudentsListComponent,
+    AttendanceListComponent,
+    RequestComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +99,10 @@ import { SpaceAssignmentComponent } from './space-assignment/space-assignment.co
     YouTubePlayerModule,
     NoopAnimationsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FontAwesomeModule,
+    OwlModule,
+    SlickCarouselModule
   ],
   providers: [ServiceService, authInterceptorProviders],
   bootstrap: [AppComponent]

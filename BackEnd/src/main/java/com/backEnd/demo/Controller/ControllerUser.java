@@ -2,6 +2,7 @@ package com.backEnd.demo.Controller;
 
 import com.backEnd.demo.Model.Course;
 import com.backEnd.demo.Model.User;
+import com.backEnd.demo.Service.EnrollmentService;
 import com.backEnd.demo.Service.UserService;
 import java.util.List;
 import java.util.Set;
@@ -23,6 +24,9 @@ public class ControllerUser {
 
     @Autowired
     UserService service;
+    
+     @Autowired
+    EnrollmentService Enrollservice;
 
     @GetMapping
     public List<User> list() {
@@ -35,8 +39,9 @@ public class ControllerUser {
     }
     
     @GetMapping(path = {"/myCourses/{id}"})
-    public Set<Course> listCourses(@PathVariable("id") String id) {
-        return service.listMyCourses(id);
+    public List<Course> listCourses(@PathVariable("id") String id) {
+        User u = service.listId(id);
+        return Enrollservice.findCourses(u);
     }
 
     @PostMapping

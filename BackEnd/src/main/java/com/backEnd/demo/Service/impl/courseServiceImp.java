@@ -4,8 +4,9 @@ import com.backEnd.demo.Service.courseService;
 import com.backEnd.demo.Repository.courseRepository;
 import com.backEnd.demo.Model.Course;
 import com.backEnd.demo.Model.CourseAds;
-import com.backEnd.demo.Model.User;
+import com.backEnd.demo.Model.FileDB;
 import com.backEnd.demo.Service.UserService;
+import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,15 @@ public class courseServiceImp implements courseService {
 
     @Autowired
     private courseRepository repository;
-    
+
     @Autowired
     courseService courseService;
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    FileStorageServiceImp fileService;
 
     @Override
     public List<Course> list() {
@@ -53,42 +57,26 @@ public class courseServiceImp implements courseService {
     }
 
     @Override
-    public Course enroll(Course c, User u) {
+    public Course addCourseAds(Course c, CourseAds curAds) {
         try {
-         //   Set<User> users = c.getUsers();
-            Set<Course> courses = u.getCourses();
-           // users.add(u);
-            courses.add(c);
-            c.setStudentQuantity(c.getStudentQuantity() - 1);
-            //c.setUsers(users);
-            u.setCourses(courses);
-            courseService.edit(c);
-            userService.edit(u);
-            
-        } catch (Exception ex) {
-            System.out.print(ex);
-        }
-        return c;
-    }
-    
-    @Override
-    public Course addCourseAds(Course c, CourseAds curAds){
-     try {
             Set<CourseAds> coursesAds = c.getAds();
             coursesAds.add(curAds);
             c.setAds(coursesAds);
             courseService.edit(c);
-            
+
         } catch (Exception ex) {
             System.out.print(ex);
         }
         return c;
     }
-    
+
      @Override
-     public Set<User> listStudents(int id){
-         Course c = courseService.listId(id);
-         Set<User> list = c.getUsers();
-         return list;
-     }
+    public Course addMaterial(FileDB file, Course c) throws IOException {
+
+        Set<FileDB> list = c.getMaterials();
+        list.add(file);
+        c.setMaterials(list);
+        courseService.edit(c);
+        return c;
+    }
 }

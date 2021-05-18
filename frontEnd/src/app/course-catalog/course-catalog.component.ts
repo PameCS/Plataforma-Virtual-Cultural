@@ -53,4 +53,8 @@ export class CourseCatalogComponent implements OnInit {
     })
   }
   }
+
+  currentCourse(course: Course){
+    this.course = course;
+  }
 }

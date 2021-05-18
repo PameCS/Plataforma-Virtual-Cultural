@@ -5,6 +5,7 @@ import { Classroom } from '../Model/Classroom';
 import { Course } from '../Model/Course';
 import { Event } from '../Model/Event';
 import { Advertisement } from '../Model/Advertisement';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class ServiceService {
   Urlevent = 'http://localhost:8084/event';
   Urladvertisement =  'http://localhost:8084/courseAds';
   UrlListProfessor = 'http://localhost:8084/users/listProfessors';
+ 
 
   //------------------------------users module----------------------------------------------
   // tslint:disable-next-line: typedef
@@ -75,8 +77,8 @@ export class ServiceService {
     return this.http.get<Course[]>(this.Urlcourse);
   }
 
-  createCourse(course: Course) {
-    return this.http.post<Course>(this.Urlcourse, course);
+  createCourse(course: Course,file: File) {
+    return this.http.post<Course>(this.Urlcourse+ "/" + file.name, course);
   }
 
   getCourseid(id: number) {
@@ -84,19 +86,32 @@ export class ServiceService {
   }
 
   updateCourse(course: Course) {
-    return this.http.put<Course>(this.Urlcourse + "/" + course.pk_courseCode, course);
+    return this.http.put<Course>(this.Urlcourse + "/" + course.pk_idCourse, course);
   }
 
   deleteCourse(course: Course) {
-    return this.http.delete<Course>(this.Urlcourse + "/" + course.pk_courseCode);
+    return this.http.delete<Course>(this.Urlcourse + "/" + course.pk_idCourse);
   }
+
+  getCourseImage(id: number) : Observable<any>{
+    return this.http.get(this.Urlcourse + "/image/" + id);
+  }
+
+  exportExcelStudents(course: Course): Observable<Blob>{
+     return this.http.get(`${this.Urlcourse}/exportStudentClass/excel/`+course.pk_idCourse,{responseType:'blob'});
+  }
+
+  getCourseMateral(course: Course): Observable<any>{
+    return this.http.get(`${this.Urlcourse}/materialList/`+course.pk_idCourse);
+  }
+  
   //----------------------------------Advertisement module----------------------------------------------
   getAdvertisement() {
     return this.http.get<Advertisement[]>(this.Urladvertisement);
   }
 
-  createAvertisement(Advertisement: Advertisement) {
-    return this.http.post<Advertisement>(this.Urladvertisement, Advertisement);
+  createAvertisement(advertisement: Advertisement, course: Course) {
+    return this.http.post<Advertisement>(this.Urlcourse+ "/CourseAds/" + course.pk_idCourse, advertisement);
   }
 
   getAdvertisementid(id: number) {
@@ -104,11 +119,11 @@ export class ServiceService {
   }
 
   updateAdvertisement(Advertisement: Advertisement) {
-    return this.http.put<Advertisement>(this.Urladvertisement+ "/" + Advertisement.pk_AdCode, Advertisement);
+    return this.http.put<Advertisement>(this.Urladvertisement+ "/" + Advertisement.pk_id, Advertisement);
   }
 
   deleteAdvertisement(Advertisement: Advertisement) {
-    return this.http.delete<Advertisement>(this.Urladvertisement + "/" + Advertisement.pk_AdCode);
+    return this.http.delete<Advertisement>(this.Urladvertisement + "/" + Advertisement.pk_id);
   }
   //--------------------------Event module------------------------------
   getEvent() {

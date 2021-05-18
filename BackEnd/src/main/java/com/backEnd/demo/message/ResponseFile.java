@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
 package com.backEnd.demo.message;
 
@@ -7,6 +8,12 @@ package com.backEnd.demo.message;
  */
 public class ResponseFile {
   private String name;
+=======
+package com.backEnd.demo.message;
+
+public class ResponseFile {
+ private String name;
+>>>>>>> Stashed changes
   private String url;
   private String type;
   private long size;
@@ -48,5 +55,9 @@ public class ResponseFile {
 
   public void setSize(long size) {
     this.size = size;
+<<<<<<< Updated upstream
   }
+=======
+  }    
+>>>>>>> Stashed changes
 }

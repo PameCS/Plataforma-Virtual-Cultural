@@ -3,6 +3,7 @@ import { Course } from 'src/app/Model/Course';
 import {ServiceService } from '../../Service/service.service';
 import {Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list-course',
@@ -11,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ListCourseComponent implements OnInit {
   courses: Course[];
+  image: Observable<any>;
 
   constructor(private service: ServiceService, private router: Router,private toastr: ToastrService) { }
 
@@ -21,7 +23,7 @@ export class ListCourseComponent implements OnInit {
     });
   }
   Edit(courses:Course):void{
-    localStorage.setItem("pk_courseCode",courses.pk_courseCode.toString());
+    localStorage.setItem("PK_idCourse",courses.pk_idCourse.toString());
     this.router.navigate(["editCourse"]);
   }
 
@@ -35,5 +37,8 @@ export class ListCourseComponent implements OnInit {
     })
   }
 
+  getImage(id: number){
+    this.image = this.service.getCourseImage(id);
+  }
 
 }

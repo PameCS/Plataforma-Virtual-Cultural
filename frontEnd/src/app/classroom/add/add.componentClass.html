@@ -7,7 +7,7 @@
             <br>
             <br>
             <br>
-            <h3>Agregar clases</h3>
+            <h3>Agregar aula</h3>
         </div>
         <div class="card-body">
             <form [formGroup]="classForm" action="">
@@ -17,7 +17,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Capacidad:</label>
-                    <input type="number" [(ngModel)]="classroom.capacity" name="capacity" formControlName="classCapacity" class="form-control">
+                    <input type="number" min="1" [(ngModel)]="classroom.capacity" name="capacity" formControlName="classCapacity" class="form-control">
                     <div class="alert-danger" *ngIf="capacity.invalid && (capacity.dirty || capacity.touched)">
                         <div class="container-error-message" *ngIf="capacity.errors.required">
                           La capacidad es un campo obligatorio
@@ -28,7 +28,9 @@
                     <label for="">Disponibilidad:</label>
                     <select [(ngModel)]="classroom.availability" name="availability" formControlName="classAvailability" class="form-control">
                     <option>Disponible</option>
-                    <option>Cerrada</option>
+                    <option>No disponible</option>
+                    <option>En mantenimiento</option>
+                  
                   </select>
                     <div class="alert-danger" *ngIf="availability.invalid && (availability.dirty || availability.touched)">
                         <div class="container-error-message" *ngIf="availability.errors.required">
@@ -39,7 +41,7 @@
                 <div class="form-group">
                     <label for="">Tipo:</label>
                     <select [(ngModel)]="classroom.type" name="type" formControlName="classType" class="form-control">
-                    <option>Salón</option>
+                    <option>Aula</option>
                     <option>Salón principal</option>
                   </select>
                     <div class="alert-danger" *ngIf="type.invalid && (type.dirty || type.touched)">

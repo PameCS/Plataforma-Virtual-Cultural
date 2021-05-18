@@ -66,29 +66,28 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="">Profesor:</label>
-                    <input type="text" [(ngModel)]="course.professor" name="professor" class="form-control" formControlName="professorCourse">
-                    <div class="alert alert-danger" *ngIf="professor.invalid && (professor.dirty || professor.touched)">
-                        <div class="container-error-message" *ngIf="professor.errors.required">
-                          El profesor es un campo obligatorio
-                        </div>
-                        <div class="container-error-message" *ngIf="professor.errors.pattern">
-                            Caracteres no válidos
-                          </div>
-                          <div class="container-error-message" *ngIf="name.errors.maxlength">
-                            Tamaño máximo 45 caracteres
-                          </div>
-                    </div>
-                </div>
+                  <label for="">Profesor(a)</label>
+                  <select formControlName="professor" >
+                    <option value="" disabled>Elegir profesor</option>
+                    <option *ngFor="let professor of users" [ngValue]="professor.name" (change)="changeProfessor($event)">{{professor.name}}</option>
+                </select>
+              </div>
                 <div class="form-group">
                     <label for="">Cantidad de estudiantes:</label>
-                    <input type="number" [(ngModel)]="course.studentQuantity" name="studentQuantity" class="form-control" formControlName="quantityCourse">
+                    <input type="number" min="1" [(ngModel)]="course.studentQuantity" name="studentQuantity" class="form-control" formControlName="quantityCourse">
                     <div class="alert-danger" *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)">
                         <div class="container-error-message" *ngIf="quantity.errors.required">
                           La cantidad de estudiantes es un campo obligatorio
                         </div>
                     </div>
                 </div>
+                <label class="btn btn-default">
+                  <input type="file" (change)="selectFile($event)" />
+                </label>
+                <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">
+                  Subir Imagen
+                </button>    
+              <div class="alert alert-light" role="alert">{{ message }}</div>
                 <button
                 [disabled] = "courseForm.invalid" 
                 (click)="Save()" class="btn btn-danger">Guardar</button>

@@ -4,6 +4,7 @@ import { ServiceService } from '../../Service/service.service';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Course } from 'src/app/Model/Course';
 
  
 @Component({
@@ -14,33 +15,40 @@ import { ToastrService } from 'ngx-toastr';
 export class AddComponentAdvertisement implements OnInit{
 
   
-  Advertisement: Advertisement= new Advertisement();
+  advertisement: Advertisement= new Advertisement();
+  course : Course = new Course();
   constructor(private router: Router, private service: ServiceService, private fb: FormBuilder) {
   }
   
   
 ngOnInit(): void {
+  let id= localStorage.getItem("pk_idCourse");
+  this.service.getCourseid(+id)
+  .subscribe(data=>{
+    this.course=data;
+  });
 
   }
 
   adForm = this.fb.group({
-     Id: ['',Validators.required],
-     descrip: ['',[Validators.pattern("[A-Za-zñÑáéíóúÁÉÍÓÚ0-9 ]{1,100}"),Validators.maxLength(100)]],
-     
+    AdvertisementTitle: ['',Validators.required],
+    AdvertisementDescrip: ['',[Validators.required]],
+    AdvertisementState: ['',[Validators.required]]
     });
  
-  get Id() { return this.adForm.get('Id'); }
-  get descrip() { return this.adForm.get('descrip'); }
+  get title() { return this.adForm.get('AdvertisementTitle'); }
+  get description() { return this.adForm.get('AdvertisementDescrip'); }
+  get state() { return this.adForm.get('AdvertisementState'); }
 
  
   // tslint:disable-next-line: typedef
  Save(){
    if(this.adForm.valid){
-    this.service.createAvertisement(this.Advertisement)
+    this.service.createAvertisement(this.advertisement,this.course)
     .subscribe(data => {
       alert('¡Se agregó con exito!');
-      this.router.navigate(['listAd']);
     });
+    this.router.navigate(['advertisementList']);
    }
  
 }

@@ -2,9 +2,9 @@ package com.backEnd.demo.Service;
 
 import com.backEnd.demo.Model.Course;
 import com.backEnd.demo.Model.CourseAds;
-import com.backEnd.demo.Model.User;
+import com.backEnd.demo.Model.FileDB;
+import java.io.IOException;
 import java.util.List;
-import java.util.Set;
 
 
 public interface courseService {
@@ -13,7 +13,6 @@ public interface courseService {
     Course add(Course c);
     Course edit(Course c);
     Course delete(int id);
-    Course enroll(Course c, User u);
-    Set<User> listStudents(int id);
     Course addCourseAds(Course c, CourseAds curAds);
+    Course addMaterial(FileDB file, Course c) throws IOException ;
 }

@@ -3,7 +3,6 @@ package com.backEnd.demo.Model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 import javax.persistence.*;
 
@@ -38,29 +37,26 @@ public class Course {
     private int studentQuantity;
 
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "T_USER_COURSES",
-            joinColumns = @JoinColumn(name = "FK_UserId"))
-    private Set<User> users = new HashSet<>();
-    
-    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "T_COURSE_ADS",
             joinColumns = @JoinColumn(name = "FK_Id"))
     private Set<CourseAds> ads = new HashSet<>();
-
+    
+    @OneToOne
+    @JoinColumn(name = "fileDB_id")
+    private FileDB fileDB;
+    
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "T_COURSE_MATERIAL",
+            joinColumns = @JoinColumn(name = "FK_Id"))
+    private Set<FileDB> materials = new HashSet<>();
+    
+    
     public int getStudentQuantity() {
         return studentQuantity;
     }
 
     public void setStudentQuantity(int studentQuantity) {
         this.studentQuantity = studentQuantity;
-    }
-
-    public int getPK_courseCode() {
-        return PK_idCourse;
-    }
-
-    public void setPK_courseCode(int PK_idCourse) {
-        this.PK_idCourse = PK_idCourse;
     }
 
     public String getName() {
@@ -111,14 +107,6 @@ public class Course {
         this.professor = professor;
     }
 
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
-
     public int getPK_idCourse() {
         return PK_idCourse;
     }
@@ -135,6 +123,21 @@ public class Course {
         this.ads = ads;
     }
 
-    
+    public FileDB getFileDB() {
+        return fileDB;
+    }
 
+    public void setFileDB(FileDB fileDB) {
+        this.fileDB = fileDB;
+    }
+
+    public Set<FileDB> getMaterials() {
+        return materials;
+    }
+
+    public void setMaterials(Set<FileDB> materials) {
+        this.materials = materials;
+    }
+    
+    
 }

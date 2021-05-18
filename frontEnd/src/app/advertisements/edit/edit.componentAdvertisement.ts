@@ -19,7 +19,7 @@ export class EditComponentAdvertisement implements OnInit {
   }
 
   Edit(){
-    let id= localStorage.getItem("pk_idAd");
+    let id= localStorage.getItem("pk_id");
     this.service.getAdvertisementid(+id)
     .subscribe(data=>{
       this.Advertisement=data;

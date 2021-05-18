@@ -30,7 +30,10 @@ export class AuthService {
       lastName: user.lastName,
       type: user.type,
       email: user.email,
-      address: user.address
+      address: user.address,
+      tel: user.tel,
+      bornDate: user.bornDate,
+      gender: user.gender
     }, httpOptions);
   }
 }

@@ -1,12 +1,16 @@
 package com.backEnd.demo.Model;
 
+<<<<<<< Updated upstream
 /**
  * @author david
  */
+=======
+>>>>>>> Stashed changes
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+<<<<<<< Updated upstream
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;  
@@ -15,6 +19,17 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "T_FILES")
 public class FileDB {
     @Id
+=======
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
+@Table(name = "T_FILE")
+public class FileDB {
+  @Id
+>>>>>>> Stashed changes
   @GeneratedValue(generator = "uuid")
   @GenericGenerator(name = "uuid", strategy = "uuid2")
   private String id;
@@ -25,6 +40,12 @@ public class FileDB {
 
   @Lob
   private byte[] data;
+<<<<<<< Updated upstream
+=======
+  
+  @OneToOne(mappedBy = "fileDB")
+    private Course course;
+>>>>>>> Stashed changes
 
   public FileDB() {
   }
@@ -62,4 +83,9 @@ public class FileDB {
   public void setData(byte[] data) {
     this.data = data;
   }
+<<<<<<< Updated upstream
 }
+=======
+
+}
+>>>>>>> Stashed changes

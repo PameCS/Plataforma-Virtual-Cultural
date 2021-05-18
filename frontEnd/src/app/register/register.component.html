@@ -164,6 +164,24 @@
             </div>
           </div>
         </div>
+        <div class="icon1">
+          <input
+           type="date" 
+           class="form-control"
+           name="bornDate"
+           [(ngModel)]="form.bornDate"
+           required
+           #bornDate="ngModel"
+           placeholder= "Fecha de nacimiento"
+           />
+        </div>
+        <div class="icon1">
+          <select  [(ngModel)]="form.gender"  #type="ngModel" required class="form-control" name="type">
+            <option value="" disabled>Género</option>
+            <option>Femenino</option>
+            <option>Masculino</option>
+          </select>
+        </div>
         <div class="form-group">
           <button class="btn btn-primary btn-block">Registrarse</button>
         </div>
@@ -171,6 +189,8 @@
         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
         <br />{{ errorMessage }}
         </div>
+
+       
       </form>
   
       <div class="alert alert-success" *ngIf="isSuccessful">

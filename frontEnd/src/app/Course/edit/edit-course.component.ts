@@ -21,7 +21,7 @@ export class EditCourseComponent implements OnInit {
   }
 
   Edit(){
-    let id= localStorage.getItem("pk_courseCode");
+    let id= localStorage.getItem("pk_idCourse");
     this.service.getCourseid(+id)
     .subscribe(data=>{
       this.course=data;

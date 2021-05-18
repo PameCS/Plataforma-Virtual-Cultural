@@ -19,13 +19,20 @@ public class CourseAds {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int PK_id;
     @Column
-    private String text;
+    private String title;
+    @Column
+    private String description;
+    @Column
+    private String state;
 
     public CourseAds() {
     }
 
-    public CourseAds(String text) {
-        this.text = text;
+    public CourseAds(int PK_id, String title, String description, String state) {
+        this.PK_id = PK_id;
+        this.title = title;
+        this.description = description;
+        this.state = state;
     }
 
     public int getPK_id() {
@@ -36,13 +43,30 @@ public class CourseAds {
         this.PK_id = PK_id;
     }
 
-    public String getText() {
-        return text;
+    public String getTitle() {
+        return title;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
+    public String getDescription() {
+        return description;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+  
+    
 }

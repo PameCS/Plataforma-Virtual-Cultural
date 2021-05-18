@@ -20,7 +20,7 @@ const Urlevent = 'http://localhost:8084/event';
 const UrlListProfessor = 'http://localhost:8084/users/listProfessors';
 const UrlmyCourses = 'http://localhost:8084/users/myCourses';
 const UrlEnroll = 'http://localhost:8084/course/enroll';
-
+const UrlStudentsList = 'http://localhost:8084/course/listStudents';
 
 @Injectable({
   providedIn: 'root'
@@ -57,6 +57,10 @@ export class UserService {
 
   getUserCourses(user: User) {
     return this.http.get<Course[]>(UrlmyCourses+ "/" + user.username);
+  }
+
+  getStudentList(id: number) {
+    return this.http.get<User[]>(UrlStudentsList+ "/" + id);
   }
 
   
@@ -126,26 +130,38 @@ export class UserService {
     return this.http.get<Course[]>(Urlcourse);
   }
 
-  createCourse(course: Course) {
-    return this.http.post<Course>(Urlcourse, course);
+  createCourse(course: Course,file: File) {
+    return this.http.post<Course>(Urlcourse  + "/" + file.name,course);
   }
 
   getCourseid(id: number) {
     return this.http.get<Course>(Urlcourse + "/" + id);
   }
 
+  exportExcelStudents(course: Course): Observable<Blob>{
+    return this.http.get(`${Urlcourse}/exportStudentClass/excel/`+course.pk_idCourse,{responseType:'blob'});
+ }
+
+  getCourseImage(course: Course) {
+    return this.http.get<Course>(Urlcourse + "/image/" + course.pk_idCourse);
+  }
+
   updateCourse(course: Course) {
-    return this.http.put<Course>(Urlcourse + "/" + course.pk_courseCode, course);
+    return this.http.put<Course>(Urlcourse + "/" + course.pk_idCourse, course);
   }
 
   deleteCourse(course: Course) {
-    return this.http.delete<Course>(Urlcourse + "/" + course.pk_courseCode);
+    return this.http.delete<Course>(Urlcourse + "/" + course.pk_idCourse);
   }
 
   courseEnroll(course: Course, user: User){
     return this.http.post<Course>(Urlcourse + "/enroll/" + user.username,course);
   }
 
+  getCourseMaterial(id: number): Observable<any>{
+    return this.http.get(Urlcourse+"/materialList/"+ id);
+
+  }
   //----------------------------------course requests--------------------------------------------
   getCourseRequests() {
     return this.http.get<CourseRequest[]>(UrlcourseRequest);
@@ -197,11 +213,11 @@ export class UserService {
   }
 
   updateAdvertisement(Advertisement: Advertisement) {
-    return this.http.put<Advertisement>(Urladvertisement+ "/" + Advertisement.pk_AdCode, Advertisement);
+    return this.http.put<Advertisement>(Urladvertisement+ "/" + Advertisement.pk_id, Advertisement);
   }
 
   deleteAdvertisement(Advertisement: Advertisement) {
-    return this.http.delete<Advertisement>(Urladvertisement + "/" + Advertisement.pk_AdCode);
+    return this.http.delete<Advertisement>(Urladvertisement + "/" + Advertisement.pk_id);
 }
 
 }

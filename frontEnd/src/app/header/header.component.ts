@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
   }
 
   courseHome(courses: Course):void{
-    localStorage.setItem("pk_courseCode",courses.pk_courseCode.toString());
+    localStorage.setItem("pk_idCourse",courses.pk_idCourse.toString());
     this.router.navigate(["HomeVirtualClassRoom"]);
   }
   

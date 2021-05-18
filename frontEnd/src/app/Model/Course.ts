@@ -1,7 +1,10 @@
+import {ServiceService  } from '../Service/service.service';
+
 export class Course{
-    constructor(){}
     // tslint:disable-next-line: variable-name
-    pk_courseCode: number;
+    constructor(){}
+    pk_idCourse: number;
+    private service: ServiceService;
     name: string;
     mode: string;
     startDate: Date;
