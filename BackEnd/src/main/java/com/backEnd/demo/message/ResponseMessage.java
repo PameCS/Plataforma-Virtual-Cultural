@@ -1,19 +1,8 @@
-<<<<<<< Updated upstream
-
-package com.backEnd.demo.message;
-
-/**
- *
- * @author david
- */
-public class ResponseMessage {
-  private String message;
-=======
 package com.backEnd.demo.message;
 
 public class ResponseMessage {
-     private String message;
->>>>>>> Stashed changes
+     
+   private String message;
 
   public ResponseMessage(String message) {
     this.message = message;

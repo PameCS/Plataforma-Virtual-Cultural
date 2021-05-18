@@ -5,7 +5,6 @@ import com.backEnd.demo.Model.User;
 import com.backEnd.demo.Service.EnrollmentService;
 import com.backEnd.demo.Service.UserService;
 import java.util.List;
-import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;

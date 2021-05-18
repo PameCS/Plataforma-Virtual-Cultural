@@ -1,9 +1,8 @@
 package com.backEnd.demo.payload.request;
-
-
 import javax.validation.constraints.*;
 
 public class SignupRequest {
+    
     @NotBlank
     @Size(max = 20)
     private String idUser;

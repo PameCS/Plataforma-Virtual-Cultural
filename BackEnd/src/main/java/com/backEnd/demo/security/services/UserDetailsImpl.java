@@ -9,8 +9,6 @@ import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class UserDetailsImpl implements UserDetails {
@@ -24,10 +22,14 @@ public class UserDetailsImpl implements UserDetails {
         private String lastName;
         private String type;
 	private String email;
+        private String bornDate;
+        private String tel;
+        private String gender;
 	
 	private Collection<? extends GrantedAuthority> authorities;
 
 	public UserDetailsImpl(Long id, String PK_idUser,String name,String lastName,String type ,String email,String password,
+                               String bornDate, String tel, String gender,
 			Collection<? extends GrantedAuthority> authorities) {
 		this.id = id;
                 this.PK_idUser = PK_idUser;
@@ -36,6 +38,9 @@ public class UserDetailsImpl implements UserDetails {
                 this.type = type;
 		this.email = email;
 		this.password = password;
+                this.bornDate = bornDate;
+                this.tel = tel;
+                this.gender = gender;
 		this.authorities = authorities;
 	}
 
@@ -51,7 +56,10 @@ public class UserDetailsImpl implements UserDetails {
                                 user.getLastName(),
                                 user.getType(),
 				user.getEmail(),
-				user.getPassword(), 
+				user.getPassword(),
+                                user.getBornDate(),
+                                user.getTel(),
+                                user.getGender(),
 				authorities);
 	}
 
@@ -101,6 +109,32 @@ public class UserDetailsImpl implements UserDetails {
     public void setType(String type) {
         this.type = type;
     }
+
+    public String getBornDate() {
+        return bornDate;
+    }
+
+    public void setBornDate(String bornDate) {
+        this.bornDate = bornDate;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+    
+    
 
     @Override
 	public boolean isAccountNonExpired() {

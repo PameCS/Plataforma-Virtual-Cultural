@@ -56,10 +56,6 @@ com\backEnd\demo\Service\impl\CourseAttenance.class
 com\backEnd\demo\Repository\CourseAttendanceRepository.class
 com\backEnd\demo\Service\classService.class
 com\backEnd\demo\Service\impl\eventServiceImp.class
-<<<<<<< Updated upstream
-=======
-.netbeans_automatic_build
->>>>>>> Stashed changes
 com\backEnd\demo\exception\FileUploadExceptionAdvice.class
 com\backEnd\demo\Service\eventService.class
 com\backEnd\demo\Model\Classroom.class
