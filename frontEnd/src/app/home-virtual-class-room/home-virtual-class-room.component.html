@@ -66,12 +66,12 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <main *ngIf="showProfessorBoard">
+                <main >
     
                     <div class="btn-group" role="group" aria-label="Vertical button group">
                         <button (click)="return()" type="button"class="btn btn-warning "><span class="fa fa-arrow-left"></span> &nbsp;Volver&nbsp;</button>
-                        <button (click)="studentList()"  type="button" class="btn btn-danger ">&nbsp;<span class="fa fa-list"></span> &nbsp;Lista de estudiantes &nbsp;</button>
-                        <button (click)="attendance()" type="button" class="btn btn-success ">&nbsp;<span class="fa fa-file-excel-o"></span> &nbsp;Generar reporte de asistencia &nbsp;</button>
+                        <button (click)="studentList()"  *ngIf="showProfessorBoard" type="button" class="btn btn-danger ">&nbsp;<span class="fa fa-list"></span> &nbsp;Lista de estudiantes &nbsp;</button>
+                        <button (click)="attendance()" *ngIf="showProfessorBoard" type="button" class="btn btn-success ">&nbsp;<span class="fa fa-file-excel-o"></span> &nbsp;Generar reporte de asistencia &nbsp;</button>
                       </div>
                 </main>
                 <br>
