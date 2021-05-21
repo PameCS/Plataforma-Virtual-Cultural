@@ -34,7 +34,6 @@ ngOnInit(): void {
   get availability() { return this.classForm.get('classAvailability'); }
   get type() { return this.classForm.get('classType'); }
  
-  // tslint:disable-next-line: typedef
  Save(){
    if(this.classForm.valid){
     this.service.createClass(this.classroom)

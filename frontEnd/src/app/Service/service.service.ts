@@ -6,6 +6,7 @@ import { Course } from '../Model/Course';
 import { Event } from '../Model/Event';
 import { Advertisement } from '../Model/Advertisement';
 import { Observable } from 'rxjs';
+import { CourseRequest } from '../Model/CourseRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,7 @@ export class ServiceService {
   Urlevent = 'http://localhost:8084/event';
   Urladvertisement =  'http://localhost:8084/courseAds';
   UrlListProfessor = 'http://localhost:8084/users/listProfessors';
+  UrlCourseRequest='http://localhost:8084/courseRequest'
  
 
   //------------------------------users module----------------------------------------------
@@ -145,4 +147,8 @@ export class ServiceService {
   deleteEvent(event: Event) {
     return this.http.delete<Event>(this.Urlevent + "/" + event.pk_idEvent);
   }
+    //--------------------------Class Request module------------------------------
+    createCourseRequest(courseRequest: CourseRequest) {
+      return this.http.post<CourseRequest>(this.UrlCourseRequest, courseRequest);
+    }
 }

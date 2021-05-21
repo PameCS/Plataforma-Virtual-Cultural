@@ -22,9 +22,9 @@ public class CourseRequest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int PK_idRequest;
     @Column
-    private int courseId;
-    @Column
     private String fullName;
+    @Column
+    private String motivo;
     @Column
     private String tel;
     @Column
@@ -50,14 +50,6 @@ public class CourseRequest {
 
     public void setPK_idRequest(int PK_idRequest) {
         this.PK_idRequest = PK_idRequest;
-    }
-
-    public int getCourseId() {
-        return courseId;
-    }
-
-    public void setCourseId(int courseId) {
-        this.courseId = courseId;
     }
 
     public String getFullName() {
@@ -124,6 +116,13 @@ public class CourseRequest {
         this.studentQuantity = studentQuantity;
     }
     
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(String motivo) {
+        this.motivo = motivo;
+    }
     
 }
 
