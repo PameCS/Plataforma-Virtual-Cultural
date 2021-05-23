@@ -23,9 +23,9 @@ public class ClassRequest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int PK_idRequest;
     @Column
-    private int classId;
+    private String classId;
     @Column
-    private String fullName;
+    private String fullNameSoli;
     @Column
     private String tel;
     @Column
@@ -50,20 +50,20 @@ public class ClassRequest {
         this.PK_idRequest = PK_idRequest;
     }
 
-    public int getClassId() {
+    public String getClassId() {
         return classId;
     }
 
-    public void setClassId(int classId) {
+    public void setClassId(String classId) {
         this.classId = classId;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFullNameSoli() {
+        return fullNameSoli;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setFullNameSoli(String fullNameSoli) {
+        this.fullNameSoli = fullNameSoli;
     }
 
     public String getTel() {

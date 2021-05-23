@@ -49,6 +49,7 @@ import { SpaceAssignmentComponent } from './space-assignment/space-assignment.co
 import { StudentsListComponent } from './students-list/students-list.component';
 import { AttendanceListComponent } from './attendance-list/attendance-list.component';
 import { RequestComponent } from './request/request.component';
+import { ClassRequestComponent } from './class-request/class-request.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { RequestComponent } from './request/request.component';
     SpaceAssignmentComponent,
     StudentsListComponent,
     AttendanceListComponent,
-    RequestComponent
+    RequestComponent,
+    ClassRequestComponent
   ],
   imports: [
     BrowserModule,

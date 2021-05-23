@@ -32,6 +32,7 @@ import { SpaceAssignmentComponent } from './space-assignment/space-assignment.co
 import {StudentsListComponent} from './students-list/students-list.component';
 import {AttendanceListComponent} from './attendance-list/attendance-list.component';
 import {RequestComponent} from './request/request.component';
+import { ClassRequestComponent } from './class-request/class-request.component';
 
 
 const routes: Routes = [
@@ -68,6 +69,7 @@ const routes: Routes = [
   {path: 'studentList', component: StudentsListComponent},
   {path: 'attendanceList', component: AttendanceListComponent},
   {path: 'request', component: RequestComponent},
+  {path: 'classrequest', component: ClassRequestComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

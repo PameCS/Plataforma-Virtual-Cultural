@@ -3,11 +3,11 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
   <!-- Brand -->
     <a class="navbar-brand" routerLink=#>
-      <a class="navbar-brand" href="#">
-          <img src="/assets/images/IMG_0674.PNG" height="80" >
-     </a> 
+      <a class="navbar-brand" >
+          <img src="/assets/images/IMG_0674.PNG" height="80" alt="Centro Cultural de la Municipalidad de San Pablo"  
+          >    
+      </a> 
     
-      
     </a><div class="container">
 
     
@@ -53,9 +53,16 @@
        
        
       
-    <li class="nav-item" *ngIf="!isLoggedIn">
-      <a class="nav-link" href="#" routerLink="/request">Solicitar</a>
-  </li>
+        <li class="nav-item dropdown" *ngIf="!isLoggedIn || showUserBoard">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+           Solicitar
+       </a>
+       <div class="dropdown-menu">
+           <a class="dropdown-item" href="classrequest">Aulas</a>
+           <a class="dropdown-item" href="request">Cursos</a>
+           
+       </div>
   <li class="nav-item" *ngIf="!isLoggedIn">
     <a class="nav-link" href="loginVirtualClass">Aula Virtual</a>
 </li>

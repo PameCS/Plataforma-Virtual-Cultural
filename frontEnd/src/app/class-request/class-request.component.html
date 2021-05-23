@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="shortcut icon" type="image/x-icon" href="images/IMG_0640.PNG" />
+        <title>Plataforma Cultural Virtual</title>
+        <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' rel='stylesheet'>
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+        <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'></script>
+    </head>
+    <app-header></app-header>
+    <br><br>
+    <body oncontextmenu='return false' class='snippet-body'>
+        <div class="container-fluid px-1 py-5 mx-auto">
+            <div class="row d-flex justify-content-center">
+                <div class="col-xl-5 col-lg-6 col-md-7">
+                    <div class="card b-0">
+                        <form [formGroup]="classForm" action="">
+                            <h1 class="text-center">Solicitud de Aula</h1>
+                            <div class="form-group">
+                                <label for="">Id del aula:</label>
+                                <select  [(ngModel)]="classrequest.classId" name="nombre-aula-soli" formControlName="IdAulaSoli" class="form-control">
+                                <option>Aula 01</option> <!--Debo agregar las aulas correspondientes-->
+                                <option>Aula 02</option>
+                                <option>Salón</option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Nombre completo del solicitante:</label>
+                                <input type="text" [(ngModel)]="classrequest.fullNameSoli" name="nombre-soli" formControlName="NomAulaSoli" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Telefono:</label>
+                                <input type="tel" [(ngModel)]="classrequest.tel" name="telefono-soli" formControlName="telAulaSoli" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Email:</label>
+                                <input type="email" [(ngModel)]="classrequest.email" name="email-soli" formControlName="emailAulaSoli" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Motivo:</label>
+                                <input type="text" [(ngModel)]="classrequest.reason" name="motivo-soli" formControlName="motiAulaSoli" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Hora de cuando se quiere el aula:</label>
+                                <input type="text" [(ngModel)]="classrequest.requestHour" name="hora-soli" formControlName="HorAulaSoli" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Fecha de solicitud de aula:</label>
+                                <input type="date" #myDate [value]=" classrequest.requestDate | date:'yyyy-MM-dd'"
+                                  (input)="classrequest.requestDate = $event.target.valueAsDate" formControlName="DateSoli" />
+                            </div>
+                            <div class="form-group">
+                                <label for="">Equipo requerido para el aula:</label>
+                                <input type="text" [(ngModel)]="classrequest.equipment" name="equipo-soli" formControlName="EquipoAulaSoli" class="form-control">
+                            </div>
+                           <button (click)="save()" class="btn btn-danger">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
