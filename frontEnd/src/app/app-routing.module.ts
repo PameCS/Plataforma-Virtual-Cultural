@@ -33,6 +33,8 @@ import {StudentsListComponent} from './students-list/students-list.component';
 import {AttendanceListComponent} from './attendance-list/attendance-list.component';
 import {RequestComponent} from './request/request.component';
 import { ClassRequestComponent } from './class-request/class-request.component';
+import { ListCourseRequestComponent } from './request/list-course-request/list-course-request.component';
+import { ListClassroomRequestComponent } from './class-request/list-classroom-request/list-classroom-request.component';
 
 
 const routes: Routes = [
@@ -70,6 +72,8 @@ const routes: Routes = [
   {path: 'attendanceList', component: AttendanceListComponent},
   {path: 'request', component: RequestComponent},
   {path: 'classrequest', component: ClassRequestComponent},
+  {path: 'ListCoursesRequest', component: ListCourseRequestComponent},
+  {path: 'ListClassroomRequest', component: ListClassroomRequestComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

@@ -50,6 +50,8 @@ import { StudentsListComponent } from './students-list/students-list.component';
 import { AttendanceListComponent } from './attendance-list/attendance-list.component';
 import { RequestComponent } from './request/request.component';
 import { ClassRequestComponent } from './class-request/class-request.component';
+import { ListCourseRequestComponent } from './request/list-course-request/list-course-request.component';
+import { ListClassroomRequestComponent } from './class-request/list-classroom-request/list-classroom-request.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +92,9 @@ import { ClassRequestComponent } from './class-request/class-request.component';
     StudentsListComponent,
     AttendanceListComponent,
     RequestComponent,
-    ClassRequestComponent
+    ClassRequestComponent,
+    ListCourseRequestComponent,
+    ListClassroomRequestComponent
   ],
   imports: [
     BrowserModule,

@@ -152,9 +152,12 @@ export class ServiceService {
     createCourseRequest(courseRequest: CourseRequest) {
       return this.http.post<CourseRequest>(this.UrlCourseRequest, courseRequest);
     }
-
+    getCourseRequest() {
+      return this.http.get<CourseRequest[]>(this.UrlCourseRequest);
+    }
      //--------------------------Class Request module------------------------------
      createClassRequest(classRequest: ClassRequest) {
       return this.http.post<ClassRequest>(this.UrlClassRequest, classRequest);
     }
+    
 }
