@@ -15,6 +15,7 @@ export class ListCourseRequestComponent implements OnInit {
   constructor(private service: ServiceService, private router: Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    //Los objetos de courserequest no agarran bien el id
     this.service.getCourseRequest()
     .subscribe(data=>{
       this.coursesrequest=data;
@@ -28,6 +29,12 @@ export class ListCourseRequestComponent implements OnInit {
 
   Reject(courserequest: CourseRequest)
   {
-    
+    console.log(courserequest.courseName);
+    this.service.deleteCourseRequest(courserequest)
+    .subscribe(data=>{
+      this.coursesrequest=this.coursesrequest.filter(u=>u!=courserequest);
+      this.toastr.success('Se ha eliminado un solicitud de curso','¡Éxito!',
+      {timeOut: 1500,progressBar:true,progressAnimation:'increasing'});
+    })
   }
 }

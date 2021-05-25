@@ -38,7 +38,7 @@ export class ClassRequestComponent implements OnInit {
 
   save() {
     if (this.classForm.valid) {
-      this.service.createClassRequest(this.classrequest)
+      this.service.createClassRoomRequest(this.classrequest)
         .subscribe(data => {
           this.toastr.success('Se ha agregado una solicitud de Aula', '¡Éxito!',
             { timeOut: 1500, progressBar: true, progressAnimation: 'increasing' });

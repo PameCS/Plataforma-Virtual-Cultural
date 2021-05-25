@@ -22,6 +22,11 @@ public class ControllerCourseRequest {
     
     @GetMapping
     public List<CourseRequest>list(){
+        /*List<CourseRequest>lista;
+        lista=service.list();
+        for (CourseRequest elemento: lista){
+            System.out.println(elemento.getPK_idRequest());
+            }*/
         return service.list();
     } 
     

@@ -21,7 +21,7 @@ export class ServiceService {
   Urladvertisement =  'http://localhost:8084/courseAds';
   UrlListProfessor = 'http://localhost:8084/users/listProfessors';
   UrlCourseRequest='http://localhost:8084/courseRequest';
-  UrlClassRequest='http://localhost:8084/classroomRequest';
+  UrlClassRoomRequest='http://localhost:8084/classroomRequest';
  
 
   //------------------------------users module----------------------------------------------
@@ -155,9 +155,17 @@ export class ServiceService {
     getCourseRequest() {
       return this.http.get<CourseRequest[]>(this.UrlCourseRequest);
     }
-     //--------------------------Class Request module------------------------------
-     createClassRequest(classRequest: ClassRequest) {
-      return this.http.post<ClassRequest>(this.UrlClassRequest, classRequest);
+    deleteCourseRequest(courseRequest: CourseRequest) {
+      return this.http.delete<CourseRequest>(this.UrlCourseRequest + "/" + courseRequest.PK_idRequest);
     }
-    
+     //--------------------------ClassRoom Request module------------------------------
+     createClassRoomRequest(classRoomRequest: ClassRequest) {
+      return this.http.post<ClassRequest>(this.UrlClassRoomRequest, classRoomRequest);
+    }
+    getClassRoomRequest() {
+      return this.http.get<ClassRequest[]>(this.UrlClassRoomRequest);
+    }
+    deleteClassRequest(classRoomRequest: ClassRequest) {
+      return this.http.delete<ClassRequest>(this.UrlClassRoomRequest + "/" + classRoomRequest.PK_idRequest);
+    }
 }
