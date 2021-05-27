@@ -114,7 +114,7 @@ export class ServiceService {
   }
 
   createAvertisement(advertisement: Advertisement, course: Course) {
-    return this.http.post<Advertisement>(this.Urlcourse+ "/CourseAds/" + course.pk_idCourse, advertisement);
+    return this.http.post<Advertisement>(this.Urlcourse+"/CourseAds/" + course.pk_idCourse, advertisement);
   }
 
   getAdvertisementid(id: number) {

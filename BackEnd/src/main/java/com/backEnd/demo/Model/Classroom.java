@@ -3,10 +3,14 @@ package com.backEnd.demo.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="t_classroom")
+@Table(name = "T_CLASSROOM",
+        uniqueConstraints = {
+            @UniqueConstraint(columnNames = "PK_idClass")
+        })
 public class Classroom {
     @Id
     @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int PK_idClass;
     @Column
     private int capacity;

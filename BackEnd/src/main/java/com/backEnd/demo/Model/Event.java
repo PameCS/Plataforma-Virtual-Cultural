@@ -5,10 +5,14 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-@Table(name="t_event")
+@Table(name = "T_EVENT",
+        uniqueConstraints = {
+            @UniqueConstraint(columnNames = "PK_idEvent")
+        })
 public class Event  {
     @Id
     @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int PK_idEvent;
     @Column
     private String name;

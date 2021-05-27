@@ -15,4 +15,5 @@ public interface courseService {
     Course delete(int id);
     Course addCourseAds(Course c, CourseAds curAds);
     Course addMaterial(FileDB file, Course c) throws IOException ;
+    Course deleteAd(Course c,CourseAds curAds);
 }

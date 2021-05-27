@@ -1,5 +1,6 @@
 package com.backEnd.demo.Model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,7 +30,7 @@ public class StudentAttendance {
     @Column
     private int courseId;  
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="courseAttendance_id")
     private CourseAttendance courseAttendance;
 

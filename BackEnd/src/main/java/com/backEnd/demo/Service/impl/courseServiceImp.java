@@ -55,11 +55,18 @@ public class courseServiceImp implements courseService {
         }
         return c;
     }
+     
+    @Override
+    public Course deleteAd(Course c,CourseAds curAds){
+        c.deleteAd(curAds);
+        repository.save(c);
+        return c;
+     }
 
     @Override
     public Course addCourseAds(Course c, CourseAds curAds) {
         try {
-            Set<CourseAds> coursesAds = c.getAds();
+            List<CourseAds> coursesAds = c.getAds();
             coursesAds.add(curAds);
             c.setAds(coursesAds);
             courseService.edit(c);

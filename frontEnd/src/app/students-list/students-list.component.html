@@ -86,9 +86,9 @@
                 <div class="card-header">
                         <main>
                             <div class="btn-group" role="group" aria-label="Vertical button group">
-                                <button (click)="return()" type="button"class="btn btn-warning "><span class="fa fa-arrow-left"></span> &nbsp;Volver&nbsp;</button>
-                                <button  type="button" class="btn btn-danger ">&nbsp;<span class="fa fa-list"></span> &nbsp;Lista de estudiantes &nbsp;</button>
-                                <button (click)="attendance()" type="button" class="btn btn-success ">&nbsp;<span class="fa fa-file-excel-o"></span> &nbsp;Generar reporte de asistencia&nbsp;</button>
+                                <button id="l1" (click)="return()" type="button"class="btn btn-warning "><span class="fa fa-arrow-left"></span> &nbsp;Volver&nbsp;</button>
+                                <button id="l1" type="button" class="btn btn-danger ">&nbsp;<span class="fa fa-list"></span> &nbsp;Lista de estudiantes &nbsp;</button>
+                                <button id="l3" (click)="attendance()" type="button" class="btn btn-success ">&nbsp;<span class="fa fa-file-excel-o"></span> &nbsp;Generar reporte de asistencia&nbsp;</button>
                               </div>
                         </main>
                         <br>                
@@ -101,7 +101,7 @@
                                 <th scope="col">Identificación</th>
                                 <th scope="col">Nombre completo</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Entregas</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -109,9 +109,7 @@
                                 <td scope="row">{{user.username}}</td>
                                 <td scope="row">{{user.name}}&nbsp;{{user.lastName}}</td>
                                 <td scope="row">{{user.email}}</td>
-                                <td align="center">
-                                    <i class="fa fa-folder-open" aria-hidden="true"></i>
-                                  </td>
+                                
                             </tr>
                         </tbody>
                     </table>

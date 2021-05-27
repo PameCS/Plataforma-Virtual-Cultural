@@ -1,4 +1,5 @@
 package com.backEnd.demo.Model;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,7 +23,7 @@ public class FileDB {
   @Lob
   private byte[] data;
   
-  @OneToOne(mappedBy = "fileDB")
+  @OneToOne(cascade = CascadeType.ALL,mappedBy = "fileDB")
     private Course course;
 
 

@@ -23,13 +23,12 @@ ngOnInit(): void {
   }
 
   classForm = this.fb.group({
-     Id: ['',Validators.required],
      classCapacity: ['',Validators.required],
      classAvailability: ['',Validators.required],
      classType: ['',Validators.required]
     });
  
-  get Id() { return this.classForm.get('Id'); }
+ 
   get capacity() { return this.classForm.get('classCapacity'); }
   get availability() { return this.classForm.get('classAvailability'); }
   get type() { return this.classForm.get('classType'); }

@@ -69,9 +69,9 @@
                 <main>
     
                     <div class="btn-group" role="group" aria-label="Vertical button group">
-                        <button (click)="return()" type="button"class="btn btn-warning "><span class="fa fa-arrow-left"></span> &nbsp;Volver&nbsp;</button>
-                        <button (click)="studentList()"  *ngIf="showProfessorBoard" type="button" class="btn btn-danger ">&nbsp;<span class="fa fa-list"></span> &nbsp;Lista de estudiantes &nbsp;</button>
-                        <button (click)="attendance()" *ngIf="showProfessorBoard" type="button" class="btn btn-success ">&nbsp;<span class="fa fa-file-excel-o"></span> &nbsp;Generar reporte de asistencia &nbsp;</button>
+                        <button id="l1" (click)="return()" type="button"class="btn btn-warning "><span class="fa fa-arrow-left"></span> &nbsp;Volver&nbsp;</button>
+                        <button id="l1" (click)="studentList()"  type="button" class="btn btn-danger ">&nbsp;<span class="fa fa-list"></span> &nbsp;Lista de estudiantes &nbsp;</button>
+                        <button id="l3" (click)="attendance()" type="button" class="btn btn-success ">&nbsp;<span class="fa fa-file-excel-o"></span> &nbsp;Generar reporte de asistencia &nbsp;</button>
                       </div>
                 </main>
                 <br>
@@ -82,7 +82,7 @@
     <div class="container-fluid" id="principal">
         <div class="row nav nav-tabs">
             <div class="col-xs-12">
-            <a style="font-size: 27px;  color: #333146;" href="advertisementList" routerLink="/advertisementList"> <i class="fa fa-comments-o fa-1x" aria-hidden="true"></i>Avisos</a>
+            <a style="padding:10px " style="font-size: 27px;  color: #333146;" href="advertisementList" routerLink="/advertisementList"> <i class="fa fa-comments-o fa-1x" aria-hidden="true"></i>Avisos</a>
             </div>
         </div>
         <div class="row">
@@ -92,15 +92,22 @@
     
     
    
-        <div class="row nav nav-tabs">
+
+        <!--Debo iterar este pedacito las veces que el curso ocupe-->
+      <!--  <div class="row nav nav-tabs" *ngFor='let in of semanas(5);let i = index'>
+            <div class="col-md-12">
+                <h1 class="h4">Semana 1</h1>
+            -->
+           
+        <div style="padding-bottom:500px" class="row nav nav-tabs">
             <div data-toggle="modal" data-target="#portfolioModal3" class="col-md-12">
-                <h1 class="h4">Material de clase <button *ngIf="showProfessorBoard" style="background-color: transparent; border: none;"><i class="fa fa-plus" aria-hidden="true"></i></button></h1>
+                <h1 style="padding:10px " class="h4">Material de clase <button *ngIf="showProfessorBoard" style="background-color: transparent; border: none;"><i class="fa fa-plus" aria-hidden="true"></i></button></h1>
                 <div class="card">
                     <ul
                       class="list-group list-group-flush"
                       *ngFor="let file of fileInfos"
                     >
-                      <li class="list-group-item">
+                      <li style="padding:10px " class="list-group-item">
                         <a href="{{ file.url }}"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;{{ file.name }}</a>
                       </li>
                     </ul>
@@ -109,15 +116,16 @@
             </div>
 
         </div>
-  
+        
+ <!-- <div class="c1">
         <div class="row nav nav-tabs">
             <div class="col-md-12">
                 <h1 class="h4">Tareas <button *ngIf="showProfessorBoard" style="background-color: transparent; border: none;"><i class="fa fa-plus" aria-hidden="true"></i></button></h1>
             </div>
         </div>
        
-    </div>
-    
+    </div>-->
+</div>
     <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">

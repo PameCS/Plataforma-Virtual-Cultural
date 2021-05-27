@@ -76,7 +76,8 @@ export class ListComponentAdvertisement implements OnInit {
     .subscribe(data=>{
       this.Ads=this.Ads.filter(u=>u!=Ads);
       alert("Se elimino una anuncio!");
-    })
+    });
+    window.location.reload();
   }
 
   logout(): void {
@@ -91,7 +92,7 @@ export class ListComponentAdvertisement implements OnInit {
   }
 
   attendance(): void{
-    this.service.exportExcelStudents(this.course).subscribe( x =>{
+    this.Userservice.exportExcelStudents(this.course).subscribe( x =>{
       const blob = new Blob([x],{type:'application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})
        
       if(window.navigator && window.navigator.msSaveOrOpenBlob){

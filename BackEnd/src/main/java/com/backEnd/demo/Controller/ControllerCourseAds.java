@@ -1,7 +1,10 @@
 package com.backEnd.demo.Controller;
 
+
+import com.backEnd.demo.Model.Course;
 import com.backEnd.demo.Model.CourseAds;
 import com.backEnd.demo.Service.CourseAdsService;
+import com.backEnd.demo.Service.courseService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,12 +24,16 @@ public class ControllerCourseAds {
     @Autowired
     CourseAdsService service;
     
+    @Autowired
+    courseService CourseService;
+    
     @GetMapping
     public List<CourseAds>list(){
         return service.list();
     }
-    @PostMapping
-    public CourseAds add(@RequestBody CourseAds e){
+    @PostMapping(path = {"/{id}"})
+    public CourseAds add(@RequestBody CourseAds e,@PathVariable("id")int id){
+        Course course = CourseService.listId(id);
         return service.add(e);
     }
     @GetMapping(path = {"/{id}"})
@@ -43,4 +50,5 @@ public class ControllerCourseAds {
     public CourseAds Delete(@PathVariable("id")int id){
         return service.delete(id);
     }
+    
 }
