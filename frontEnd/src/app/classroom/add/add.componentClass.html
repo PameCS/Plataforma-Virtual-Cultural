@@ -12,10 +12,6 @@
         <div class="card-body">
             <form [formGroup]="classForm" action="">
                 <div class="form-group">
-                    <label for="">Id:</label>
-                    <input type="number" [(ngModel)]="classroom.pk_idClass" name="pk_idClass" formControlName="Id" class="form-control">
-                </div>
-                <div class="form-group">
                     <label for="">Capacidad:</label>
                     <input type="number" min="1" [(ngModel)]="classroom.capacity" name="capacity" formControlName="classCapacity" class="form-control">
                     <div class="alert-danger" *ngIf="capacity.invalid && (capacity.dirty || capacity.touched)">

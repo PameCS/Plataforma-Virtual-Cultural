@@ -1,8 +1,10 @@
 package com.backEnd.demo.Model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.*;
 
@@ -36,16 +38,15 @@ public class Course {
     @Column
     private int studentQuantity;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "T_COURSE_ADS",
-            joinColumns = @JoinColumn(name = "FK_Id"))
-    private Set<CourseAds> ads = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name="FK_courseId")
+    private List<CourseAds> ads = new ArrayList<>();
     
     @OneToOne
     @JoinColumn(name = "fileDB_id")
     private FileDB fileDB;
     
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "T_COURSE_MATERIAL",
             joinColumns = @JoinColumn(name = "FK_Id"))
     private Set<FileDB> materials = new HashSet<>();
@@ -115,13 +116,14 @@ public class Course {
         this.PK_idCourse = PK_idCourse;
     }
 
-    public Set<CourseAds> getAds() {
+    public List<CourseAds> getAds() {
         return ads;
     }
 
-    public void setAds(Set<CourseAds> ads) {
+    public void setAds(List<CourseAds> ads) {
         this.ads = ads;
     }
+
 
     public FileDB getFileDB() {
         return fileDB;
@@ -139,5 +141,8 @@ public class Course {
         this.materials = materials;
     }
     
+    public boolean deleteAd(CourseAds ad){
+        return this.ads.remove(ad);
+    }
     
 }

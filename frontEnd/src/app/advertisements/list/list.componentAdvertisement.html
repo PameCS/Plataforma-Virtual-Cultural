@@ -57,22 +57,23 @@
             </div> 
         </div>
     </header>
-    <body>
+    
         <div class="container">
-            <div class="card">
+            <div class="carda">
                 <div class="card-header">
                         <main>
                             <div class="btn-group" role="group" aria-label="Vertical button group">
-                                <button (click)="return()" type="button"class="btn btn-warning "><span class="fa fa-arrow-left"></span> &nbsp;Volver&nbsp;</button>
-                                <button (click)="studentList()" type="button" class="btn btn-danger ">&nbsp;<span class="fa fa-list"></span> &nbsp;Lista de estudiantes &nbsp;</button>
-                                <button (click)="attendance()" type="button" class="btn btn-success ">&nbsp;<span class="fa fa-file-excel-o"></span> &nbsp;Generar reporte de asistencia &nbsp;</button>
+                                <button id="l1" *ngIf="showProfessorBoard" (click)="return()" type="button"class="btn btn-warning "><span class="fa fa-arrow-left"></span> &nbsp;Volver&nbsp;</button>
+                                <button id="l1" *ngIf="showProfessorBoard" (click)="studentList()" type="button" class="btn btn-danger ">&nbsp;<span class="fa fa-list"></span> &nbsp;Lista de estudiantes &nbsp;</button>
+                                <button id="l3" *ngIf="showProfessorBoard" (click)="attendance()" type="button" class="btn btn-success ">&nbsp;<span class="fa fa-file-excel-o"></span> &nbsp;Generar reporte de asistencia &nbsp;</button>
                               </div>
                         </main>
                         <br>                
-                    <h3 style="text-align:center" >Lista de anuncios</h3>
-                    <button id="add" (click)="addAdvertisement()" type="button" class="btn btn-success" >Agregar</button>
-                </div>
+                     </div>
                 <div class="card-body">
+                    <h3 style="text-align:center" >Lista de anuncios</h3>
+                    <button *ngIf="showProfessorBoard" id="add" (click)="addAdvertisement()" type="button" class="btn btn-success" >Agregar</button>
+              
                     <table class="table table-bordered table-sm">
                         <thead >
                             <tr class="text-center">
@@ -87,8 +88,8 @@
                                 <td scope="row">{{ad.state}}</td>
                                 <td align="center">
                                     <button style="background-color: transparent; border: none;" (click) = "current(ad)" data-toggle="modal" data-target="#portfolioModal"><i class="fa fa-eye fa-2x" aria-hidden="true"></i>&nbsp;</button>
-                                    <a ><em class="fa fa-pencil fa-2x"></em></a>&nbsp;
-                                    <button style="background-color: transparent; border: none;" data-toggle="modal" data-target="#portfolioModal1"><a ><em class="fa fa-trash fa-2x"></em></a>&nbsp;</button>
+                                    <button (click) = "Edit(ad)" style="background-color: transparent; border: none;" *ngIf="showProfessorBoard"><a *ngIf="showProfessorBoard"><em class="fa fa-pencil fa-2x"></em></a></button>&nbsp;
+                                    <button *ngIf="showProfessorBoard" style="background-color: transparent; border: none;" data-toggle="modal"(click) = "current(ad)"  data-target="#portfolioModal1"><a ><em class="fa fa-trash fa-2x"></em></a>&nbsp;</button>
                                   </td>
                             </tr>
                         </tbody>
@@ -132,8 +133,8 @@
                               <!-- Portfolio Modal - Text-->
                               <br>
                               <p class="mb-5">¿Está seguro que quiere eliminar este aviso?</p>
-                              <button id="boton1" class="btn btn-success">Aceptar</button>&nbsp;&nbsp;
-                              <button id="boton1" class="btn btn-danger">Cancelar</button>
+                              <button id="boton1" (click) = "Delete(currentAd)" class="btn btn-success" data-dismiss="modal">Aceptar</button>&nbsp;&nbsp;
+                              <button id="boton1" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                               <br><br>   
                             </div>
                             </div>
@@ -142,7 +143,7 @@
                 </div>
             </div>
         </div>
-    </body>
+
    
 </body>
 

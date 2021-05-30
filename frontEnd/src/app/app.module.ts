@@ -52,7 +52,7 @@ import { RequestComponent } from './request/request.component';
 import { ClassRequestComponent } from './class-request/class-request.component';
 import { ListCourseRequestComponent } from './request/list-course-request/list-course-request.component';
 import { ListClassroomRequestComponent } from './class-request/list-classroom-request/list-classroom-request.component';
-import { EditProfessorComponent } from './User/edit-professor/edit-professor.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +96,7 @@ import { EditProfessorComponent } from './User/edit-professor/edit-professor.com
     ClassRequestComponent,
     ListCourseRequestComponent,
     ListClassroomRequestComponent,
-    EditProfessorComponent
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
