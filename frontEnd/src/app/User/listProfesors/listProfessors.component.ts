@@ -23,7 +23,7 @@ export class ListProfessorsComponent implements OnInit {
 
   Edit(user:User):void{
     localStorage.setItem("username",user.username.toString());
-    this.router.navigate(["edit"]);
+    this.router.navigate(["editProfessor"]);
   }
 
   Delete(user: User)

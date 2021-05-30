@@ -35,6 +35,7 @@ import {RequestComponent} from './request/request.component';
 import { ClassRequestComponent } from './class-request/class-request.component';
 import { ListCourseRequestComponent } from './request/list-course-request/list-course-request.component';
 import { ListClassroomRequestComponent } from './class-request/list-classroom-request/list-classroom-request.component';
+import { EditProfessorComponent } from './User/edit-professor/edit-professor.component';
 
 
 const routes: Routes = [
@@ -74,6 +75,7 @@ const routes: Routes = [
   {path: 'classrequest', component: ClassRequestComponent},
   {path: 'ListCoursesRequest', component: ListCourseRequestComponent},
   {path: 'ListClassroomRequest', component: ListClassroomRequestComponent},
+  {path: 'editProfessor', component: EditProfessorComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
