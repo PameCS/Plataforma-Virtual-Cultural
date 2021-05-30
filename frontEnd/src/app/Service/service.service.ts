@@ -156,7 +156,7 @@ export class ServiceService {
       return this.http.get<CourseRequest[]>(this.UrlCourseRequest);
     }
     deleteCourseRequest(courseRequest: CourseRequest) {
-      return this.http.delete<CourseRequest>(this.UrlCourseRequest + "/" + courseRequest.PK_idRequest);
+      return this.http.delete<CourseRequest>(this.UrlCourseRequest + "/" + courseRequest.pk_idRequest);
     }
      //--------------------------ClassRoom Request module------------------------------
      createClassRoomRequest(classRoomRequest: ClassRequest) {
@@ -166,6 +166,6 @@ export class ServiceService {
       return this.http.get<ClassRequest[]>(this.UrlClassRoomRequest);
     }
     deleteClassRequest(classRoomRequest: ClassRequest) {
-      return this.http.delete<ClassRequest>(this.UrlClassRoomRequest + "/" + classRoomRequest.PK_idRequest);
+      return this.http.delete<ClassRequest>(this.UrlClassRoomRequest + "/" + classRoomRequest.pk_idRequest);
     }
 }

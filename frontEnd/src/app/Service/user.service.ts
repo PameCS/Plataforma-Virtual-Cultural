@@ -122,7 +122,7 @@ export class UserService {
   }
 
   deleteClassRequest(classRequest: ClassRequest) {
-    return this.http.delete<ClassRequest>(UrlclassRequest + "/" + classRequest.PK_idRequest);
+    return this.http.delete<ClassRequest>(UrlclassRequest + "/" + classRequest.pk_idRequest);
   }
 
   //----------------------------------course module----------------------------------------------
@@ -176,7 +176,7 @@ export class UserService {
   }
 
   deleteCourseRequest(courseRequest: CourseRequest) {
-    return this.http.delete<CourseRequest>(UrlcourseRequest + "/" + courseRequest.PK_idRequest);
+    return this.http.delete<CourseRequest>(UrlcourseRequest + "/" + courseRequest.pk_idRequest);
   }
 
   //--------------------------Event module------------------------------

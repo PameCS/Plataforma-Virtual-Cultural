@@ -29,11 +29,11 @@ public class User {
     @Size(max = 120)
     private String password;
 
-    @NotBlank
+  //  @NotBlank
     @Size(max = 20)
     private String name;
 
-    @NotBlank
+    //@NotBlank
     @Size(max = 20)
     private String lastName;
 
@@ -41,7 +41,7 @@ public class User {
     @Size(max = 20)
     private String type;
    
-    @NotBlank
+   // @NotBlank
     @Size(max = 50)
     @Email
     private String email;

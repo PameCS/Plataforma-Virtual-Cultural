@@ -36,6 +36,7 @@ import { ClassRequestComponent } from './class-request/class-request.component';
 import { ListCourseRequestComponent } from './request/list-course-request/list-course-request.component';
 import { ListClassroomRequestComponent } from './class-request/list-classroom-request/list-classroom-request.component';
 import {GalleryComponent} from './gallery/gallery.component';
+import { ForgotMyPasswordComponent } from './User/forgot-my-password/forgot-my-password.component';
 
 
 const routes: Routes = [
@@ -76,6 +77,7 @@ const routes: Routes = [
   {path: 'ListCoursesRequest', component: ListCourseRequestComponent},
   {path: 'ListClassroomRequest', component: ListClassroomRequestComponent},
   {path: 'gallery',component:GalleryComponent},
+  {path: 'forgotmypassword',component:ForgotMyPasswordComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

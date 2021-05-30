@@ -1,6 +1,6 @@
 export class ClassRequest{
     constructor(){}
-    PK_idRequest: number;
+    pk_idRequest: number;
     classId: String;
     fullNameSoli: String;
     tel: number;
