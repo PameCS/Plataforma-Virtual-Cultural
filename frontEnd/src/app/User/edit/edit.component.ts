@@ -19,7 +19,6 @@ export class EditComponent implements OnInit {
   showSuperAdmin = false;
   constructor(private router: Router, private service: ServiceService, private fb: FormBuilder,private toastr: ToastrService,private tokenStorageService: TokenStorageService) { }
   userForm = this.fb.group({
-    Id : [''],
     Username: ['', [Validators.required, Validators.pattern("[A-Za-zñÑáéíóúÁÉÍÓÚ ]{1,40}"), Validators.maxLength(40)]],
     UserlastName: ['', [Validators.required, Validators.pattern("[A-Za-zñÑáéíóúÁÉÍÓÚ ]{1,45}"), Validators.maxLength(45)]],
     Usertype: ['']
