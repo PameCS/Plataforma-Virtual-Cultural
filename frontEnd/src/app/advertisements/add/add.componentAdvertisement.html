@@ -68,13 +68,10 @@
                         <button id="l3" (click)="attendance()" type="button" class="btn btn-success ">&nbsp;<span class="fa fa-file-excel-o"></span> &nbsp;Generar reporte de asistencia &nbsp;</button>
                       </div>
                 </main>
-                <br>
-                <h3>Agregar anuncios</h3>
             </div>
-        
-
-          
+        </div>     
             <div class="card-body">
+                 <h3 style="text-align:center">Agregar anuncios</h3>
                 <form [formGroup]="adForm" action="">
                     <div class="form-group">
                         <label for="">Título</label>
@@ -93,11 +90,9 @@
                       </select>
                     </div>
                    <button
-                    (click)="Save()" class="btn btn-danger"><i class="fa fa-floppy-o" aria-hidden="true"></i>Guardar</button>
+                   id="add" (click)="Save()" class="btn btn-danger"><i class="fa fa-floppy-o" aria-hidden="true"></i>Guardar</button>
                 </form>
             </div>
-        
-        </div>
     </div>
 
 </body>

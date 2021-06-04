@@ -7,13 +7,12 @@
             <br>
             <br>
             <br>
-            <h3>Agregar aula</h3>
+            <h3 style="text-align:center">Agregar aula</h3>
         </div>
         <div class="card-body">
             <form [formGroup]="classForm" action="">
                 <div class="form-group">
-                    <label for="">Capacidad:</label>
-                    <input type="number" min="1" [(ngModel)]="classroom.capacity" name="capacity" formControlName="classCapacity" class="form-control">
+                    <input placeholder="Capacidad" type="number" min="1" [(ngModel)]="classroom.capacity" name="capacity" formControlName="classCapacity" class="form-control">
                     <div class="alert-danger" *ngIf="capacity.invalid && (capacity.dirty || capacity.touched)">
                         <div class="container-error-message" *ngIf="capacity.errors.required">
                           La capacidad es un campo obligatorio
@@ -21,7 +20,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="">Disponibilidad:</label>
+                    <label for="">Disponibilidad</label>
                     <select [(ngModel)]="classroom.availability" name="availability" formControlName="classAvailability" class="form-control">
                     <option>Disponible</option>
                     <option>No disponible</option>
@@ -35,7 +34,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="">Tipo:</label>
+                    <label for="">Tipo de aula</label>
                     <select [(ngModel)]="classroom.type" name="type" formControlName="classType" class="form-control">
                     <option>Aula</option>
                     <option>Salón principal</option>
@@ -46,7 +45,7 @@
                          </div>
                     </div>
                 </div>
-               <button
+               <button style="margin-left: 40%;"
                [disabled] = "classForm.invalid"
                 (click)="Save()" class="btn btn-danger">Guardar</button>
             </form>

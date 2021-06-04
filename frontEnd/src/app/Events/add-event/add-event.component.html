@@ -12,19 +12,7 @@
     <div class="card-body">
       <form [formGroup]="eventForm" action="">
         <div class="form-group">
-          <!--El id lo deberia proporcionar la bd en vez de uno-->
-          <label for="">Id:</label>
-          <input type="number" [(ngModel)]="event.pk_idEvent" name="pk_idEvent" formControlName="Id"
-            class="form-control">
-          <div class="alert-danger" *ngIf="Id.invalid && (Id.dirty || Id.touched)">
-            <div class="container-error-message" *ngIf="Id.errors.required">
-              El id es un campo obligatorio
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="">Nombre del evento:</label>
-          <input type="text" [(ngModel)]="event.name" name="name" formControlName="eventName" class="form-control">
+          <input placeholder="Nombre del evento" type="text" [(ngModel)]="event.name" name="name" formControlName="eventName" class="form-control">
           <div class="alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
             <div class="container-error-message" *ngIf="name.errors.required">
               El nombre es un campo obligatorio
@@ -38,7 +26,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="">Fecha del evento:</label>
+          <label for="">Fecha del evento </label>
           <input type="date" #myDate [value]="event.dateEvent | date:'yyyy-MM-dd'"
             (input)="event.dateEvent = $event.target.valueAsDate" formControlName="eventDate" />
           <div class="alert-danger" *ngIf="date.invalid && (date.dirty || date.touched)">
@@ -48,8 +36,8 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="">hora del evento:</label>
-          <input type="text" [(ngModel)]="event.hourEvent" name="hourEvent" formControlName="eventHour"
+          <label for="">Hora del evento </label>
+          <input placeholder="Hora del evento" type="time" [(ngModel)]="event.hourEvent" name="hourEvent" formControlName="eventHour"
             class="form-control">
           <div class="alert-danger" *ngIf="hour.invalid && (hour.dirty || hour.touched)">
             <div class="container-error-message" *ngIf="hour.errors.required">
@@ -58,8 +46,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="">Lugar del evento:</label>
-          <input type="text" [(ngModel)]="event.place" name="place" formControlName="eventPlace" class="form-control">
+          <input placeholder="Lugar del evento" type="text" [(ngModel)]="event.place" name="place" formControlName="eventPlace" class="form-control">
           <div class="alert-danger" *ngIf="place.invalid && (place.dirty || place.touched)">
             <div class="container-error-message" *ngIf="place.errors.required">
               El lugar del evento es un campo obligatorio

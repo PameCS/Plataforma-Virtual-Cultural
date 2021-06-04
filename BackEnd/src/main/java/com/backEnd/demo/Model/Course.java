@@ -44,13 +44,20 @@ public class Course {
     
     @OneToOne
     @JoinColumn(name = "fileDB_id")
-    private FileDB fileDB;
+    private FileDB image;
     
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,orphanRemoval = true)
     @JoinTable(name = "T_COURSE_MATERIAL",
             joinColumns = @JoinColumn(name = "FK_Id"))
     private Set<FileDB> materials = new HashSet<>();
     
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name="FK_courseId")
+    private List<CourseAttendance> attendance = new ArrayList<>();
+    
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name="FK_courseId")
+    private List<Assigment> assigments = new ArrayList<>();
     
     public int getStudentQuantity() {
         return studentQuantity;
@@ -125,12 +132,12 @@ public class Course {
     }
 
 
-    public FileDB getFileDB() {
-        return fileDB;
+    public FileDB getImage() {
+        return image;
     }
 
-    public void setFileDB(FileDB fileDB) {
-        this.fileDB = fileDB;
+    public void setImage(FileDB fileDB) {
+        this.image = fileDB;
     }
 
     public Set<FileDB> getMaterials() {
@@ -144,5 +151,23 @@ public class Course {
     public boolean deleteAd(CourseAds ad){
         return this.ads.remove(ad);
     }
+
+    public List<CourseAttendance> getAttendance() {
+        return attendance;
+    }
+
+    public void setAttendance(List<CourseAttendance> attendance) {
+        this.attendance = attendance;
+    }
+
+    public List<Assigment> getAssigments() {
+        return assigments;
+    }
+
+    public void setAssigments(List<Assigment> assigments) {
+        this.assigments = assigments;
+    }
+    
+    
     
 }

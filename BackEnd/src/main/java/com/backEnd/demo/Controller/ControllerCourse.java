@@ -1,9 +1,11 @@
 package com.backEnd.demo.Controller;
 
+import com.backEnd.demo.Model.Assigment;
 import com.backEnd.demo.Model.Course;
 import com.backEnd.demo.Model.CourseAds;
 import com.backEnd.demo.Model.FileDB;
 import com.backEnd.demo.Model.User;
+import com.backEnd.demo.Service.AssigmentService;
 import com.backEnd.demo.Service.CourseAdsService;
 import com.backEnd.demo.Service.EnrollmentService;
 import com.backEnd.demo.Service.UserService;
@@ -46,6 +48,9 @@ public class ControllerCourse {
 
     @Autowired
     CourseAdsService courseAdsservice;
+    
+     @Autowired
+    AssigmentService assigmentAdsservice;
 
     @Autowired
     UserService user;
@@ -86,7 +91,7 @@ public class ControllerCourse {
         }
     }
     
-     @GetMapping("/materialList/{id}")
+  @GetMapping("/materialList/{id}")
   public ResponseEntity<List<ResponseFile>> getListFiles(@PathVariable("id") int id) {
       Course c = service.listId(id);
     List<ResponseFile> files = c.getMaterials().stream().map(dbFile -> {
@@ -110,7 +115,7 @@ public class ControllerCourse {
     @GetMapping(path = {"/image/{id}"})
     public ResponseEntity<ResponseFile> getImage(@PathVariable("id") int id) {
         Course c = service.listId(id);
-        FileDB fileDB = c.getFileDB();
+        FileDB fileDB = c.getImage();
         String fileDownloadUri = ServletUriComponentsBuilder
                 .fromCurrentContextPath()
                 .path("/files/")
@@ -129,7 +134,7 @@ public class ControllerCourse {
     @PostMapping(path = {"/{id}"})
     public Course add(@RequestBody Course c, @PathVariable("id") String id) {
         FileDB fileDB = storageService.getFile(id);
-        c.setFileDB(fileDB);
+        c.setImage(fileDB);
         return service.add(c);
     }
 
@@ -182,6 +187,20 @@ public class ControllerCourse {
                     .body(new MessageResponse("Error: No se pudo agregar el aviso correctamente!"));
         }
         return ResponseEntity.ok(new MessageResponse("¡Se ha agregado un nuevo aviso!"));
+    }
+    
+     @PostMapping(path = {"/Assigment/{id}"})
+    public ResponseEntity<?> addAssigment(@RequestBody Assigment c, @PathVariable("id") int id) {
+        if (c != null) {
+            assigmentAdsservice.add(c);
+            Course course = service.listId(id);
+            service.addAssigment(course, c);
+        } else {
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse("Error: No se pudo agregar la entrega correctamente!"));
+        }
+        return ResponseEntity.ok(new MessageResponse("¡Se ha agregado una nueva entrega!"));
     }
 
     @GetMapping(path = "/exportStudentClass/excel/{id}")

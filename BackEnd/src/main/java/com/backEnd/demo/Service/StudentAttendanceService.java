@@ -14,9 +14,4 @@ public interface StudentAttendanceService {
     StudentAttendance delete(int id);
     
     List<StudentAttendance> createStudentAttendance(List<User> students,int idcourse);
-
-    List<StudentAttendance> getCourseList(int id);
-    
-    boolean findStudent(String idStudent, int courseId);
-
 }

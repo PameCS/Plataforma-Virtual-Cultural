@@ -12,12 +12,7 @@
         <div class="card-body">
             <form action="">
                 <div class="form-group">
-                    <label for="">Id</label>
-                    <input type="number" [(ngModel)]="course.pk_idCourse" name="pk_idCourse" class="form-control" readonly=»readonly»>
-                </div>
-                <div class="form-group">
-                    <label for="">Nombre</label>
-                    <input type="text" [(ngModel)]="course.name" name="name" class="form-control">
+                    <input placeholder="Nombre del curso" type="text" [(ngModel)]="course.name" name="name" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="">Modalidad</label>
@@ -32,19 +27,17 @@
                     <input type="date" [(ngModel)]="course.finishDate" name="finishDate" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="">Horario</label>
-                    <input type="text" [(ngModel)]="course.shedule" name="shedule" class="form-control">
+                    <input placeholder="Horario" type="text" [(ngModel)]="course.shedule" name="shedule" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="">Profesor(a)</label>
                     <input type="text" [(ngModel)]="course.professor" name="professor" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="">Cantidad de Estudiantes</label>
-                    <input type="number" [(ngModel)]="course.studentQuantity" name="studentQuantity" class="form-control">
+                    <input placeholder="Cantidad de estudiantes" type="number" [(ngModel)]="course.studentQuantity" name="studentQuantity" class="form-control">
                 </div>
             
-                <button (click)="Update(course)" class="btn btn-danger">Actualizar</button>
+                <button style="margin-left: 40%;" (click)="Update(course)" class="btn btn-danger">Actualizar</button>
             </form>
         </div>
     </div>

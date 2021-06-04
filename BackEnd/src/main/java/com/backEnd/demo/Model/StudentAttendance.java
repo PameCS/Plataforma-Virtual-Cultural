@@ -1,13 +1,10 @@
 package com.backEnd.demo.Model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -27,21 +24,14 @@ public class StudentAttendance {
     private String studentFullName;
     @Column
     private String studentAttendance;    
-    @Column
-    private int courseId;  
-    
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="courseAttendance_id")
-    private CourseAttendance courseAttendance;
-
+ 
     public StudentAttendance() {
     }
 
-    public StudentAttendance( String id_student, String studentFullName,int courseId){
+    public StudentAttendance( String id_student, String studentFullName){
         
         this.studentId = id_student;
         this.studentFullName = studentFullName;
-        this.courseId = courseId;
     }
 
     public int getId() {
@@ -75,22 +65,5 @@ public class StudentAttendance {
     public void setStudentAttendance(String studentAttendance) {
         this.studentAttendance = studentAttendance;
     }
-
-    public CourseAttendance getCourseAttendance() {
-        return courseAttendance;
-    }
-
-    public void setCourseAttendance(CourseAttendance courseAttendance) {
-        this.courseAttendance = courseAttendance;
-    }
-
-    public int getCourseId() {
-        return courseId;
-    }
-
-    public void setCourseId(int courseId) {
-        this.courseId = courseId;
-    }
-
-   
+    
 }

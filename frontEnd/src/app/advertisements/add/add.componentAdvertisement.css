@@ -48,7 +48,7 @@ body {
   line-height: 25px;
   font-weight: 400;
   font-family: "Poppins", sans-serif;
-  background-color:#1b424f;
+  background-color:white;
   overflow-x: hidden !important; }
 
 p {
@@ -259,26 +259,25 @@ select {
             }
 
 #add{
-width: 90px;
+width: 100px;
 height: 35px;
-left: 80%;
-bottom: 35px;
 position: relative;
+left: 200px;
+top: 20px;
 }
 
 .card-body{
+background-color: white;
+ position: relative;
+ left: 50%;
+ padding-top: 100px;
+}
+
+#form{
   background-color: white;
-  margin-top: 10px;
-  margin-bottom: 400px;
-  padding-top: 40px;
-  padding-bottom: 400px;
-  padding-left: 200px;
-  padding-right: 100px;
-  margin-right: 100px;
-  left: 50%;
-  right: 800%;
-  bottom: 35px;
-  position: relative;
+  padding-bottom: 200px;
+  width: 100%;
+  
 }
 
 #l1{
@@ -438,13 +437,9 @@ line-height: 2rem;
 }
 
 .card-header{
-
   background-color: white;
 }
 
-body{
-  background-color: white;
-}
 
 }
 .portfolio-modal .close {

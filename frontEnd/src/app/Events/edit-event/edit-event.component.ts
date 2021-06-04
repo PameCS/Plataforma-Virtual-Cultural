@@ -19,7 +19,6 @@ export class EditEventComponent implements OnInit {
     this.Edit();
   }
   eventForm = this.fb.group({
-    Id: [''],
     eventName: ['', [Validators.pattern("[A-Za-zñÑáéíóúÁÉÍÓÚ0-9 ]{1,45}"), Validators.maxLength(45)]],
     eventDate: ['', Validators.required],
     eventHour: ['', Validators.required],

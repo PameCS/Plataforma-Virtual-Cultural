@@ -24,10 +24,10 @@
                         <td>{{user.lastName}}</td>
                         <td>{{user.email}}</td>
                         <td>{{user.type}}</td>
-                        <td>
-                            <button (click)="Edit(user)" class="btn btn-warning">Editar</button>
-                            <button (click)="Delete(user)" class="btn btn-danger">Eliminar</button>
-                        </td>
+                        <td align="center">
+                            <a class="btn btn-default" (click)="Edit(user)" ><em class="fa fa-pencil"></em></a>
+                            <a class="btn btn-danger" (click)= "Delete(user)" ><em class="fa fa-trash"></em></a>
+                          </td>
                     </tr>
                 </tbody>
             </table>

@@ -19,6 +19,7 @@ com\backEnd\demo\Repository\EnrollmentRepository.class
 com\backEnd\demo\Service\impl\CourseAttendanceServiceImp.class
 com\backEnd\demo\security\services\UserDetailsServiceImpl.class
 com\backEnd\demo\Service\CourseAttendanceService.class
+com\backEnd\demo\Repository\AssigmentRepository.class
 com\backEnd\demo\Repository\StudentAttendanceRepository.class
 com\backEnd\demo\Service\CourseAdsService.class
 com\backEnd\demo\Service\impl\ClassRequestServiceImp.class
@@ -35,8 +36,10 @@ com\backEnd\demo\Service\courseService.class
 com\backEnd\demo\Model\Course.class
 com\backEnd\demo\Repository\FileDBRepository.class
 com\backEnd\demo\Service\impl\userServiceImp.class
+com\backEnd\demo\Service\impl\AssigmentServiceImp.class
 com\backEnd\demo\Model\FileDB.class
 com\backEnd\demo\Service\UserService.class
+com\backEnd\demo\Controller\AssigmentController.class
 com\backEnd\demo\Repository\CourseAdsRepository.class
 com\backEnd\demo\Repository\ClassRequestRepository.class
 com\backEnd\demo\Repository\ClassroomRepository.class
@@ -52,7 +55,7 @@ com\backEnd\demo\Model\StudentAttendance.class
 com\backEnd\demo\Controller\ControllerCourseAds.class
 com\backEnd\demo\payload\response\MessageResponse.class
 com\backEnd\demo\Controller\ControllerCourse.class
-com\backEnd\demo\Service\impl\CourseAttenance.class
+com\backEnd\demo\Model\Assigment.class
 com\backEnd\demo\Repository\CourseAttendanceRepository.class
 com\backEnd\demo\Service\classService.class
 com\backEnd\demo\Service\impl\eventServiceImp.class
@@ -62,6 +65,7 @@ com\backEnd\demo\Model\Classroom.class
 com\backEnd\demo\security\WebSecurityConfig.class
 com\backEnd\demo\Model\ClassRequest.class
 com\backEnd\demo\Controller\ControllerCourseAttendance.class
+com\backEnd\demo\Service\AssigmentService.class
 com\backEnd\demo\Service\impl\EnrollmentServiceImp.class
 com\backEnd\demo\Application.class
 com\backEnd\demo\Controller\ControllerCourseRequest.class

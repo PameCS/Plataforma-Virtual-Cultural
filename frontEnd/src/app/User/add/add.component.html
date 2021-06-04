@@ -1,10 +1,15 @@
 <app-header ></app-header>
-<div class="col-md-12">
-  <br>
-  <br>
-  <br>
-  <br>
-    <div class="card card-container">
+<div class="container col-md-6">
+    <div class="card">
+      <div class="card-header">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h3 style="text-align:center">Agregar usuario</h3>
+    </div>
+    <div class="card-body">
       <form
         *ngIf="!isSuccessful"
         name="form"
@@ -13,47 +18,46 @@
         novalidate
       >
         <div class="form-group">
-          <label for="idUser">Identificación</label>
           <input
             type="text"
             class="form-control"
             name="idUser"
             [(ngModel)]="form.idUser"
             required
-            minlength="3"
-            maxlength="20"
+            minlength="8"
+            maxlength="12"
             #idUser="ngModel"
+            placeholder="Identificación"
           />
           <div class="alert-danger" *ngIf="f.submitted && idUser.invalid">
-            <div *ngIf="idUser.errors.required">Username is required</div>
+            <div *ngIf="idUser.errors.required">La identificación es obligatoria</div>
             <div *ngIf="idUser.errors.minlength">
-              Username must be at least 3 characters
+              La identificación debe tener al menos 8 caracteres
             </div>
             <div *ngIf="idUser.errors.maxlength">
-              Username must be at most 20 characters
+              La identificación debe tener máximo 12 caracteres
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="password">Contraseña</label>
           <input
             type="password"
             class="form-control"
             name="password"
             [(ngModel)]="form.password"
             required
-            minlength="6"
+            minlength="8"
             #password="ngModel"
+            placeholder="Contraseña"
           />
           <div class="alert-danger" *ngIf="f.submitted && password.invalid">
-            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.required">La contraseña es obligatoria</div>
             <div *ngIf="password.errors.minlength">
-              Password must be at least 6 characters
+              La contraseña debe ser al menos de 8 caracteres
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="name">Nombre</label>
           <input
             type="text"
             class="form-control"
@@ -63,9 +67,10 @@
             minlength="3"
             maxlength="20"
             #name="ngModel"
+            placeholder="Nombre"
           />
           <div class="alert-danger" *ngIf="f.submitted && name.invalid">
-            <div *ngIf="name.errors.required">Username is required</div>
+            <div *ngIf="name.errors.required">El nombre es obligatorio</div>
             <div *ngIf="name.errors.minlength">
               El nombre debe tener mínimo 3 caracteres
             </div>
@@ -75,7 +80,6 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="lastName">Apellidos</label>
           <input
             type="text"
             class="form-control"
@@ -85,9 +89,10 @@
             minlength="3"
             maxlength="20"
             #lastName="ngModel"
+            placeholder="Apellidos"
           />
           <div class="alert-danger" *ngIf="f.submitted && lastName.invalid">
-            <div *ngIf="lastName.errors.required">Username is required</div>
+            <div *ngIf="lastName.errors.required">El apellido es obligatorio</div>
             <div *ngIf="lastName.errors.minlength">
               El nombre debe tener mínimo 3 caracteres
             </div>
@@ -97,7 +102,6 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
           <input
             type="email"
             class="form-control"
@@ -106,17 +110,18 @@
             required
             email
             #email="ngModel"
+            placeholder="Email"
           />
           <div class="alert-danger" *ngIf="f.submitted && email.invalid">
-            <div *ngIf="email.errors.required">Email is required</div>
+            <div *ngIf="email.errors.required">El correo es obligatorio</div>
             <div *ngIf="email.errors.email">
                El email deber ser válido
             </div>
           </div>
         </div>
-        
+    
         <div class="form-group">
-          <label for="type">Tipo</label>
+          <label for="type">Tipo de usuario</label>
           <select  [(ngModel)]="form.type"  #type="ngModel" required class="form-control" name="type">
             <option  *ngIf="showSuperAdmin" >Administrador</option>
             <option  *ngIf="showSuperAdmin" >Super-Administrador</option>
@@ -125,17 +130,15 @@
         </div>
        
         <div class="form-group">
-          <button class="btn btn-primary btn-block">Registrarse</button>
+          <button class="btn btn-danger">Guardar</button>
         </div>
   
         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
         <br />{{ errorMessage }}
         </div>
       </form>
-  
-      <div class="alert alert-success" *ngIf="isSuccessful" role="alert">
-        ¡Se registro de manera éxitosa!
-      </div>
+    </div>
+      
     </div>
   </div>
   

@@ -115,24 +115,7 @@ export class HomeVirtualClassRoomComponent implements OnInit {
   }
 
   attendance(): void{
-    this.service.exportExcelStudents(this.course).subscribe( x =>{
-      const blob = new Blob([x],{type:'application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})
-       
-      if(window.navigator && window.navigator.msSaveOrOpenBlob){
-        window.navigator.msSaveOrOpenBlob(blob);
-        return;
-      }
-      const data = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = data;
-      link.download = 'Estudiantes.xlsx';
-      link.dispatchEvent(new MouseEvent('click',{bubbles: true,cancelable:true,view:window}));
-    
-      setTimeout(function(){
-       window.URL.revokeObjectURL(data);
-       link.remove();
-      },100);
-    });
+    this.router.navigate(["attendanceList"]);
   }
 
   

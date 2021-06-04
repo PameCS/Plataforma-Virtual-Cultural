@@ -1,5 +1,6 @@
 package com.backEnd.demo.Service.impl;
 
+import com.backEnd.demo.Model.Assigment;
 import com.backEnd.demo.Service.courseService;
 import com.backEnd.demo.Repository.courseRepository;
 import com.backEnd.demo.Model.Course;
@@ -76,6 +77,20 @@ public class courseServiceImp implements courseService {
         }
         return c;
     }
+    
+    @Override
+    public Course addAssigment(Course c, Assigment assigment) {
+        try {
+            List<Assigment> coursesAssigment = c.getAssigments();
+            coursesAssigment.add(assigment);
+            c.setAssigments(coursesAssigment);
+            courseService.edit(c);
+
+        } catch (Exception ex) {
+            System.out.print(ex);
+        }
+        return c;
+    }
 
      @Override
     public Course addMaterial(FileDB file, Course c) throws IOException {
@@ -86,4 +101,7 @@ public class courseServiceImp implements courseService {
         courseService.edit(c);
         return c;
     }
+    
+  
+    
 }

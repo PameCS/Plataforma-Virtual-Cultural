@@ -42,3 +42,25 @@
       .container-error-message {
         padding: 3px;
       }
+
+      ::-webkit-input-placeholder {
+        color:dimgray;
+        font-size: 16px;
+      }
+      ::-moz-placeholder {
+       
+        color:dimgray;
+        font-size: 16px;
+      }
+      :-ms-input-placeholder {
+       
+        color:dimgray;
+        font-size: 16px;
+      }
+      ::placeholder {
+     
+        color:dimgray;
+        font-size: 16px;
+      }
+  
+      

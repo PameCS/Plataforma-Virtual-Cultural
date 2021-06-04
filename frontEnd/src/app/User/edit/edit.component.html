@@ -14,6 +14,7 @@
                 <div class="form-group">
                     <label for="">Id:</label>
                     <input type="text" [(ngModel)]="user.username" name="username" class="form-control"
+<<<<<<< Updated upstream
                         readonly=»readonly» formControlName="Id" >
                 </div>
             <!--En el edit de profesor no se ocupa la contraseña ya que esta codificada, el admin no deberia poder ver la contraseña 
@@ -34,6 +35,9 @@
                             La contraseña debe tener mínimo 8 caracteres.
                         </div>
                     </div>
+=======
+                        formControlName="Id" >
+>>>>>>> Stashed changes
                 </div>
                 -->   
                 <div class="form-group">
@@ -68,17 +72,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" *ngIf="showSuperAdmin">
                     <label for="">Tipo:</label>
                     <select [(ngModel)]="user.type" class="form-control" name="type" formControlName="Usertype">
                         <option>Administrador</option>
                         <option>Super-Administrador</option>
                     </select>
-                    <div class="alert-danger" *ngIf="type.invalid && (type.dirty || type.touched)">
-                        <div class="container-error-message" *ngIf="type.errors.required">
-                            Debe seleccionar un tipo de usuario
-                        </div>
-                    </div>
+                   
                 </div>
                 <button [disabled]="userForm.invalid" (click)="Update(user)" class="btn btn-danger">Actualizar</button>
             </form>

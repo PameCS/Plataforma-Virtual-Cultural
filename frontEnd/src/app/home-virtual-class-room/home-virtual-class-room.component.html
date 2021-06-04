@@ -67,14 +67,12 @@
         <div class="card">
             <div class="card-header">
                 <main>
-    
                     <div class="btn-group" role="group" aria-label="Vertical button group">
                         <button id="l1" (click)="return()" type="button"class="btn btn-warning "><span class="fa fa-arrow-left"></span> &nbsp;Volver&nbsp;</button>
                         <button id="l1" (click)="studentList()"  type="button" class="btn btn-danger ">&nbsp;<span class="fa fa-list"></span> &nbsp;Lista de estudiantes &nbsp;</button>
-                        <button id="l3" (click)="attendance()" type="button" class="btn btn-success ">&nbsp;<span class="fa fa-file-excel-o"></span> &nbsp;Generar reporte de asistencia &nbsp;</button>
+                        <button id="l1" (click)="attendance()" type="button" class="btn btn-success ">&nbsp;<span  class="fa fa-check-square"></span> &nbsp;Tomar asistencia &nbsp;</button>
                       </div>
                 </main>
-                <br>
                 <h1 class="h4">{{course.name}}</h1>
             </div>
         </div>
@@ -117,14 +115,6 @@
 
         </div>
         
- <!-- <div class="c1">
-        <div class="row nav nav-tabs">
-            <div class="col-md-12">
-                <h1 class="h4">Tareas <button *ngIf="showProfessorBoard" style="background-color: transparent; border: none;"><i class="fa fa-plus" aria-hidden="true"></i></button></h1>
-            </div>
-        </div>
-       
-    </div>-->
 </div>
     <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">

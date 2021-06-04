@@ -18,6 +18,10 @@ public class Classroom {
     private String availability;
     @Column
     private String type;
+    
+    @OneToOne
+    @JoinColumn(name = "fileDB_id")
+    private FileDB image;
 
     public int getPK_idClass() {
         return PK_idClass;
@@ -49,6 +53,14 @@ public class Classroom {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public FileDB getFileDB() {
+        return image;
+    }
+
+    public void setFileDB(FileDB fileDB) {
+        this.image = fileDB;
     }
     
     

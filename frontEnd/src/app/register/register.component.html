@@ -47,18 +47,18 @@
             name="idUser"
             [(ngModel)]="form.idUser"
             required
-            minlength="3"
-            maxlength="20"
+            minlength="9"
+            maxlength="12"
             #idUser="ngModel"
             placeholder="Identificación"
           />
           <div class="alert-danger" *ngIf="f.submitted && idUser.invalid">
-            <div *ngIf="idUser.errors.required">La Identificación es un campo requerido</div>
+            <div *ngIf="idUser.errors.required">La Identificación es un campo obligatorio</div>
             <div *ngIf="idUser.errors.minlength">
-              Username must be at least 3 characters
+              La Identificación debe tener mínimo 9 caracteres 
             </div>
             <div *ngIf="idUser.errors.maxlength">
-              Username must be at most 20 characters
+              La Identificación debe tener máximo 12 caracteres 
             </div>
           </div>
         </div>
@@ -69,14 +69,14 @@
             name="password"
             [(ngModel)]="form.password"
             required
-            minlength="6"
+            minlength="8"
             #password="ngModel"
             placeholder= "Contraseña"
           />
           <div class="alert-danger" *ngIf="f.submitted && password.invalid">
-            <div *ngIf="password.errors.required">La contraseña es un campo requerido</div>
+            <div *ngIf="password.errors.required">La contraseña es un campo obligatorio</div>
             <div *ngIf="password.errors.minlength">
-              Password must be at least 6 characters
+              La contraseña debe tener al menos 8 caracteres
             </div>
           </div>
         </div>
@@ -115,12 +115,12 @@
             placeholder= "Apellidos"
           />
           <div class="alert-danger" *ngIf="f.submitted && lastName.invalid">
-            <div *ngIf="lastName.errors.required">Los apellidos son requeridos</div>
+            <div *ngIf="lastName.errors.required">El apellidos es un campo obligatorio</div>
             <div *ngIf="lastName.errors.minlength">
-              El nombre debe tener mínimo 3 caracteres
+              El apellido debe tener mínimo 3 caracteres
             </div>
             <div *ngIf="lastName.errors.maxlength">
-              El nombre debe tener máximo 20 caracteres
+              El apellido debe tener máximo 20 caracteres
             </div>
           </div>
         </div>
@@ -155,7 +155,7 @@
             placeholder= "Teléfono"
           />
           <div class="alert-danger" *ngIf="f.submitted && tel.invalid">
-            <div *ngIf="tel.errors.required">El teléfono es requerida</div>
+            <div *ngIf="tel.errors.required">El teléfono es requerido</div>
             <div *ngIf="tel.errors.minlength">
               El teléfono debe tener mínimo 8 dígitos
             </div>

@@ -23,8 +23,14 @@ public class FileDB {
   @Lob
   private byte[] data;
   
-  @OneToOne(cascade = CascadeType.ALL,mappedBy = "fileDB")
+  @OneToOne(cascade = CascadeType.ALL,mappedBy = "image")
     private Course course;
+  
+  @OneToOne(cascade = CascadeType.ALL,mappedBy = "image")
+    private Classroom classroom;
+  
+   @OneToOne(cascade = CascadeType.ALL,mappedBy = "image")
+    private Event event;
 
 
   public FileDB() {

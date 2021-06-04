@@ -5,6 +5,7 @@ import { UserService } from '../Service/user.service';
 import { TokenStorageService } from '../Service/token-storage.service';
 import {faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
 import { User } from '../Model/User';
+import { Attendance } from '../Model/Attendance';
 
 
 @Component({
@@ -20,13 +21,14 @@ export class AttendanceListComponent implements OnInit {
   private roles: string[];
   isLoggedIn = false;
   showProfessorBoard = false;
-  students: User[];
+  students: Attendance[];
+
 
   constructor(private router:Router,private service:UserService,private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
-    this.studentList();
     this.courseHome();
+    this.studentList();
     this.isLoggedIn = !!this.tokenStorageService.getToken();
  
     if (this.isLoggedIn) {
@@ -42,8 +44,8 @@ export class AttendanceListComponent implements OnInit {
   }
   
   studentList(){
-    let id= localStorage.getItem("pk_idCourse");
-    this.service.getStudentList(+id)
+    let id= localStorage.getItem("pk_courseCode");
+    this.service.getCourseAttendance(+id)
     .subscribe(data => {
       this.students = data;
     });

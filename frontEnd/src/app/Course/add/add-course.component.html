@@ -12,8 +12,7 @@
         <div class="card-body">
             <form [formGroup]="courseForm" action="">
                 <div class="form-group">
-                    <label for="">Nombre:</label>
-                    <input type="text" [(ngModel)]="course.name" name="name" formControlName="courseName" class="form-control">
+                    <input placeholder="Nombre del curso" type="text" [(ngModel)]="course.name" name="name" formControlName="courseName" class="form-control">
                     <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
                         <div class="container-error-message" *ngIf="name.errors.required">
                           El nombre es un campo obligatorio
@@ -27,7 +26,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="">Modalidad:</label>
+                    <label for="">Modalidad </label>
                     <select [(ngModel)]="course.mode" name="mode" formControlName="courseMode" class="form-control">
                     <option>Virtual</option>
                     <option>Presencial</option>
@@ -57,8 +56,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="">Horario:</label>
-                    <input type="text" [(ngModel)]="course.shedule" name="shedule" class="form-control" formControlName="sheduleCourse">
+                    <input placeholder="Horario" type="text" [(ngModel)]="course.shedule" name="shedule" class="form-control" formControlName="sheduleCourse">
                     <div class="alert-danger" *ngIf="shedule.invalid && (shedule.dirty || shedule.touched)">
                         <div class="container-error-message" *ngIf="shedule.errors.required">
                           El horario es un campo obligatorio
@@ -66,15 +64,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                  <label for="">Profesor(a)</label>
-                  <select formControlName="professor" >
-                    <option value="" disabled>Elegir profesor</option>
-                    <option *ngFor="let professor of users" [ngValue]="professor.name" (change)="changeProfessor($event)">{{professor.name}}</option>
-                </select>
+                  <input placeholder="Profesor(a)" type="text" [(ngModel)]="course.professor" name="professor" class="form-control">
               </div>
                 <div class="form-group">
-                    <label for="">Cantidad de estudiantes:</label>
-                    <input type="number" min="1" [(ngModel)]="course.studentQuantity" name="studentQuantity" class="form-control" formControlName="quantityCourse">
+                    <input placeholder="Cantidad de estudiantes" type="number" min="1" [(ngModel)]="course.studentQuantity" name="studentQuantity" class="form-control" formControlName="quantityCourse">
                     <div class="alert-danger" *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)">
                         <div class="container-error-message" *ngIf="quantity.errors.required">
                           La cantidad de estudiantes es un campo obligatorio
@@ -88,7 +81,7 @@
                   Subir Imagen
                 </button>    
               <div class="alert alert-light" role="alert">{{ message }}</div>
-                <button
+                <button style="margin-left: 40%;"
                 [disabled] = "courseForm.invalid" 
                 (click)="Save()" class="btn btn-danger">Guardar</button>
             </form>

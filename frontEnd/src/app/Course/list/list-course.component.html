@@ -21,13 +21,12 @@
                         <th>Horario</th>
                         <th>Profesor(a)</th>
                         <th>Cantidad de estudiantes</th>
-                        <th>Imagen</th>
                         <th><em class="fa fa-cog"></em></th> 
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let course of courses" class="text-center">
-                        <td>{{course.PK_idCourse}}</td>
+                        <td>{{course.pk_idCourse}}</td>
                         <td>{{course.name}}</td>
                         <td>{{course.mode}}</td>
                         <td>{{course.startDate}}</td>
@@ -35,7 +34,6 @@
                         <td>{{course.shedule}}</td>
                         <td>{{course.professor}}</td>
                         <td>{{course.studentQuantity}}</td>
-                        <td>{{course.fileDB}}</td>
                         <!--
                         <td>
                             <button (click)="Edit(course)" class="btn btn-warning">Editar</button>

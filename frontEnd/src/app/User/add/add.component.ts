@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/Service/auth.service';
 import { TokenStorageService } from 'src/app/Service/token-storage.service';
@@ -20,7 +21,7 @@ export class AddComponent implements OnInit {
   username: string;
 
   
-  constructor(private authService: AuthService,private tokenStorageService: TokenStorageService,private toastr: ToastrService) {
+  constructor(private router:Router,private authService: AuthService,private tokenStorageService: TokenStorageService,private toastr: ToastrService) {
    }
 
   ngOnInit(): void {
@@ -43,6 +44,11 @@ export class AddComponent implements OnInit {
         this.isSignUpFailed = false;
         this.toastr.success('Se ha agregado un usuario','¡Éxito!',
         {timeOut: 1500,progressBar:true,progressAnimation:'increasing'});
+        if(this.roles.includes('ROLE_ADMIN')){
+          this.router.navigate(["professorList"]);
+        }else{
+          this.router.navigate(["list"]);
+        }
       },
       err => {
         this.errorMessage = err.error.message;

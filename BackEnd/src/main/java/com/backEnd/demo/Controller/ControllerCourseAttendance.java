@@ -1,6 +1,5 @@
 package com.backEnd.demo.Controller;
 
-
 import com.backEnd.demo.Model.Course;
 import com.backEnd.demo.Model.CourseAttendance;
 import com.backEnd.demo.Model.StudentAttendance;
@@ -8,6 +7,7 @@ import com.backEnd.demo.Service.CourseAttendanceService;
 import com.backEnd.demo.Service.EnrollmentService;
 import com.backEnd.demo.Service.StudentAttendanceService;
 import com.backEnd.demo.Service.courseService;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -43,9 +43,17 @@ public class ControllerCourseAttendance {
         return courseAttendanceService.list();
     } 
     
-    @PostMapping
-    public CourseAttendance add(@RequestBody CourseAttendance c){
-        return courseAttendanceService.add(c);
+    @PostMapping(path = {"/addCourseAttendance/{id}"})
+    public CourseAttendance add(@RequestBody List<StudentAttendance> list,@PathVariable("id")int id){
+        CourseAttendance c = new CourseAttendance(new Date());
+        c.setAttendanceList(list);
+        Course course = courseService.listId(id);
+        courseAttendanceService.add(c);
+        List<CourseAttendance> l = course.getAttendance();
+        l.add(c);
+        course.setAttendance(l);
+        courseService.edit(course);
+        return c;
     }
     
     @GetMapping(path = {"/{id}"})

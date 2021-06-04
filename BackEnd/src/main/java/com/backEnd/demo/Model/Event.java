@@ -24,6 +24,10 @@ public class Event  {
     private String place;
     @Column
     private String hourEvent;
+    
+    @OneToOne
+    @JoinColumn(name = "fileDB_id")
+    private FileDB image;
 
     public int getPK_idEvent() {
         return PK_idEvent;
@@ -66,9 +70,12 @@ public class Event  {
         this.hourEvent = hourEvent;
     }
 
+    public FileDB getImage() {
+        return image;
+    }
 
-
-   
-    
+    public void setImage(FileDB fileDB) {
+        this.image = fileDB;
+    }
     
 }

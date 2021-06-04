@@ -20,14 +20,12 @@ export class AddEventComponent implements OnInit {
   }
 
   eventForm = this.fb.group({
-     Id: ['',Validators.required],
      eventName: ['',[Validators.pattern("[A-Za-zñÑáéíóúÁÉÍÓÚ0-9 ]{1,45}"),Validators.maxLength(45)]],
      eventDate: ['',Validators.required],
      eventHour: ['',Validators.required],
      eventPlace: ['',[Validators.pattern("[A-Za-zñÑáéíóúÁÉÍÓÚ0-9 ]{1,45}"),Validators.maxLength(45)]]
     });
   
-  get Id() { return this.eventForm.get('Id'); }
   get name() { return this.eventForm.get('eventName'); }
   get date() { return this.eventForm.get('eventDate'); }
   get hour() { return this.eventForm.get('eventHour'); }

@@ -69,6 +69,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/courseAds/**").permitAll()
                 .antMatchers( "/file/**").permitAll()
                 .antMatchers( "/courseAttendance/**").permitAll()
+                .antMatchers( "/courseRequest/**").permitAll()
+                .antMatchers( "/classroomRequest/**").permitAll()
+                .antMatchers( "/assigment/**").permitAll()
                 .anyRequest().authenticated();
         http.cors();
 

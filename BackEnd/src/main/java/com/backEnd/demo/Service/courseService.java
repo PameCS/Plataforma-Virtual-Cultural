@@ -1,5 +1,6 @@
 package com.backEnd.demo.Service;
 
+import com.backEnd.demo.Model.Assigment;
 import com.backEnd.demo.Model.Course;
 import com.backEnd.demo.Model.CourseAds;
 import com.backEnd.demo.Model.FileDB;
@@ -16,4 +17,5 @@ public interface courseService {
     Course addCourseAds(Course c, CourseAds curAds);
     Course addMaterial(FileDB file, Course c) throws IOException ;
     Course deleteAd(Course c,CourseAds curAds);
+    Course addAssigment(Course c, Assigment assigment);
 }

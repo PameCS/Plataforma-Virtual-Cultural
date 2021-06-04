@@ -11,6 +11,7 @@
 <body>
     <div id="preloader">
         <div id="status">&nbsp;</div>
+
     </div>
     <header class="home_1_update">
 
@@ -27,7 +28,7 @@
                             </div>
                             <div class="social_wrapper d-flex">
                                 <ul class="social-items d-flex list-unstyled">
-                                    <li><a href="#"><fa-icon [icon]="signOut" style="color:white"></fa-icon>></a></li>
+                                    <li><a (click)="logout()" ><fa-icon [icon]="signOut" style="color:white"></fa-icon></a></li>
                                 </ul>   
                             </div>
                         </div>
@@ -63,12 +64,12 @@
                 <div class="card-header">
                         <main>
                             <div class="btn-group" role="group" aria-label="Vertical button group">
-                                <button (click)="return()" type="button"class="btn btn-warning "><span class="fa fa-arrow-left"></span> &nbsp;Volver&nbsp;</button>
-                                <button  type="button" class="btn btn-danger ">&nbsp;<span class="fa fa-list"></span> &nbsp;Lista de estudiantes &nbsp;</button>
-                                <button  type="button" class="btn btn-success">&nbsp;<span class="fa fa-file-excel-o"></span> &nbsp;Generar reporte de asistencia &nbsp;</button>
+                                <button id="l1" (click)="return()" type="button"class="btn btn-warning "><span class="fa fa-arrow-left"></span> &nbsp;Volver&nbsp;</button>
+                                <button id="l1" type="button" class="btn btn-danger ">&nbsp;<span class="fa fa-list"></span> &nbsp;Lista de estudiantes &nbsp;</button>
+                                <button id="l1" type="button" class="btn btn-success">&nbsp;<span class="fa fa-check-square"></span> &nbsp;Tomar asistencia &nbsp;</button>
                               </div>
                         </main>
-                        <br>                
+                        <br><br>                
                     <h3 style="text-align:center" >Asistencia</h3>
                 </div>
                 <div class="card-body">
@@ -77,51 +78,29 @@
                             <tr class="text-center">
                                 <th scope="col">Identificación</th>
                                 <th scope="col">Nombre completo</th>
-                                <th scope="col">Asistencia</th>
+                                <th scope="col">Presente</th>
+                                <th scope="col">Ausente</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let user of students" >
-                                <td scope="row">{{user.username}}</td>
-                                <td scope="row">{{user.name}}&nbsp;{{user.lastName}}</td>
-                               <td>
-                               <input type="checkbox" value="" >     
+                                <td scope="row">{{user.studentId}}</td>
+                                <td scope="row">{{user.studentFullName}}</td>
+                               <td align="center">
+                               <input type="checkbox" id="attendance1" name="attendance1" value="Presente" > 
                                </td>
-                           
+                               <td align="center">
+                                <input type="checkbox" id="attendance2" name="attendance2" value="Ausente" >     
+                               </td>
                             </tr>
                         </tbody>
                     </table>
+                    <button id="save" class="btn btn-success">Guardar asistencia</button>
                 </div>
             </div>
         </div>
-
     </body>
-     <!-- JavaScript -->
-     <script src="/assets/js/popper.min.js"></script>
-     <script src="/assets/js/bootstrap.min.js"></script>
-     <!-- Revolution Slider -->
-     <script src="/assets/js/assets/revolution/jquery.themepunch.revolution.min.js"></script>
-     <script src="/assets/js/assets/revolution/jquery.themepunch.tools.min.js"></script> 
-     <script src="/assets/js/jquery.magnific-popup.min.js"></script>     
-     <script src="/assets/js/owl.carousel.min.js"></script>   
-     <script src="/assets/js/slick.min.js"></script>   
-     <script src="/assets/js/jquery.meanmenu.min.js"></script>  
-     <!-- Counter Script -->
-     <script src="/assets/js/waypoints.min.js"></script>
-     <script src="/assets/js/jquery.counterup.min.js"></script>    
-     <script src="/assets/js/wow.min.js"></script> 
-     <!-- Revolution Extensions -->
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.actions.min.js"></script>
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.carousel.min.js"></script>
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.kenburn.min.js"></script>
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.migration.min.js"></script>
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.navigation.min.js"></script>
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.parallax.min.js"></script>
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.slideanims.min.js"></script>
-     <script src="/assets/js/assets/revolution/extensions/revolution.extension.video.min.js"></script>
-     <script src="/assets/js/assets/revolution/revolution.js"></script>
-     <script src="/assets/js/custom.js"></script> 
+   
 </body>
 
 </html>

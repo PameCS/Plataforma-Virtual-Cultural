@@ -8,6 +8,7 @@ import { Event } from '../Model/Event';
 import { from, Observable } from 'rxjs';
 import { CourseRequest } from '../Model/CourseRequest';
 import { ClassRequest } from '../Model/ClassRequest';
+import { Attendance } from '../Model/Attendance';
 
 const API_URL = 'http://localhost:8084/api/test/';
 const Url = 'http://localhost:8084/users';
@@ -21,6 +22,8 @@ const UrlListProfessor = 'http://localhost:8084/users/listProfessors';
 const UrlmyCourses = 'http://localhost:8084/users/myCourses';
 const UrlEnroll = 'http://localhost:8084/course/enroll';
 const UrlStudentsList = 'http://localhost:8084/course/listStudents';
+const UrlAttendance = 'http://localhost:8084/courseAttendance';
+
 
 @Injectable({
   providedIn: 'root'
@@ -123,6 +126,11 @@ export class UserService {
 
   deleteClassRequest(classRequest: ClassRequest) {
     return this.http.delete<ClassRequest>(UrlclassRequest + "/" + classRequest.pk_idRequest);
+  }
+
+  //--------------------------------- course attendance------------------------------------------
+  getCourseAttendance(id: number) {
+    return this.http.get<Attendance[]>(UrlAttendance + "/attendanceList/" + id);
   }
 
   //----------------------------------course module----------------------------------------------

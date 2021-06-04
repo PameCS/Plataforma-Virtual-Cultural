@@ -39,42 +39,14 @@ public class StudentAttendanceServiceImp implements StudentAttendanceService {
         return c;
     }
 
-    @Override
-    public List<StudentAttendance> getCourseList(int id) {
-        List<StudentAttendance> newlist = new ArrayList<>();
-        List<StudentAttendance> list = repository.findAll();     
-        
-        if(!list.isEmpty()){
-            list.stream().filter(list1 -> (list1.getCourseId() == id)).forEachOrdered(list1 -> {
-                newlist.add(list1);
-            });
-        }
-        return newlist;
-    }
-
-    @Override
-    public boolean findStudent(String idStudent, int courseId) {
-        boolean value = false;
-        List<StudentAttendance> list = getCourseList(courseId);
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getCourseId() == courseId && list.get(i).getStudentId().equals(idStudent)) {
-                value = true;
-            }
-        }
-        return value;
-    }
 
     @Override
     public List<StudentAttendance> createStudentAttendance(List<User> students, int idcourse) {
 
-        List<StudentAttendance> list = getCourseList(idcourse);
-        for (int i = 0; i < students.size(); i++) {       
-            if(list.isEmpty() || !findStudent(list.get(i).getStudentId(), idcourse) ){
-                    add(new StudentAttendance(students.get(i).getUsername(), students.get(i).getName() + students.get(i).getLastName(), idcourse));
-                    list.add(new StudentAttendance(students.get(i).getUsername(), students.get(i).getName() + students.get(i).getLastName(), idcourse));
-            }
-                }
-        
+        List<StudentAttendance> list = new ArrayList<>();
+        for (int i = 0; i < students.size(); i++) {
+            list.add(new StudentAttendance(students.get(i).getUsername(), students.get(i).getName() +" " +students.get(i).getLastName()));
+        }
         return list;
     }
 }
