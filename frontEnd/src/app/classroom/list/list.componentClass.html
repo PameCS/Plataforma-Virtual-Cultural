@@ -17,6 +17,7 @@
                         <th>Capacidad</th>
                         <th>Disponibilidad</th>
                         <th>Tipo</th>
+                        <th>Imagen</th>
                         <th><em class="fa fa-cog"></em></th> 
                     </tr>
                 </thead>
@@ -26,12 +27,7 @@
                         <td>{{classroom.capacity}}</td>
                         <td>{{classroom.availability}}</td>
                         <td>{{classroom.type}}</td>
-                       <!--
-                        <td>
-                            <button (click)="Edit(classroom)" class="btn btn-warning">Editar</button>
-                            <button (click)="Delete(classroom)" class="btn btn-danger">Eliminar</button>
-                        </td>
-                        -->
+                        <td>{{classroom.image.name}}</td>
                         <td align="center">
                             <a class="btn btn-default" (click)="Edit(classroom)" ><em class="fa fa-pencil"></em></a>
                             <a class="btn btn-danger" (click)= "Delete(classroom)" ><em class="fa fa-trash"></em></a>

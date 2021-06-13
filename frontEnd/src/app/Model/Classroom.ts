@@ -1,3 +1,5 @@
+import { FileDB } from "./FileDB";
+
 export class Classroom{
     constructor(){}
     // tslint:disable-next-line: variable-name
@@ -5,4 +7,5 @@ export class Classroom{
     capacity: number;
     availability: string;
     type: string;
+    image: FileDB;
 }

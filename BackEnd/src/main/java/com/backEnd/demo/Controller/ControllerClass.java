@@ -1,7 +1,9 @@
 package com.backEnd.demo.Controller;
 
 import com.backEnd.demo.Model.Classroom;
+import com.backEnd.demo.Model.FileDB;
 import com.backEnd.demo.Service.classService;
+import com.backEnd.demo.Service.impl.FileStorageServiceImp;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,12 +24,17 @@ public class ControllerClass {
     @Autowired
     classService service;
     
+     @Autowired
+    FileStorageServiceImp storageService;
+    
     @GetMapping
     public List<Classroom>list(){
         return service.list();
     } 
-    @PostMapping
-    public Classroom add(@RequestBody Classroom c){
+    @PostMapping(path = {"/{id}"})
+    public Classroom add(@RequestBody Classroom c, @PathVariable("id") String id){
+         FileDB fileDB = storageService.getFileByName(id);
+        c.setImage(fileDB);
         return service.add(c);
     }
     @GetMapping(path = {"/{id}"})

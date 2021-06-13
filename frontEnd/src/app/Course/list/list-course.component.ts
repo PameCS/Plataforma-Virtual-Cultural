@@ -3,7 +3,7 @@ import { Course } from 'src/app/Model/Course';
 import {ServiceService } from '../../Service/service.service';
 import {Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-list-course',
@@ -12,11 +12,11 @@ import { Observable } from 'rxjs';
 })
 export class ListCourseComponent implements OnInit {
   courses: Course[];
-  image: Observable<any>;
 
   constructor(private service: ServiceService, private router: Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    
     this.service.getCourse()
     .subscribe(data => {
       this.courses = data;
@@ -37,8 +37,6 @@ export class ListCourseComponent implements OnInit {
     })
   }
 
-  getImage(id: number){
-    this.image = this.service.getCourseImage(id);
-  }
+ 
 
 }

@@ -55,14 +55,14 @@ public class Classroom {
         this.type = type;
     }
 
-    public FileDB getFileDB() {
+    public FileDB getImage() {
         return image;
     }
 
-    public void setFileDB(FileDB fileDB) {
-        this.image = fileDB;
+    public void setImage(FileDB image) {
+        this.image = image;
     }
-    
-    
+
+   
 
 }

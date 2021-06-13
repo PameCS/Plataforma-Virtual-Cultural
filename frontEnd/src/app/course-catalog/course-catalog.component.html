@@ -19,16 +19,51 @@
                     <div class="divider-custom-icon"><i class="fa fa-book" aria-hidden="true"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
+                <div class="row justify-content-center" >
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><button style="background-color: transparent; border: none;" (click) = "AddcurrentCourse(course)"><i class="fa fa-plus fa-3x" aria-hidden="true"></i></button></div>
+                            </div>
+                            <img class="img-fluid" src="/assets/images/slider2/bg3.jpg" alt="slider">
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center" >
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><button style="background-color: transparent; border: none;" (click) = "AddcurrentCourse(course)"><i class="fa fa-plus fa-3x" aria-hidden="true"></i></button></div>
+                            </div>
+                            <img class="img-fluid" src="/assets/images/slider2/bg3.jpg" alt="slider">
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center" >
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><button style="background-color: transparent; border: none;" (click) = "AddcurrentCourse(course)"><i class="fa fa-plus fa-3x" aria-hidden="true"></i></button></div>
+                            </div>
+                            <img class="img-fluid" src="/assets/images/slider2/bg3.jpg" alt="slider">
+                        
+                        </div>
+                    </div>
+                </div>
+                <!--
                 <div class="row justify-content-center" *ngFor="let course of courses">
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><button style="background-color: transparent; border: none;" (click) = "currentCourse(course)"><i class="fa fa-plus fa-3x" aria-hidden="true"></i></button></div>
+                                <div class="portfolio-item-caption-content text-center text-white"><button style="background-color: transparent; border: none;" (click) = "AddcurrentCourse(course)"><i class="fa fa-plus fa-3x" aria-hidden="true"></i></button></div>
                             </div>
-                            <img class="img-fluid" src="/assets/images/portfolio/1.png" alt="" />
+                            <img class="img-fluid" src="http://localhost:8084/file/files/{{course.image.id}}" alt="" />
                         </div>
                     </div>
                 </div>
+                -->
                 <br><br><br><br><br>
             </div>
         </section>
@@ -45,16 +80,16 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                      
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">{{course.name}}</h2>
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">{{currentCourse.name}}</h2>
                             <div class="divider-custom">
                                 <div class="divider-custom-line"></div>
                                 <div class="divider-custom-icon"><i class="fa fa-book" aria-hidden="true"></i></div>
                                 <div class="divider-custom-line"></div>
                             </div>
                            
-                            <p class="mb-5">Modalidad: {{course.mode}} <br> Fecha de inicio: {{course.startDate}}<br> 
-                                    Fecha de finalización: {{course.finishDate}} <br> Horario: {{course.shedule}} <br>  Profesor(a): {{course.professor}} </p>
-                          <button *ngIf="showUser"  (click)="Enroll(course)" class="btn btn-primary" data-dismiss="modal">
+                            <p class="mb-5">Modalidad: {{currentCourse.mode}} <br> Fecha de inicio: {{currentCourse.startDate}}<br> 
+                                    Fecha de finalización: {{currentCourse.finishDate}} <br> Horario: {{currentCourse.shedule}} <br>  Profesor(a): {{currentCourse.professor}} </p>
+                          <button *ngIf="showUser"  (click)="Enroll()" class="btn btn-primary" data-dismiss="modal">
                              
                                 MATRICULAR
                             </button>
@@ -71,66 +106,5 @@
 </div>
 
 </div> 
-<!--
-<div class="container">
-    <div class="card">
-        <div class="card-header">
-                <main>
-                    <div class="btn-group" role="group" aria-label="Vertical button group">
-                        <button type="button"class="btn btn-warning "><span class="fa fa-arrow-left"></span> &nbsp;Volver&nbsp;</button>
-                        <button  type="button" class="btn btn-danger ">&nbsp;<span class="fa fa-list"></span> &nbsp;Lista de estudiantes &nbsp;</button>
-                        <button  type="button" class="btn btn-success ">&nbsp;<span class="fa fa-file-excel-o"></span> &nbsp;Generar reporte de asistencia &nbsp;</button>
-                      </div>
-                </main>
-                <br>                
-            <h3 style="text-align:center" >Lista de anuncios</h3>
-            
-        </div>
-        <div class="card-body">
-            <table class="table table-bordered table-sm">
-                <thead >
-                    <tr class="text-center">
-                        <th >Título</th>
-                        <th >Estado</th>
-                        <th></th>  
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr  *ngFor="let course of courses">
-                        <td scope="row">{{course.name}}</td>
-                        <td align="center">
-                            <button style="background-color: transparent; border: none;" (click) = "currentCourse(course)" data-toggle="modal" data-target="#portfolioModal"><i class="fa fa-eye fa-2x" aria-hidden="true"></i>&nbsp;</button>
-                            <a ><em class="fa fa-pencil fa-2x"></em></a>&nbsp;
-                            <button style="background-color: transparent; border: none;" data-toggle="modal" data-target="#portfolioModal1"><a ><em class="fa fa-trash fa-2x"></em></a>&nbsp;</button>
-                          </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-<div class="portfolio-modal modal fade" id="portfolioModal" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"><i class="fa fa-times"></i></span>
-            </button>
-            <div class="modal-body text-center" >
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8" >
-                           
-                             <br>
-                      <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">{{course.name}}</h2>
-                   
-                      <br>
-                      <p class="mb-5">{{course.pk_idCourse}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
--->
+
 </body>

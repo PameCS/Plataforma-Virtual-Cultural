@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../Service/token-storage.service';
 import { Course } from 'src/app/Model/Course';
 import {UserService } from '../Service/user.service';
+import { Classroom } from '../Model/Classroom';
 
 @Component({
   selector: 'app-classroom-catalog',
@@ -17,6 +18,8 @@ export class ClassroomCatalogComponent implements OnInit {
   showProfessorBoard = false;
   showUserBoard = false;
   username: string;
+  classes: Classroom[];
+  currentClass: Classroom = new Classroom();
   constructor(private tokenStorageService: TokenStorageService,private service: UserService) { }
 
   ngOnInit(){
@@ -35,10 +38,22 @@ export class ClassroomCatalogComponent implements OnInit {
       this.courses = data;
     });
     }
+
+    this.service.getClass()
+    .subscribe(data => {
+      this.classes = data;
+    });
   }
 
   logout(): void {
     this.tokenStorageService.signOut();
     window.location.reload();
   }
+
+  
+  selectedClass(classroom: Classroom){
+      this.currentClass = classroom;
+  }
+
+
 }

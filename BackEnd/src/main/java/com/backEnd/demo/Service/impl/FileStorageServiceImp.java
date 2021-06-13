@@ -24,7 +24,11 @@ public class FileStorageServiceImp {
 
   public FileDB getFile(String id) {
 
-    return fileDBRepository.findByName(id);
+    return fileDBRepository.findById(id).get();
+  }
+  
+  public FileDB getFileByName(String id){
+        return fileDBRepository.findByName(id);
   }
   
     public Stream<FileDB> getAllFiles() {
