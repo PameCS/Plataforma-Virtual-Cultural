@@ -162,10 +162,13 @@ export class ServiceService {
      createClassRoomRequest(classRoomRequest: ClassRequest) {
       return this.http.post<ClassRequest>(this.UrlClassRoomRequest, classRoomRequest);
     }
-    getClassRoomRequest() {
-      return this.http.get<ClassRequest[]>(this.UrlClassRoomRequest);
+    getClassRoomRequest(username:String) {
+      return this.http.get<ClassRequest[]>(this.UrlClassRoomRequest+ "/" + username);
     }
     deleteClassRequest(classRoomRequest: ClassRequest) {
       return this.http.delete<ClassRequest>(this.UrlClassRoomRequest + "/" + classRoomRequest.pk_idRequest);
+    }
+    UpdateStateClassRoomRequest(classRoomRequest: ClassRequest) {
+      return this.http.put<ClassRequest>(this.UrlClassRoomRequest, classRoomRequest);
     }
 }

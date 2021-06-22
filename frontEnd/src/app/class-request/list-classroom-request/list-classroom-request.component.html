@@ -13,7 +13,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th *ngif="showAdminBoard || showSuperAdminBoard">ID</th>
                         <th>Id del aula</th>
                         <th>Email</th>
                         <th>Equipamiento</th>
@@ -22,12 +22,14 @@
                         <th>Fecha de la solicitud del aula</th>
                         <th>Hora de la solicitud</th>
                         <th>Teléfono</th>
-                        <th><em class="fa fa-cog"></em></th> 
+                        <th>Status de la solicitud</th>
+                        <th>Comentario</th>
+                        <th *ngif="showAdminBoard || showSuperAdminBoard"><em class="fa fa-cog"></em></th> 
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let classroomrequest of classroomsrequests" class="text-center">
-                        <td>{{classroomrequest.pk_idRequest}}</td>
+                        <td *ngif="showAdminBoard || showSuperAdminBoard">{{classroomrequest.pk_idRequest}}</td>
                         <td>{{classroomrequest.classId}}</td>
                         <td>{{classroomrequest.email}}</td>
                         <td>{{classroomrequest.equipment}}</td>
@@ -36,12 +38,14 @@
                         <td>{{classroomrequest.requestDate}}</td>
                         <td>{{classroomrequest.requestHour}}</td>
                         <td>{{classroomrequest.tel}}</td>
+                        <td>{{classroomrequest.status}}</td>
+                        <td>{{classroomrequest.comment}}</td>
                        
                     
-                        <td align="center">
+                        <td align="center" *ngif="showAdminBoard || showSuperAdminBoard"> 
                             <a class="btn btn-default" (click)="Accept(classroomrequest)" ><em class="fa fa-check"></em></a>
                             <a class="btn btn-danger" (click)= "Reject(classroomrequest)" ><em class="fa fa-times"></em></a>
-                          </td>
+                         </td>
                     </tr>
                 </tbody>
             </table>

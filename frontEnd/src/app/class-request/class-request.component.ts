@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ClassRequest } from '../Model/ClassRequest';
+import { TokenStorageService } from '../Service/token-storage.service';
 @Component({
   selector: 'app-class-request',
   templateUrl: './class-request.component.html',
@@ -11,9 +12,16 @@ import { ClassRequest } from '../Model/ClassRequest';
 })
 export class ClassRequestComponent implements OnInit {
   classrequest: ClassRequest = new ClassRequest();
-  constructor(private router: Router, private service: ServiceService, private toastr: ToastrService, private fb: FormBuilder) { }
-
+  constructor(private tokenStorageService: TokenStorageService,private router: Router, private service: ServiceService, private toastr: ToastrService, private fb: FormBuilder) { }
+  isLoggedIn = false;
   ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken(); 
+    if (!this.isLoggedIn)
+    {
+      this.toastr.error('Para poder solicitar aulas debe iniciar sesion como un usuario',
+      'ALERTA',{timeOut: 4000,progressBar:true,progressAnimation:'increasing'});
+      this.router.navigate(['home']);
+    }
   }
   classForm = this.fb.group({
     IdAulaSoli: ['', Validators.required],

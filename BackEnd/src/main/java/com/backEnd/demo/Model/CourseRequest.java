@@ -43,7 +43,14 @@ public class CourseRequest {
     private String mode;
     @Column
     private int studentQuantity;
+    
+    @Column
+    private String status;
+    @Column
+    private String comment;
 
+    
+  
     public int getPK_idRequest() {
         return PK_idRequest;
     }
@@ -122,6 +129,20 @@ public class CourseRequest {
 
     public void setMotivo(String motivo) {
         this.motivo = motivo;
+    }
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
     
 }

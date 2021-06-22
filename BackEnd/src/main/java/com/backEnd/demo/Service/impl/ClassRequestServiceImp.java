@@ -29,6 +29,11 @@ public class ClassRequestServiceImp implements ClassRequestService{
     }
 
     @Override
+    public ClassRequest edit(ClassRequest cr) {
+        return repository.save(cr);
+    }
+    
+    @Override
     public ClassRequest delete(int id) {
         ClassRequest c= repository.findById(id);
         if(c!= null)

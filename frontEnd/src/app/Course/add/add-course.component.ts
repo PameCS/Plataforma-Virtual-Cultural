@@ -17,6 +17,7 @@ import { Observable } from 'rxjs';
 })
 export class AddCourseComponent implements OnInit {
 
+  CurrentDate = new Date();
   course: Course = new Course();
   users: User[];
   selected:String;
@@ -26,6 +27,7 @@ export class AddCourseComponent implements OnInit {
   message = '';
   fileInfos: Observable<any>;
   constructor(private router: Router, private service: ServiceService,private fb: FormBuilder,private toastr: ToastrService,private uploadService: SpaceAssignmentService) {
+  
    }
    
   ngOnInit(): void {
@@ -34,6 +36,8 @@ export class AddCourseComponent implements OnInit {
     .subscribe(data => {
       this.users = data;
     });
+    
+    console.log(this.CurrentDate);
   }
 
   courseForm = this.fb.group({
@@ -61,12 +65,30 @@ export class AddCourseComponent implements OnInit {
   // tslint:disable-next-line: typedef
   Save(){
     if(this.courseForm.valid){
-      this.service.createCourse(this.course,this.currentFile)
-      .subscribe(data => {
-        this.toastr.success('Se ha agregado un curso','¡Éxito!',
-        {timeOut: 1500,progressBar:true,progressAnimation:'increasing'});
-        this.router.navigate(['listCourse']);
-      });
+      console.log('Fecha del evento');
+      console.log(this.course.startDate.getDay());
+      console.log(this.course.startDate.getMonth());
+      console.log(this.course.startDate.getFullYear());
+      console.log('Fecha del sys');
+      console.log(this.CurrentDate.getDay());
+      console.log(this.CurrentDate.getMonth());
+      console.log(this.CurrentDate.getFullYear());
+      if(this.course.startDate.getDay() > this.CurrentDate.getDay() && this.course.startDate.getMonth() >= this.CurrentDate.getMonth()
+       && this.course.startDate.getFullYear() >= this.CurrentDate.getFullYear()){
+        this.toastr.success('La fecha esta bien','¡Éxito!')
+/*
+        this.service.createCourse(this.course,this.currentFile)
+        .subscribe(data => {
+          this.toastr.success('Se ha agregado un curso','¡Éxito!',
+          {timeOut: 1500,progressBar:true,progressAnimation:'increasing'});
+          this.router.navigate(['listCourse']);
+        });
+*/
+      }else{
+        this.toastr.success('La fecha esta mal','¡Éxito!')
+      }
+  
+
     }
   }
 

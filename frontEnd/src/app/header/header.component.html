@@ -107,13 +107,13 @@
               <a class="dropdown-item" routerLink="/addClass">Agregar aulas</a>
             </div>
           </li>
-          <li class="nav-item dropdown" *ngIf="showAdminBoard">
+          <li class="nav-item dropdown" *ngIf="showAdminBoard || showUserBoard">
             <a  class="nav-link dropdown-toggle" href="#" id="navbarClass" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Solicitudes
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="ListClassroomRequest">Lista de solicitudes de aulas</a>
-              <a class="dropdown-item" href="ListCoursesRequest">Lista de solicitudes de cursos</a>
+              <a class="dropdown-item" href="ListCoursesRequest" *ngIf="showAdminBoard">Lista de solicitudes de cursos</a>
             </div>
           </li>
          <!-- admin modules -->

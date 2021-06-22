@@ -23,6 +23,8 @@ public class ClassRequest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int PK_idRequest;
     @Column
+    private String userid; //El nombre de usuario que hace la solicitud
+    @Column
     private String classId;
     @Column
     private String fullNameSoli;
@@ -41,7 +43,12 @@ public class ClassRequest {
     private String requestHour;
     @Column
     private String equipment;
-
+    
+    @Column
+    private String status;
+    @Column
+    private String comment;
+    
     public int getPK_idRequest() {
         return PK_idRequest;
     }
@@ -81,15 +88,25 @@ public class ClassRequest {
     public void setEmail(String email) {
         this.email = email;
     }
+    
 
-    public String getReason() {
-        return reason;
+
+    public void setUserid(String userid) {
+        this.userid = userid;
+    }
+
+    public String getUserid() {
+        return this.userid;
     }
 
     public void setReason(String reason) {
         this.reason = reason;
     }
-
+    
+    public String getReason()
+    {
+        return  this.reason;
+        } 
     public Date getRequestDate() {
         return requestDate;
     }
@@ -112,6 +129,20 @@ public class ClassRequest {
 
     public void setEquipment(String equipment) {
         this.equipment = equipment;
+    }
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
     
 }
