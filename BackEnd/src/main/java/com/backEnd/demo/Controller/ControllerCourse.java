@@ -133,7 +133,7 @@ public class ControllerCourse {
 
     @PostMapping(path = {"/{id}"})
     public Course add(@RequestBody Course c, @PathVariable("id") String id) {
-        FileDB fileDB = storageService.getFile(id);
+        FileDB fileDB = storageService.getFileByName(id);
         c.setImage(fileDB);
         return service.add(c);
     }

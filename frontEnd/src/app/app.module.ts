@@ -54,6 +54,7 @@ import { ListCourseRequestComponent } from './request/list-course-request/list-c
 import { ListClassroomRequestComponent } from './class-request/list-classroom-request/list-classroom-request.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ForgotMyPasswordComponent } from './User/forgot-my-password/forgot-my-password.component';
+import { ClassroomHeaderComponent } from './classroom-header/classroom-header.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,8 @@ import { ForgotMyPasswordComponent } from './User/forgot-my-password/forgot-my-p
     ListCourseRequestComponent,
     ListClassroomRequestComponent,
     GalleryComponent,
-    ForgotMyPasswordComponent
+    ForgotMyPasswordComponent,
+    ClassroomHeaderComponent
   ],
   imports: [
     BrowserModule,

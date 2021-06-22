@@ -16,7 +16,6 @@ import { HttpEventType, HttpResponse } from '@angular/common/http';
 })
 export class HomeVirtualClassRoomComponent implements OnInit {
  
-
   signOut = faSignOutAlt;
   course :Course= new Course();
   showUserBoard = false;
@@ -33,7 +32,7 @@ export class HomeVirtualClassRoomComponent implements OnInit {
 
   constructor(private router:Router,private service:UserService,private tokenStorageService: TokenStorageService, private FileService:SpaceAssignmentService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.courseHome();
     this.isLoggedIn = !!this.tokenStorageService.getToken();
    
@@ -51,7 +50,7 @@ export class HomeVirtualClassRoomComponent implements OnInit {
       this.fileInfos = data;
     });
     }
-   
+    
   }
   selectFile(event) {
     this.selectedFiles = event.target.files;

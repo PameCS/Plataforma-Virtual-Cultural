@@ -45,6 +45,14 @@
                          </div>
                     </div>
                 </div>
+                <label class="btn btn-default">
+                    <input type="file" (change)="selectFile($event)" />
+                  </label>
+                  <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">
+                    Subir Imagen
+                  </button> 
+                  <div class="alert alert-light" role="alert">{{ message }}</div>
+
                <button style="margin-left: 40%;"
                [disabled] = "classForm.invalid"
                 (click)="Save()" class="btn btn-danger">Guardar</button>

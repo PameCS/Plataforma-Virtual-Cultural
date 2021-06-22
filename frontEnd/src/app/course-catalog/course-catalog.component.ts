@@ -17,6 +17,7 @@ export class CourseCatalogComponent implements OnInit {
   isLoggedIn = false;
   showUser = false;
   errorMessage = '';
+  currentCourse :Course=new Course();
   constructor(private service: UserService, private router: Router,private tokenStorageService: TokenStorageService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -33,12 +34,12 @@ export class CourseCatalogComponent implements OnInit {
     });
   }
 
-  Enroll(course: Course)
+  Enroll()
   {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (this.isLoggedIn) {
     const user = this.tokenStorageService.getUser();
-    this.service.enrollToCourse(course,user.username)
+    this.service.enrollToCourse(this.currentCourse,user.username)
     .subscribe(data=>{
       this.course=data;
       this.toastr.success('Se ha matriculado con exito','¡Éxito!',
@@ -54,7 +55,7 @@ export class CourseCatalogComponent implements OnInit {
   }
   }
 
-  currentCourse(course: Course){
-    this.course = course;
+  AddcurrentCourse(course: Course){
+    this.currentCourse = course;
   }
 }

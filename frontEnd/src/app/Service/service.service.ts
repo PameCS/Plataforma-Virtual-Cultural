@@ -59,8 +59,8 @@ export class ServiceService {
     return this.http.get<Classroom[]>(this.Urlclass);
   }
 
-  createClass(Classroom: Classroom) {
-    return this.http.post<Classroom>(this.Urlclass, Classroom);
+  createClass(Classroom: Classroom,file: File) {
+    return this.http.post<Classroom>(this.Urlclass+ "/" + file.name, Classroom);
   }
 
   getClassid(id: number) {
@@ -133,8 +133,8 @@ export class ServiceService {
     return this.http.get<Event[]>(this.Urlevent);
   }
 
-  createEvent(event: Event) {
-    return this.http.post<Event>(this.Urlevent, event);
+  createEvent(event: Event,file: File) {
+    return this.http.post<Event>(this.Urlevent+ "/" + file.name, event);
   }
 
   getEventid(id: number) {
